@@ -74,7 +74,7 @@ group :development, :test do # 也包含 test 是為了讓寫 test case 時也�
 
   # RSpec
   gem "rspec-rails"
-  gem "factory_girl_rails"
+  gem "factory_bot_rails"
 
   # deployment
   gem "capistrano", "~> 3.8"
