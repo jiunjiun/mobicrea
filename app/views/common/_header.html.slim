@@ -1,0 +1,131 @@
+/! Header
+header#pageHeader.page-header.fixed
+  .header-above
+    .container
+      .dropdown.lang
+        button#Language.btn.btn-lang aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
+          i.flag.tw
+          | 繁體中文
+          span.caret
+        ul.dropdown-menu aria-labelledby="Language"
+          li
+            a href="#"
+              i.flag.tw
+              | 繁體中文
+          li
+            a href="#"
+              i.flag.en
+              | English
+      ul.toollinks-wrap
+        li
+          == mail_to 'admin@mobicrea.com.tw' , target: "_blank" do
+            span.icon_mail_alt aria-hidden="true"
+            | admin@mobicrea.com.tw
+        li
+          == link_to 'tel:+0800235790771' , target: "_blank" do
+            span.icon_phone aria-hidden="true"
+            | +0800 2 35790771
+        li
+          span.icon_clock_alt aria-hidden="true"
+          | Mon-Fir 9:00~18:00
+        li
+          span.social_facebook aria-hidden="true"
+          | 粉絲專頁
+  .main-header
+    .container
+      .header-brand
+        == link_to "#menu", type: "button", class: "navbar-toggle" do
+          span.sr-only 手機選單
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        h1.header-logo
+          == link_to root_path do
+            span.sr-only 元皿家具創意有限公司
+            == image_tag "header_logo.svg" , alt: '元皿家具創意有限公司'
+      nav.main-navigation.collapse.navbar-collapse
+        #navbar-collapse
+          ul.nav.navbar-nav.nav-main
+            li.item
+              == link_to root_path
+                span.text 首頁
+            li.item
+              /== link_to about_us_path , class: "dropdown-hover" ,"data-delay": "10", "data-hover": "dropdown" do
+              == link_to about_us_path
+                span.text 關於元皿
+                /b.caret
+              /ul.dropdown-menu.multi-level role="menu"
+                /li
+                  /== link_to "關於我們", about_us_path
+                /li
+                  /== link_to "服務流程", about_us_path
+                /li
+                  /== link_to "組織架構", about_us_path
+            li.item
+              == link_to service_path , class: "dropdown-hover" ,"data-delay": "10", "data-hover": "dropdown" do
+                span.text 服務內容
+                b.caret
+              ul.dropdown-menu.multi-level role="menu"
+                li
+                  == link_to "訂製家具", collection_path
+
+                li.dropdown-submenu
+                  == link_to "模組家具", collection_path , class: "dropdown-toggle"
+                  ul.dropdown-menu role="menu"
+                    li
+                      == link_to "組合隔間", furniture_path
+                    li
+                      == link_to "飯店家具", furniture_path
+                    li
+                      == link_to "銀行家具", furniture_path
+                    li
+                      == link_to "鋁柱家具", furniture_path
+                    li
+                      == link_to "展場家具", furniture_path
+                    li
+                      == link_to "接待櫃台", furniture_path
+                li.dropdown-submenu
+                  == link_to "辦公家具", collection_path , class: "dropdown-toggle"
+                  ul.dropdown-menu role="menu"
+                    li
+                      == link_to "工作站", furniture_path
+                    li
+                      == link_to "主管桌", furniture_path
+                    li
+                      == link_to "櫃類", furniture_path
+                    li
+                      == link_to "會議桌", furniture_path
+                    li
+                      == link_to "椅類", furniture_path
+                    li
+                      == link_to "配件", furniture_path
+            li.item
+              == link_to stories_path , class: "dropdown-hover" ,"data-delay": "10", "data-hover": "dropdown" do
+                span.text 成功案例
+                b.caret
+              ul.dropdown-menu.multi-level role="menu"
+                li
+                  == link_to "商業空間", case_path
+                li
+                  == link_to "辦公空間", case_path
+                li
+                  == link_to "私人會所", case_path
+            li.item
+              == link_to acting_brand_path , class: "dropdown-hover" ,"data-delay": "10", "data-hover": "dropdown" do
+                span.text 代理品牌
+                b.caret
+              ul.dropdown-menu.multi-level role="menu"
+                li
+                  == link_to "Segis", segis_path
+                li
+                  == link_to "Softline", segis_path
+                li
+                  == link_to "Humanscale", segis_path
+                li
+                  == link_to "Vlaar", segis_path
+                li
+                  == link_to "realsteel", segis_path
+            li.item
+              == link_to information_path
+                span.text 聯絡方式
+                

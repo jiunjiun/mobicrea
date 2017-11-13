@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    meta content="width=device-width, initial-scale=1" name="viewport"
+    meta content="yes" name="apple-mobile-web-app-capable"
+    meta content="yes" name="apple-touch-fullscreen"
+    == favicon_link_tag 'favicon.png', type: 'image/png'
+    == display_meta_tags
+
+    // meta content="元皿家具,mobicrea,台灣,Taiwan,商業空間設計,辦公空間設計,模組,效率,原創,熱誠" name="keywords"
+    // meta content="元皿家具成立於2008年，由具累積20年以上家具工作經驗，並結合科技界及學術界人士共同集資創立，並以：模組+效率+原創+熱忱  為我們的經營理念。元皿家具主要的經營客戶，為模組化的商業空間家具為起點（B to B ），近三年也投入國際級公共空間藝術家具設計&製造，近年我們代表作品包含：臺中國家歌劇院、全臺灣Benz奔馳汽車展示中心、星級酒店家具及多家跨國集團之企業總部及銀行等。" name="description" /
+    // meta content="Copyright © 2017 Mobicrea Furniture All Rights Reserved." name="copyright"
+    // meta content="ibiza.co" name="Author"
+
+    script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"
+    script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"
+    script src="https://cdn.rawgit.com/garand/sticky/master/jquery.sticky.js"
+    script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"
+    script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"
+    script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"
+
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+
+  body
+    = yield
