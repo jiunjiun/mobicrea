@@ -1,0 +1,28 @@
+
+/* define device width breakpoint */
+@mixin upto-large-pc
+	@media screen and (min-width: 1920px)
+		@content
+@mixin large-pc
+	@media screen and (max-width: 1920px - 1px)
+		@content
+@mixin upto-pc
+	@media screen and (min-width: 1200px) and (max-width: 1920px - 1px)
+		@content
+@mixin pc
+	@media screen and (max-width: 1200px - 1px)
+		@content
+@mixin tablet
+	@media screen and (max-width: 992px - 1px)
+		@content
+@mixin pad
+	@media screen and (max-width: 768px - 1px)
+		@content
+@mixin padphone
+	@media screen and (max-width: 480px)
+		@content
+@mixin iphone
+	@media screen and (max-width: 375px)
+		@content
+
+

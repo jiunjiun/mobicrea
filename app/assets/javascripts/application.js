@@ -11,5 +11,11 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
-//= require_tree .
+
+// Plugins
+//= require plugins/jquery.ui.totop.min
+//= require plugins/jquery.mmenu
+//= require plugins/slick.min
+//= require plugins/bootstrap-hover-dropdown.min
+
+//= require plugins/main
