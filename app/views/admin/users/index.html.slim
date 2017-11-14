@@ -1,0 +1,31 @@
+ol.breadcrumb.page-breadcrumb
+  li
+    == link_to admin_root_path do
+      i.px-nav-icon.ion-home
+  li.active
+    = t('admin.user')
+
+.page-header
+  .pull-left
+    h1= t('admin.user')
+  .pull-right
+      == link_to t('helpers.add'), new_admin_user_path, class: 'btn btn-primary btn-3d'
+
+.row
+  .col-md-12
+    .panel
+      table.table
+        thead
+          tr
+            th.text-center= t('simple_form.labels.user.name')
+            th.text-center= t('simple_form.labels.user.email')
+            th.text-center= t('simple_form.labels.user.created_at')
+        tbody
+          - users.each do |user|
+            tr
+              td.text-center= user.name
+              td.text-center= user.email
+              td.text-center= l user.created_at, format: :long
+
+    .pull-right
+      == will_paginate users, renderer: BootstrapPagination::Rails

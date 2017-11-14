@@ -1,0 +1,35 @@
+.page-signin-header.p-a-2.text-sm-center.bg-white
+  == link_to root_path, class: 'px-demo-brand px-demo-brand-lg text-default' do
+    span.px-demo-logo.bg-primary.m-t-0
+      span.px-demo-logo-1
+      span.px-demo-logo-2
+      span.px-demo-logo-3
+      span.px-demo-logo-4
+      span.px-demo-logo-5
+      span.px-demo-logo-6
+      span.px-demo-logo-7
+      span.px-demo-logo-8
+      span.px-demo-logo-9
+    = t('title')
+
+#page-signin-form.page-signin-container
+  h1.m-t-0.m-b-4.text-xs-center.font-weight-semibold.font-size-20= t('users.sign_in')
+  h2.hide= t('users.sign_in')
+  == simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'panel p-a-4'}) do |f|
+    == f.error_notification
+    fieldset.form-group.form-group-lg
+      == f.text_field :email, autofocus: true, class: 'form-control', placeholder: 'Email'
+    fieldset.form-group.form-group-lg
+      == f.password_field :password, autofocus: true, class: 'form-control', placeholder: 'Password'
+    .clearfix
+    .clearfix
+      == f.hidden_field :remember_me
+      label.custom-control.custom-checkbox.pull-xs-left
+        == f.check_box :remember_me, class: 'custom-control-input'
+        span.custom-control-indicator
+        = t('users.remember_me')
+      / == link_to t('users.forogt_password'), new_user_password_path, class: 'font-size-12 text-muted pull-xs-right'
+
+      / == f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+
+    == f.button :submit, t('sign_in'), class: 'btn btn-block btn-lg btn-primary m-t-3'

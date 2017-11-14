@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+  }
+  devise_scope :user do
+    resource :registration,
+      only: [:edit, :update],
+      path: :users,
+      path_names: { new: 'sign_up' },
+      controller: 'users/registrations',
+      as: :user_registration
+  end
+
+  namespace :admin do
+    root 'home#index'
+
+    resources :users
+  end
+
 
   # 關於元皿
   get 'about-us',                     to: 'about#us',             as: 'about_us'
