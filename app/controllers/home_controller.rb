@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  expose :sliders, -> { Slider.order(:position) }
   before_action :update_meta
 
   def index

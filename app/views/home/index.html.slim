@@ -1,141 +1,121 @@
-#page
-  /! Navigation
-  == render 'common/header'
-  section.main-slider
+section.main-slider
+  .container-wide
+    #heroBanner.banner-wrapper.slick-banner
+      - sliders.each do |slider|
+        .item
+          == link_to slider.url, target: '_blank' do
+            == image_tag slider.image, alt: '', class: 'img-fluid'
+section#homeVideo.home-video
+  .video-wrapper
     .container-wide
-      #heroBanner.banner-wrapper.slick-banner
-        .item
-          a href="#"
-            == image_tag 'herobanner-1.jpg', alt: '', class: 'img-fluid'
-        .item
-          a href="#"
-            == image_tag 'herobanner-2.jpg', alt: '', class: 'img-fluid'
-        .item
-          a href="#"
-            == image_tag 'herobanner-3.jpg', alt: '', class: 'img-fluid'
-        .item
-          a href="#"
-            == image_tag 'herobanner-4.jpg', alt: '', class: 'img-fluid'
-        .item
-          a href="#"
-            == image_tag 'herobanner-5.jpg', alt: '', class: 'img-fluid'
-        .item
-          a href="#"
-            == image_tag 'herobanner-6.jpg', alt: '', class: 'img-fluid'
-  section#homeVideo.home-video
-    .video-wrapper
-      .container-wide
-        .row-video
-          .container
-            ul.row.spirit
-              li.col-lg-3.col-sm-6
-                == image_tag 'puzzle.svg', alt: '', class: "img-fluid"
-                .margin-bottom-sm
-                h3 模組(Module)
-                p 建立傢俱單位模組，堆疊組裝
-                p 完整配套處理，提供完善空間
-              li.col-lg-3.col-sm-6
-                == image_tag 'stopwatch.svg', alt: '', class: "img-fluid"
-                .margin-bottom-sm
-                h3 效率(Efficiency)
-                p 流程分工，專業服務
-                p 縮短工程時效，提昇工程品質
-              li.col-lg-3.col-sm-6
-                == image_tag 'creativity.svg', alt: '', class: "img-fluid"
-                .margin-bottom-sm
-                h3 原創(Originality)
-                p 開拓新技術，創造在地最精緻之產品
-                p 建立獨特性，建立嶄新亮點
-              li.col-lg-3.col-sm-6
-                == image_tag 'nun.svg', alt: '', class: "img-fluid"
-                .margin-bottom-sm
-                h3 熱忱(Enthusiasm)
-                p 熱心服務，誠懇正派經營
-                p 良性溝通，共同解決問題
-          .container
-            .home-vide
-              .embed-responsive.embed-responsive-16by9
-                iframe.embed-responsive-item allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/7_L-RBofLnE" width="560"
-            .margin-bottom-lg
-  section#homeCases
-    .recent-cases
-      .section-header
-        h2 近期案例
-      .container
-        ul#filters.nav-select.filter-button-group
-          li.is-checked
-            button.btn.btn-tab data-filter="*"  所有項目
-          li
-            button.btn.btn-tab data-filter=".business"  商業空間
-          li
-            button.btn.btn-tab data-filter=".office"  辦公傢俱
-          li
-            button.btn.btn-tab data-filter=".life"  生活家居
-        .waterfall
-          .element-item.business.width2x.height2x
-            a href="#"
-              == image_tag "img2.jpg" , alt: '', class: 'img-fluid'
-          .element-item.business.grid-sizer.life
-            a href="#"
-              == image_tag "img3.jpg" , alt: '', class: 'img-fluid'
-          .element-item.business.office
-            a href="#"
-              == image_tag "img1.jpg" , alt: '', class: 'img-fluid'
-          .element-item.office.life
-            a href="#"
-              == image_tag "img4.jpg" , alt: '', class: 'img-fluid'
-          .element-item.business.life.width2x.height2x
-            a href="#"
-              == image_tag "img12.jpg" , alt: '', class: 'img-fluid'
-          .element-item.office
-            a href="#"
-              == image_tag "img6.jpg" , alt: '', class: 'img-fluid'
-          .element-item.business.life
-            a href="#"
-              == image_tag "img7.jpg" , alt: '', class: 'img-fluid'
-          .element-item.business.grid-sizer.life
-            a href="#"
-              == image_tag "img8.jpg" , alt: '', class: 'img-fluid'
-          .element-item.business.office
-            a href="#"
-              == image_tag "img9.jpg" , alt: '', class: 'img-fluid'
-          .element-item.office.life
-            a href="#"
-              == image_tag "img10.jpg" , alt: '', class: 'img-fluid'
-  section#indoorView
+      .row-video
+        .container
+          ul.row.spirit
+            li.col-lg-3.col-sm-6
+              == image_tag 'puzzle.svg', alt: '', class: "img-fluid"
+              .margin-bottom-sm
+              h3 模組(Module)
+              p 建立傢俱單位模組，堆疊組裝
+              p 完整配套處理，提供完善空間
+            li.col-lg-3.col-sm-6
+              == image_tag 'stopwatch.svg', alt: '', class: "img-fluid"
+              .margin-bottom-sm
+              h3 效率(Efficiency)
+              p 流程分工，專業服務
+              p 縮短工程時效，提昇工程品質
+            li.col-lg-3.col-sm-6
+              == image_tag 'creativity.svg', alt: '', class: "img-fluid"
+              .margin-bottom-sm
+              h3 原創(Originality)
+              p 開拓新技術，創造在地最精緻之產品
+              p 建立獨特性，建立嶄新亮點
+            li.col-lg-3.col-sm-6
+              == image_tag 'nun.svg', alt: '', class: "img-fluid"
+              .margin-bottom-sm
+              h3 熱忱(Enthusiasm)
+              p 熱心服務，誠懇正派經營
+              p 良性溝通，共同解決問題
+        .container
+          .home-vide
+            .embed-responsive.embed-responsive-16by9
+              iframe.embed-responsive-item allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/7_L-RBofLnE" width="560"
+          .margin-bottom-lg
+section#homeCases
+  .recent-cases
+    .section-header
+      h2 近期案例
     .container
-      .section-header
-        h2 實景展示
-    #embedMap.map-responsive.embed-map
-      iframe allowfullscreen="" frameborder="0" height="450" src="https://www.google.com/maps/embed?pb=!1m0!4v1505120693064!6m8!1m7!1sWRwQG8GNqCEAAAQqaIaQvQ!2m2!1d24.15059361970316!2d120.6527432705977!3f111.82919158395669!4f-29.095645933649273!5f0.4000000000000002" style="border:0" width="600" scrollwheel="false"
-  section#homeVerdor
-    .vendor-container
-      .container-fluid
-        .logo-wrapper
-          .item
-            a href="#"
-              == image_tag "vendor-logo-1.png" , alt: '', class: 'img-fluid'
-          .item
-            a href="#"
-              == image_tag "vendor-logo-2.png" , alt: '', class: 'img-fluid'
-          .item
-            a href="#"
-              == image_tag "vendor-logo-3.png" , alt: '', class: 'img-fluid'
-          .item
-            a href="#"
-              == image_tag "vendor-logo-4.png" , alt: '', class: 'img-fluid'
-          .item
-            a href="#"
-              == image_tag "vendor-logo-1.png" , alt: '', class: 'img-fluid'
-          .item
-            a href="#"
-              == image_tag "vendor-logo-2.png" , alt: '', class: 'img-fluid'
-          .item
-            a href="#"
-              == image_tag "vendor-logo-3.png" , alt: '', class: 'img-fluid'
-          .item
-            a href="#"
-              == image_tag "vendor-logo-4.png" , alt: '', class: 'img-fluid'
-
-  == render 'common/footer'
-  == render 'common/mmenu'
+      ul#filters.nav-select.filter-button-group
+        li.is-checked
+          button.btn.btn-tab data-filter="*"  所有項目
+        li
+          button.btn.btn-tab data-filter=".business"  商業空間
+        li
+          button.btn.btn-tab data-filter=".office"  辦公傢俱
+        li
+          button.btn.btn-tab data-filter=".life"  生活家居
+      .waterfall
+        .element-item.business.width2x.height2x
+          a href="#"
+            == image_tag "img2.jpg" , alt: '', class: 'img-fluid'
+        .element-item.business.grid-sizer.life
+          a href="#"
+            == image_tag "img3.jpg" , alt: '', class: 'img-fluid'
+        .element-item.business.office
+          a href="#"
+            == image_tag "img1.jpg" , alt: '', class: 'img-fluid'
+        .element-item.office.life
+          a href="#"
+            == image_tag "img4.jpg" , alt: '', class: 'img-fluid'
+        .element-item.business.life.width2x.height2x
+          a href="#"
+            == image_tag "img12.jpg" , alt: '', class: 'img-fluid'
+        .element-item.office
+          a href="#"
+            == image_tag "img6.jpg" , alt: '', class: 'img-fluid'
+        .element-item.business.life
+          a href="#"
+            == image_tag "img7.jpg" , alt: '', class: 'img-fluid'
+        .element-item.business.grid-sizer.life
+          a href="#"
+            == image_tag "img8.jpg" , alt: '', class: 'img-fluid'
+        .element-item.business.office
+          a href="#"
+            == image_tag "img9.jpg" , alt: '', class: 'img-fluid'
+        .element-item.office.life
+          a href="#"
+            == image_tag "img10.jpg" , alt: '', class: 'img-fluid'
+section#indoorView
+  .container
+    .section-header
+      h2 實景展示
+  #embedMap.map-responsive.embed-map
+    iframe allowfullscreen="" frameborder="0" height="450" src="https://www.google.com/maps/embed?pb=!1m0!4v1505120693064!6m8!1m7!1sWRwQG8GNqCEAAAQqaIaQvQ!2m2!1d24.15059361970316!2d120.6527432705977!3f111.82919158395669!4f-29.095645933649273!5f0.4000000000000002" style="border:0" width="600" scrollwheel="false"
+section#homeVerdor
+  .vendor-container
+    .container-fluid
+      .logo-wrapper
+        .item
+          a href="#"
+            == image_tag "vendor-logo-1.png" , alt: '', class: 'img-fluid'
+        .item
+          a href="#"
+            == image_tag "vendor-logo-2.png" , alt: '', class: 'img-fluid'
+        .item
+          a href="#"
+            == image_tag "vendor-logo-3.png" , alt: '', class: 'img-fluid'
+        .item
+          a href="#"
+            == image_tag "vendor-logo-4.png" , alt: '', class: 'img-fluid'
+        .item
+          a href="#"
+            == image_tag "vendor-logo-1.png" , alt: '', class: 'img-fluid'
+        .item
+          a href="#"
+            == image_tag "vendor-logo-2.png" , alt: '', class: 'img-fluid'
+        .item
+          a href="#"
+            == image_tag "vendor-logo-3.png" , alt: '', class: 'img-fluid'
+        .item
+          a href="#"
+            == image_tag "vendor-logo-4.png" , alt: '', class: 'img-fluid'
