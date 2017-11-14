@@ -13,7 +13,8 @@
 ActiveRecord::Schema.define(version: 20171114043730) do
 
   create_table "sliders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "image"
+    t.json "image"
+    t.text "url"
     t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

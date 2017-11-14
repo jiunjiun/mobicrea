@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     root 'home#index'
 
     resources :users
+    resources :sliders do
+      put :update_position, on: :collection
+    end
   end
 
 

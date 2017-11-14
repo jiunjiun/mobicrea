@@ -1,0 +1,26 @@
+ol.breadcrumb.page-breadcrumb
+  li
+    == link_to admin_root_path do
+      i.px-nav-icon.ion-home
+  li.active
+    = t('admin.slider')
+
+.page-header
+  .pull-left
+    h1= t('admin.slider')
+
+.row#sliders
+  .col-md-12
+    .panel
+      .panel-body
+        == form_tag admin_sliders_path, method: :post, multipart: true, class: "dropzone-box", id: 'dropzone_photo' do
+          .dz-default.dz-message
+            .dz-upload-icon
+            = t('helpers.drop_files_here')
+            br/
+            span.dz-text-small= t('helpers.or_click_to_pick_manually')
+          .fallback.hide
+            == file_field_tag :image
+
+== content_for :javascripts do
+  script src="//cdn.jsdelivr.net/npm/sortablejs@1.6.1/Sortable.min.js"

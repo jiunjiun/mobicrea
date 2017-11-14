@@ -1,0 +1,15 @@
+== simple_form_for [:admin, slider], html: { autocomplete: 'off' } do |f|
+  .panel.colourable
+    /! Default panel contents
+    .panel-body
+      .text-center
+        - if slider.image.present?
+          == image_tag slider.image, class: 'img-responsive img-thumbnail'
+        hr/
+      == f.input :url, as: :url, required: true
+
+  .panel
+    .panel-body
+      == f.button :submit, class: 'btn-primary btn-3d'
+      | &nbsp;&nbsp;
+      == link_to t('helpers.back'), admin_sliders_path, class: 'btn btn-default btn-3d'

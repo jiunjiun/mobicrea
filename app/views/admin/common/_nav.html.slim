@@ -5,6 +5,11 @@ nav.px-nav.px-nav-left
     span.px-nav-toggle-label.font-size-11 HIDE MENU
   ul.px-nav-content
     li.px-nav-item
+      == link_to admin_sliders_path do
+        i.px-nav-icon.ion-person
+        span.px-nav-label
+          = t('admin.slider')
+    li.px-nav-item
       == link_to admin_users_path do
         i.px-nav-icon.ion-person
         span.px-nav-label
