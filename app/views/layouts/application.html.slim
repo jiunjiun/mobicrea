@@ -14,6 +14,8 @@ html
     // meta content="Copyright © 2017 Mobicrea Furniture All Rights Reserved." name="copyright"
     // meta content="ibiza.co" name="Author"
 
+    = stylesheet_link_tag    'application', media: 'all'
+
     script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"
     script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"
     script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"
@@ -22,9 +24,12 @@ html
     script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"
     script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"
 
-    = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
 
+    = csrf_meta_tags
   body
-    = yield
+    #page
+      == render 'common/header'
+      == yield
+      == render 'common/footer'
+      == render 'common/mmenu'

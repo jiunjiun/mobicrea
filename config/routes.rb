@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
 
   # 關於元皿
-  get 'about-us',                     to: 'about#us',             as: 'about_us'
+  get 'about',               to: 'about#index'
   # 服務內容
   get 'service',                      to: 'service#index',        as: 'service'
   get 'service_collection',           to: 'service#collection',   as: 'collection'
