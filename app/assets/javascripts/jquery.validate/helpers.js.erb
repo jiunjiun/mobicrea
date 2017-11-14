@@ -1,0 +1,27 @@
+function checkChineseName(name){
+  var nameRegxp = /^[\u4e00-\u9fa5]{2,5}$/i;
+  return nameRegxp.test(name)
+}
+
+function checkEnglishName(name){
+  var nameRegxp = /^[a-zA-Z ]+$/;
+  return nameRegxp.test(name)
+}
+
+$(function() {
+  $('form').validate({
+    invalidHandler: function (form, validator) {
+      $('html, body').animate({
+        scrollTop: $(validator.errorList[0].element).offset().top - 100
+      }, 1000);
+    },
+    errorPlacement: function (error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+});

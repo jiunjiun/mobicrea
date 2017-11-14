@@ -1,0 +1,49 @@
+//= require PixelAdmin/bootstrap.min
+//= require PixelAdmin/pixeladmin.min
+//= require PixelAdmin/widgets.min
+//= require PixelAdmin/themes/default.min
+
+@import "font-awesome";
+
+#members_new, #members_edit {
+  #wizard-contract {
+    label {
+      color: #f00;
+    }
+  }
+
+  #wizard-validation {
+    h3 {
+      margin-top: 15px;
+      margin-bottom: 0;
+    }
+    #clear-signature-btn {
+      cursor:pointer;
+    }
+
+    .signature-pad {
+      margin: 5px 0 20px;
+      height: 220px !important;
+      background: #f8f8f8 image-url('signature-pad-bg.png') center center no-repeat;
+      background-size: 200px;
+      border: 1px solid #e8e8e8;
+    }
+  }
+}
+
+img.center {
+  display: block;
+  margin: 0 auto;
+}
+
+.dataTables_wrapper {
+  .table-header, .table-footer {
+    border: 0;
+  }
+}
+
+.panel {
+  .dataTables_wrapper {
+    padding: 15px 0;
+  }
+}
