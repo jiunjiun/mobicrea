@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :sliders do
       put :update_position, on: :collection
     end
+
+    resources :services
   end
 
 

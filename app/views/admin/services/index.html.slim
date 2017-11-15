@@ -1,0 +1,29 @@
+ol.breadcrumb.page-breadcrumb
+  li
+    == link_to admin_root_path do
+      i.px-nav-icon.ion-home
+  li.active
+    = t('admin.service')
+
+.page-header
+  .pull-left
+    h1= t('admin.service')
+  .pull-right
+      == link_to t('helpers.add'), new_admin_service_path, class: 'btn btn-primary btn-3d'
+
+.row
+  .col-md-12
+    .panel
+      table.table
+        thead
+          tr
+            th.text-center= t('simple_form.labels.service.name')
+            th.text-center= t('simple_form.labels.service.created_at')
+        tbody
+          - services.each do |service|
+            tr
+              td.text-center= service.name
+              td.text-center= l service.created_at, format: :long
+
+    .pull-right
+      == will_paginate services, renderer: BootstrapPagination::Rails
