@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20171115062022) do
 
   create_table "collections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.string "type"
+    t.string "collection_type"
     t.bigint "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

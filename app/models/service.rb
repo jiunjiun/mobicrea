@@ -1,5 +1,15 @@
 class Service < Collection
   has_many :service_furnitures, class_name: 'Collection', foreign_key: 'parent_id'
 
-  default_scope { where(type: Type::SERVICE) }
+  has_many :photos,     class_name: 'ServiceFurniturePhoto'
+  has_many :references, class_name: 'ServiceFurnitureReference'
+
+  default_scope { where(collection_type: CollectionType::SERVICE) }
+
+  before_create :setup
+
+  private
+  def setup
+    self.collection_type = CollectionType::SERVICE
+  end
 end
