@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20171114043730) do
     t.json "image"
     t.text "url"
     t.integer "position"
+    t.boolean "new_page"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -4,6 +4,7 @@ class CreateSliders < ActiveRecord::Migration[5.1]
       t.json    :image
       t.text    :url
       t.integer :position
+      t.boolean :new_page
 
       t.timestamps
     end

@@ -123,6 +123,7 @@ zh-TW:
       slider:
         image:      圖片
         url:        圖片連結
+        new_page:   另開視窗
 
     placeholders:
 

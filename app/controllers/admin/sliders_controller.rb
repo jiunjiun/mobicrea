@@ -55,7 +55,7 @@ class Admin::SlidersController < AdminController
 
   private
   def slider_params
-    params.require(:slider).permit(:image, :url, :position)
+    params.require(:slider).permit(:image, :url, :position, :new_page)
   end
 
   def setup

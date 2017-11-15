@@ -3,8 +3,12 @@ section.main-slider
     #heroBanner.banner-wrapper.slick-banner
       - sliders.each do |slider|
         .item
-          == link_to slider.url, target: '_blank' do
-            == image_tag slider.image, alt: '', class: 'img-fluid'
+          - if slider.new_page
+            == link_to slider.url, target: '_blank' do
+              == image_tag slider.image, alt: '', class: 'img-fluid'
+          - else
+            == link_to slider.url do
+              == image_tag slider.image, alt: '', class: 'img-fluid'
 section#homeVideo.home-video
   .video-wrapper
     .container-wide

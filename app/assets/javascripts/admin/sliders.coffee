@@ -22,33 +22,33 @@ $ ->
             thisDropzone.files.push(mockFile)
             $(thisDropzone.files[thisDropzone.files.length-1].previewElement).attr('data-id', value.id)
 
-            el = $(thisDropzone.files[thisDropzone.files.length-1].previewTemplate)
-            # dz_remove = el.find('.dz-remove').clone()
-            # el.find('.dz-remove').remove()
+            dz_remove = $(thisDropzone.files[thisDropzone.files.length-1].previewTemplate).find('.dz-remove')
 
             dz_show = $('<a/>', {
               href: "#{gon.admin_sliders_path}/#{value.id}/edit"
               class: 'dz-show'
               html: '檢視圖片'
             })
-            el.append(dz_show)
+
+            dz_show.insertBefore(dz_remove)
 
       success: (file, response) ->
         if response.status == 'success'
           file.id = response.slider.id
           file.position = response.position
-          # return file.previewElement.classList.add("dz-success")
 
-          el = $(thisDropzone.files[thisDropzone.files.length-1].previewTemplate)
-          # dz_remove = el.find('.dz-remove').clone()
-          # el.find('.dz-remove').remove()
+          dz_remove = $(file.previewTemplate).find('.dz-remove')
+          console.log dz_remove
 
           dz_show = $('<a/>', {
-            href: "#{gon.admin_sliders_path}/#{value.id}/edit"
+            href: "#{gon.admin_sliders_path}/#{response.slider.id}/edit"
             class: 'dz-show'
             html: '檢視圖片'
           })
-          el.append(dz_show)
+          dz_show.insertBefore(dz_remove)
+          return file.previewElement.classList.add("dz-success")
+        else
+          return file.previewElement.classList.add("dz-error")
 
       removedfile: (file) ->
         $.ajax
