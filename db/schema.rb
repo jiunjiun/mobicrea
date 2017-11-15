@@ -10,7 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114043730) do
+ActiveRecord::Schema.define(version: 20171115062022) do
+
+  create_table "collections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "type"
+    t.bigint "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parent_id"], name: "index_collections_on_parent_id"
+  end
+
+  create_table "service_furniture_photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "service_furniture_id"
+    t.string "title"
+    t.string "subtitle"
+    t.json "image"
+    t.text "url"
+    t.integer "position"
+    t.boolean "new_page"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_furniture_id"], name: "index_service_furniture_photos_on_service_furniture_id"
+  end
+
+  create_table "service_furniture_references", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "service_furniture_id"
+    t.string "title"
+    t.string "subtitle"
+    t.json "image"
+    t.text "url"
+    t.integer "position"
+    t.boolean "new_page"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_furniture_id"], name: "index_service_furniture_references_on_service_furniture_id"
+  end
 
   create_table "sliders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.json "image"
