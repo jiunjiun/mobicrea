@@ -4,6 +4,8 @@ class CreateCollections < ActiveRecord::Migration[5.1]
       t.string     :name
       t.string     :collection_type
       t.references :parent, references: :collections
+      t.string     :prompt_text
+      t.text       :description
 
 
       t.timestamps

@@ -1,7 +1,7 @@
-class CreateServiceFurniturePhotos < ActiveRecord::Migration[5.1]
+class CreateServicePhotos < ActiveRecord::Migration[5.1]
   def change
-    create_table :service_furniture_photos do |t|
-      t.references  :service_furniture, references: :collections
+    create_table :service_photos do |t|
+      t.references  :service, references: :collections
       t.string      :title
       t.string      :subtitle
       t.json        :image
