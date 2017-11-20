@@ -1,0 +1,18 @@
+== simple_form_for [:admin, service, service_photo], html: { autocomplete: 'off' } do |f|
+  .panel.colourable
+    /! Default panel contents
+    .panel-body
+      .text-center
+        - if service_photo.image.present?
+          == image_tag service_photo.image, class: 'img-responsive img-thumbnail'
+        hr/
+      == f.input :title
+      == f.input :subtitle
+      == f.input :url, as: :url
+      == f.input :new_page
+
+  .panel
+    .panel-body
+      == f.button :submit, class: 'btn-primary btn-3d'
+      | &nbsp;&nbsp;
+      == link_to t('helpers.back'), admin_service_path(service), class: 'btn btn-default btn-3d'

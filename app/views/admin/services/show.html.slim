@@ -1,0 +1,65 @@
+ol.breadcrumb.page-breadcrumb
+  li
+    == link_to admin_root_path do
+      i.px-nav-icon.ion-home
+  li
+    == link_to admin_services_path do
+      = t('admin.service')
+  li.active
+    = service.name
+
+.page-header
+  .pull-left
+    h1= service.name
+  .pull-right
+    == link_to t('helpers.edit'), edit_admin_service_path(service), class: 'btn btn-primary btn-3d'
+
+.row#service_photos
+  .col-md-12
+    .panel
+      .panel-body
+        == form_tag admin_service_service_photos_path(service), method: :post, multipart: true, class: "dropzone-box", id: 'dropzone_photo' do
+            .dz-default.dz-message.sortable
+              .dz-upload-icon
+              = t('helpers.drop_files_here')
+              br/
+              span.dz-text-small= t('helpers.or_click_to_pick_manually')
+            .fallback.hide
+              == file_field_tag :image
+
+.row#service_references
+  .col-md-12
+    .panel
+      .panel-heading
+        span.panel-title 可模組參考項目
+      .panel-body
+        == form_tag admin_service_service_references_path(service), method: :post, multipart: true, class: "dropzone-box", id: 'dropzone_photo' do
+            .dz-default.dz-message.sortable
+              .dz-upload-icon
+              = t('helpers.drop_files_here')
+              br/
+              span.dz-text-small= t('helpers.or_click_to_pick_manually')
+            .fallback.hide
+              == file_field_tag :image
+.row
+  .col-md-12
+    .panel
+      .panel-heading
+        span.panel-title 子類別
+        .panel-heading-controls
+          == link_to t('helpers.add'), new_admin_service_furniture_path, class: 'btn btn-primary btn-xs btn-3d'
+
+      table.table
+        thead
+          tr
+            th.text-center= t('simple_form.labels.service.name')
+            th.text-center= t('simple_form.labels.service.created_at')
+        tbody
+          - service_furnitures.each do |collection|
+            tr
+              td.text-center
+                == link_to collection.name, admin_service_furniture_path(collection)
+              td.text-center= l collection.created_at, format: :long
+
+    .pull-right
+      == will_paginate services, renderer: BootstrapPagination::Rails

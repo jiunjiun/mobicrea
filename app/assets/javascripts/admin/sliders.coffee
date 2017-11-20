@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  if $('#dropzone_photo').length
+  if $('#sliders #dropzone_photo').length
     dropzone_photo = new Dropzone '#sliders #dropzone_photo',
       paramName: "slider[image]",
       parallelUploads: 2
@@ -38,7 +38,6 @@ $ ->
           file.position = response.position
 
           dz_remove = $(file.previewTemplate).find('.dz-remove')
-          console.log dz_remove
 
           dz_show = $('<a/>', {
             href: "#{gon.admin_sliders_path}/#{response.slider.id}/edit"
@@ -59,18 +58,23 @@ $ ->
         _ref = undefined
         if (_ref = file.previewElement) != null then _ref.parentNode.removeChild(file.previewElement) else undefined
 
-    el = document.getElementById('dropzone_photo')
-    sortable = Sortable.create el,
-      animation: 200
-      onUpdate: (evt) ->
-        slider = {}
+    $('#sliders #dropzone_photo').sortable
+      items:'.dz-preview',
+      cursor: 'move',
+      opacity: 0.5,
+      containment: "parent",
+      distance: 20,
+      tolerance: 'pointer',
+      update: (e, ui) ->
+        service_photo = {}
 
         $('#dropzone_photo .dz-preview').each (k, v) ->
           id = $(this).data('id')
-          slider[id] = {position: k + 1}
+          service_photo[id] = {position: k + 1}
 
         $.ajax
           type: 'PUT',
-          url: gon.update_position_admin_sliders_path
-          data: {slider: slider}
+          url: gon.update_position_admin_service_service_photos_path
+          data: {service_photo: service_photo}
           dataType: 'json'
+

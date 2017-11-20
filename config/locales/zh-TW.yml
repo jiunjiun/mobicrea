@@ -126,8 +126,22 @@ zh-TW:
         url:        圖片連結
         new_page:   另開視窗
       service:
-        name:       名稱
-        created_at: 建立日期
+        name:        名稱
+        created_at:  建立日期
+        description: 描述
+        prompt_text: 提示文字
+      service_photo:
+        image:      圖片
+        title:      主標題
+        subtitle:   副標題
+        url:        圖片連結
+        new_page:   另開視窗
+      service_reference:
+        image:      圖片
+        title:      主標題
+        subtitle:   副標題
+        url:        圖片連結
+        new_page:   另開視窗
 
 
     placeholders:

@@ -22,7 +22,8 @@ ol.breadcrumb.page-breadcrumb
         tbody
           - services.each do |service|
             tr
-              td.text-center= service.name
+              td.text-center
+                == link_to service.name, admin_service_path(service)
               td.text-center= l service.created_at, format: :long
 
     .pull-right

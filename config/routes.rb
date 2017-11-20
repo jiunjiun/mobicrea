@@ -19,7 +19,15 @@ Rails.application.routes.draw do
       put :update_position, on: :collection
     end
 
-    resources :services
+    resources :services do
+      resources :service_photos do
+        put :update_position, on: :collection
+      end
+      resources :service_references do
+        put :update_position, on: :collection
+      end
+    end
+    resources :service_furnitures
   end
 
 

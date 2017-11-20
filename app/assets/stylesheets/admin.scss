@@ -5,13 +5,7 @@
 
 @import "font-awesome";
 
-#sliders {
-  .upload {
-    &.logo img, &.banner img {
-      cursor: pointer;
-    }
-  }
-
+#sliders, #service_photos, #service_references {
   #dropzone_photo .dz-image-preview {
     cursor: move;
   }
@@ -32,8 +26,8 @@
 }
 
 .dz-show:focus, .dz-show:hover {
-    text-decoration: none;
-    color: #fff;
-    border-top-color: transparent;
-    background: #4CAF50;
+  text-decoration: none;
+  color: #fff;
+  border-top-color: transparent;
+  background: #4CAF50;
 }

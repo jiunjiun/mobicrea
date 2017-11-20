@@ -3,6 +3,8 @@
 #= require PixelAdmin/bootstrap.min
 #= require PixelAdmin/pixeladmin.min
 
+#= require jquery-ui/widgets/sortable
+
 #= require noty
 
 #= require_self
