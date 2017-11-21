@@ -1,0 +1,2 @@
+module Admin::ServiceFurnituresHelper
+end

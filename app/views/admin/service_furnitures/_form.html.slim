@@ -1,0 +1,11 @@
+== simple_form_for [:admin, service, service_furniture], html: { autocomplete: 'off' } do |f|
+  .panel.colourable
+    /! Default panel contents
+    .panel-body
+      == f.input :name
+
+  .panel
+    .panel-body
+      == f.button :submit, class: 'btn-primary btn-3d'
+      | &nbsp;&nbsp;
+      == link_to t('helpers.back'), admin_service_path(service), class: 'btn btn-default btn-3d'

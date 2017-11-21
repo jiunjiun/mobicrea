@@ -1,0 +1,37 @@
+ol.breadcrumb.page-breadcrumb
+  li
+    == link_to admin_root_path do
+      i.px-nav-icon.ion-home
+  li
+    == link_to t('admin.service'), admin_users_path
+  li
+    == link_to service.name, admin_service_path(service)
+  li.active
+    = service_furniture.name
+
+.page-header
+  .pull-left
+    h1= service_furniture.name
+  .pull-right
+    .btn-group
+      == link_to t('helpers.edit'), edit_admin_service_service_furniture_path(service, service_furniture), class: 'btn btn-primary btn-3d'
+      == link_to t('helpers.delete'), admin_service_service_furniture_path(service, service_furniture), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d'
+
+.row
+  .col-md-12
+    .panel
+      .panel-heading
+        span.panel-title= t('service_furnitures.products')
+        .panel-heading-controls
+          == link_to t('helpers.add'), new_admin_service_service_furniture_product_path(service, service_furniture), class: 'btn btn-primary btn-xs btn-3d'
+
+      table.table
+        thead
+          tr
+            th.text-center= t('simple_form.labels.service.name')
+            th.text-center= t('simple_form.labels.service.created_at')
+        tbody
+          - products.each do |product|
+            tr
+
+

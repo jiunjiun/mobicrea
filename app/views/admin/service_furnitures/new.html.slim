@@ -1,0 +1,18 @@
+ol.breadcrumb.page-breadcrumb
+  li
+    == link_to admin_root_path do
+      i.px-nav-icon.ion-home
+  li
+    == link_to t('admin.service'), admin_users_path
+  li
+    == link_to service.name, admin_service_path(service)
+  li.active
+    = t('helpers.add')
+.page-header
+  .pull-left
+    h1= t('helpers.add')
+
+.row
+  .col-md-12
+    == render 'form'
+

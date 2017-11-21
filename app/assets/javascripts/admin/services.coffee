@@ -14,7 +14,7 @@ $ ->
       dictInvalidFileType: '檔案格式錯誤，請上傳圖片'
       init: (e) ->
         thisDropzone = @
-        $.getJSON gon.admin_service_service_photos_path, (service_photo) ->
+        $.getJSON gon.admin_service_photos_path, (service_photo) ->
           $.each service_photo, (key, value) ->
             mockFile = { id: value.id, name: value.name, size: value.size, position: value.position }
             thisDropzone.options.addedfile.call(thisDropzone, mockFile)
@@ -25,7 +25,7 @@ $ ->
             dz_remove = $(thisDropzone.files[thisDropzone.files.length-1].previewTemplate).find('.dz-remove')
 
             dz_show = $('<a/>', {
-              href: "#{gon.admin_service_service_photos_path}/#{value.id}/edit"
+              href: "#{gon.admin_service_photos_path}/#{value.id}/edit"
               class: 'dz-show'
               html: '檢視圖片'
             })
@@ -40,7 +40,7 @@ $ ->
           dz_remove = $(file.previewTemplate).find('.dz-remove')
 
           dz_show = $('<a/>', {
-            href: "#{gon.admin_service_service_photos_path}/#{response.service_photo.id}/edit"
+            href: "#{gon.admin_service_photos_path}/#{response.service_photo.id}/edit"
             class: 'dz-show'
             html: '檢視圖片'
           })
@@ -52,7 +52,7 @@ $ ->
       removedfile: (file) ->
         $.ajax
           type: 'DELETE',
-          url: "#{gon.admin_service_service_photos_path}/#{file.id}",
+          url: "#{gon.admin_service_photos_path}/#{file.id}",
           dataType: 'json'
 
         _ref = undefined
@@ -68,13 +68,13 @@ $ ->
       update: (e, ui) ->
         service_photo = {}
 
-        $('#dropzone_photo .dz-preview').each (k, v) ->
+        $('#service_photos #dropzone_photo .dz-preview').each (k, v) ->
           id = $(this).data('id')
           service_photo[id] = {position: k + 1}
 
         $.ajax
           type: 'PUT',
-          url: gon.update_position_admin_service_service_photos_path
+          url: gon.update_position_admin_service_photos_path
           data: {service_photo: service_photo}
           dataType: 'json'
 
@@ -89,7 +89,7 @@ $ ->
       dictInvalidFileType: '檔案格式錯誤，請上傳圖片'
       init: (e) ->
         thisDropzone = @
-        $.getJSON gon.admin_service_service_references_path, (service_reference) ->
+        $.getJSON gon.admin_service_references_path, (service_reference) ->
           $.each service_reference, (key, value) ->
             mockFile = { id: value.id, name: value.name, size: value.size, position: value.position }
             thisDropzone.options.addedfile.call(thisDropzone, mockFile)
@@ -100,7 +100,7 @@ $ ->
             dz_remove = $(thisDropzone.files[thisDropzone.files.length-1].previewTemplate).find('.dz-remove')
 
             dz_show = $('<a/>', {
-              href: "#{gon.admin_service_service_references_path}/#{value.id}/edit"
+              href: "#{gon.admin_service_references_path}/#{value.id}/edit"
               class: 'dz-show'
               html: '檢視圖片'
             })
@@ -115,7 +115,7 @@ $ ->
           dz_remove = $(file.previewTemplate).find('.dz-remove')
 
           dz_show = $('<a/>', {
-            href: "#{gon.admin_service_service_references_path}/#{response.service_reference.id}/edit"
+            href: "#{gon.admin_service_references_path}/#{response.service_reference.id}/edit"
             class: 'dz-show'
             html: '檢視圖片'
           })
@@ -127,7 +127,7 @@ $ ->
       removedfile: (file) ->
         $.ajax
           type: 'DELETE',
-          url: "#{gon.admin_service_service_references_path}/#{file.id}",
+          url: "#{gon.admin_service_references_path}/#{file.id}",
           dataType: 'json'
 
         _ref = undefined
@@ -143,12 +143,12 @@ $ ->
       update: (e, ui) ->
         service_reference = {}
 
-        $('#dropzone_photo .dz-preview').each (k, v) ->
+        $('#service_references #dropzone_photo .dz-preview').each (k, v) ->
           id = $(this).data('id')
           service_reference[id] = {position: k + 1}
 
         $.ajax
           type: 'PUT',
-          url: gon.update_position_admin_service_service_references_path
+          url: gon.update_position_admin_service_references_path
           data: {service_reference: service_reference}
           dataType: 'json'

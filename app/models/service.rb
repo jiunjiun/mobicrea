@@ -1,5 +1,5 @@
 class Service < Collection
-  has_many :service_furnitures, class_name: 'Collection', foreign_key: 'parent_id'
+  has_many :service_furnitures, foreign_key: 'parent_id'
 
   has_many :photos,     class_name: 'ServicePhoto'
   has_many :references, class_name: 'ServiceReference'

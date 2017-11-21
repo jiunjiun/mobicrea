@@ -106,12 +106,16 @@ zh-TW:
       new_password:         新密碼
       confirm_new_password: 確認新密碼
       minimum_password:     密碼最少%{minimum_password_length}位
-    role:
-      all:     所有權限
-      admin:   系統管理員
-      manager: 主管
-      staff:   員工
-      sales:   業務
+
+  services:
+    service_info:   '%{name}資訊'
+    service_slider: '%{name}橫幅'
+    model_item:     可模組參考項目
+
+
+  service_furnitures:
+    sub_class: 子類別
+    products:  商品清單
 
   simple_form:
     required:
@@ -142,6 +146,8 @@ zh-TW:
         subtitle:   副標題
         url:        圖片連結
         new_page:   另開視窗
+      service_furniture:
+        name:   名稱
 
 
     placeholders:

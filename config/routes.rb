@@ -20,14 +20,17 @@ Rails.application.routes.draw do
     end
 
     resources :services do
-      resources :service_photos do
+      resources :photos, controller: 'service_photos' do
         put :update_position, on: :collection
       end
-      resources :service_references do
+      resources :references, controller: 'service_references' do
         put :update_position, on: :collection
+      end
+
+      resources :service_furnitures do
+        resources :products
       end
     end
-    resources :service_furnitures
   end
 
 

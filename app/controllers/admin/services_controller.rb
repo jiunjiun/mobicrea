@@ -35,7 +35,7 @@ class Admin::ServicesController < AdminController
 
   def destroy
     service.destroy
-    redirect_to admin_users_path, notice: t('helpers.successfully_destroy')
+    redirect_to admin_services_path, notice: t('helpers.successfully_destroy')
   end
 
   private
@@ -44,10 +44,10 @@ class Admin::ServicesController < AdminController
   end
 
   def setup
-    gon.admin_service_service_photos_path = admin_service_service_photos_path(service)
-    gon.update_position_admin_service_service_photos_path = update_position_admin_service_service_photos_path(service)
+    gon.admin_service_photos_path = admin_service_photos_path(service)
+    gon.update_position_admin_service_photos_path = update_position_admin_service_photos_path(service)
 
-    gon.admin_service_service_references_path = admin_service_service_references_path(service)
-    gon.update_position_admin_service_service_references_path = update_position_admin_service_service_references_path(service)
+    gon.admin_service_references_path = admin_service_references_path(service)
+    gon.update_position_admin_service_references_path = update_position_admin_service_references_path(service)
   end
 end

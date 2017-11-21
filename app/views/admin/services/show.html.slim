@@ -12,13 +12,34 @@ ol.breadcrumb.page-breadcrumb
   .pull-left
     h1= service.name
   .pull-right
-    == link_to t('helpers.edit'), edit_admin_service_path(service), class: 'btn btn-primary btn-3d'
+    .btn-group
+      == link_to t('helpers.edit'), edit_admin_service_path(service), class: 'btn btn-primary btn-3d'
+      == link_to t('helpers.delete'), admin_service_path(service), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d'
+
+.row#service_info
+  .col-md-12
+    .panel
+      .panel-heading
+        span.panel-title= t('services.service_info', name: service.name)
+      table.table
+        tbody
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.service.description')
+            td.col-md-8= service.description
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.service.prompt_text')
+            td.col-md-8= service.prompt_text
+
 
 .row#service_photos
   .col-md-12
     .panel
+      .panel-heading
+        span.panel-title= t('services.service_slider', name: service.name)
       .panel-body
-        == form_tag admin_service_service_photos_path(service), method: :post, multipart: true, class: "dropzone-box", id: 'dropzone_photo' do
+        == form_tag admin_service_photos_path(service), method: :post, multipart: true, class: "dropzone-box", id: 'dropzone_photo' do
             .dz-default.dz-message.sortable
               .dz-upload-icon
               = t('helpers.drop_files_here')
@@ -31,9 +52,9 @@ ol.breadcrumb.page-breadcrumb
   .col-md-12
     .panel
       .panel-heading
-        span.panel-title 可模組參考項目
+        span.panel-title= t('services.model_item')
       .panel-body
-        == form_tag admin_service_service_references_path(service), method: :post, multipart: true, class: "dropzone-box", id: 'dropzone_photo' do
+        == form_tag admin_service_references_path(service), method: :post, multipart: true, class: "dropzone-box", id: 'dropzone_photo' do
             .dz-default.dz-message.sortable
               .dz-upload-icon
               = t('helpers.drop_files_here')
@@ -45,9 +66,9 @@ ol.breadcrumb.page-breadcrumb
   .col-md-12
     .panel
       .panel-heading
-        span.panel-title 子類別
+        span.panel-title= t('service_furnitures.sub_class')
         .panel-heading-controls
-          == link_to t('helpers.add'), new_admin_service_furniture_path, class: 'btn btn-primary btn-xs btn-3d'
+          == link_to t('helpers.add'), new_admin_service_service_furniture_path(service), class: 'btn btn-primary btn-xs btn-3d'
 
       table.table
         thead
@@ -55,11 +76,11 @@ ol.breadcrumb.page-breadcrumb
             th.text-center= t('simple_form.labels.service.name')
             th.text-center= t('simple_form.labels.service.created_at')
         tbody
-          - service_furnitures.each do |collection|
+          - service_furnitures.each do |service_furniture|
             tr
               td.text-center
-                == link_to collection.name, admin_service_furniture_path(collection)
-              td.text-center= l collection.created_at, format: :long
+                == link_to service_furniture.name, admin_service_service_furniture_path(service, service_furniture)
+              td.text-center= l service_furniture.created_at, format: :long
 
     .pull-right
       == will_paginate services, renderer: BootstrapPagination::Rails
