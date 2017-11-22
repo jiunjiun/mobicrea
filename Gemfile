@@ -197,6 +197,10 @@ gem 'gon'
 # gem 'wicked_pdf'
 # gem 'wkhtmltopdf-binary'
 
+# Editor
+gem 'summernote-rails'
+gem 'codemirror-rails'
+
 # Style
 gem 'slim'
 gem 'slim-rails'
