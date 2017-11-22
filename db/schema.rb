@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120080047) do
+ActiveRecord::Schema.define(version: 20171121105900) do
 
   create_table "collections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -21,6 +21,40 @@ ActiveRecord::Schema.define(version: 20171120080047) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["parent_id"], name: "index_collections_on_parent_id"
+  end
+
+  create_table "product_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "product_id"
+    t.string "key"
+    t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_items_on_product_id"
+  end
+
+  create_table "product_photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "product_id"
+    t.json "image"
+    t.text "url"
+    t.integer "position"
+    t.boolean "new_page"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_photos_on_product_id"
+  end
+
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "collection_id"
+    t.string "uid"
+    t.string "name"
+    t.string "name_eng"
+    t.string "hash_tag"
+    t.text "description"
+    t.text "design_story"
+    t.json "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["collection_id"], name: "index_products_on_collection_id"
   end
 
   create_table "service_photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -58,6 +92,14 @@ ActiveRecord::Schema.define(version: 20171120080047) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "summernote_uploads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "product_id"
+    t.json "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_summernote_uploads_on_product_id"
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -76,4 +118,8 @@ ActiveRecord::Schema.define(version: 20171120080047) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "product_items", "products"
+  add_foreign_key "product_photos", "products"
+  add_foreign_key "products", "collections"
+  add_foreign_key "summernote_uploads", "products"
 end
