@@ -48,56 +48,26 @@ header#pageHeader.page-header.fixed
           ul.nav.navbar-nav.nav-main
             li.item
               == link_to root_path
-                span.text 首頁
+                span.text= t('home')
             li.item
-              /== link_to about_us_path , class: "dropdown-hover" ,"data-delay": "10", "data-hover": "dropdown" do
               == link_to about_path
-                span.text 關於元皿
-                /b.caret
-              /ul.dropdown-menu.multi-level role="menu"
-                /li
-                  /== link_to "關於我們", about_us_path
-                /li
-                  /== link_to "服務流程", about_us_path
-                /li
-                  /== link_to "組織架構", about_us_path
+                span.text= t('about')
             li.item
-              == link_to service_path , class: "dropdown-hover" ,"data-delay": "10", "data-hover": "dropdown" do
-                span.text 服務內容
+              == link_to services_path , class: "dropdown-hover" ,"data-delay": "10", "data-hover": "dropdown" do
+                span.text= t('service')
                 b.caret
               ul.dropdown-menu.multi-level role="menu"
-                li
-                  == link_to "訂製家具", collection_path
-                li.dropdown-submenu
-                  == link_to "模組家具", collection_path , class: "dropdown-toggle"
-                  ul.dropdown-menu role="menu"
+                - services.each do |service|
+                  - if service.service_furnitures.count > 0
+                    li.dropdown-submenu
+                      == link_to service.name, service_path(service), class: 'dropdown-toggle'
+                      ul.dropdown-menu role='menu'
+                        - service.service_furnitures.each do |service_furniture|
+                          li
+                            == link_to service_furniture.name, service_service_furniture_path(service, service_furniture)
+                  - else
                     li
-                      == link_to "組合隔間", furniture_path
-                    li
-                      == link_to "飯店家具", furniture_path
-                    li
-                      == link_to "銀行家具", furniture_path
-                    li
-                      == link_to "鋁柱家具", furniture_path
-                    li
-                      == link_to "展場家具", furniture_path
-                    li
-                      == link_to "接待櫃台", furniture_path
-                li.dropdown-submenu
-                  == link_to "辦公家具", collection_path , class: "dropdown-toggle"
-                  ul.dropdown-menu role="menu"
-                    li
-                      == link_to "工作站", furniture_path
-                    li
-                      == link_to "主管桌", furniture_path
-                    li
-                      == link_to "櫃類", furniture_path
-                    li
-                      == link_to "會議桌", furniture_path
-                    li
-                      == link_to "椅類", furniture_path
-                    li
-                      == link_to "配件", furniture_path
+                      == link_to service.name, service_path(service)
             li.item
               == link_to stories_path , class: "dropdown-hover" ,"data-delay": "10", "data-hover": "dropdown" do
                 span.text 成功案例

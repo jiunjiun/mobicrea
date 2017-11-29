@@ -1,0 +1,103 @@
+section.page-top-banner
+  == image_tag 'img4.jpg', alt: '', class: 'img-fluid'
+  .section-header
+    h2= t('service')
+    p Custom furniture
+.container
+  ol.breadcrumb
+    li
+      == link_to t('home'), root_path
+    li
+      == link_to t('service'), services_path
+    li.active= service.name
+  .mag-bootom-lg
+
+.container
+  .row
+    .col-lg-3.col-sm-3
+      - if service.service_furnitures.count > 0
+        aside.aside-menu
+          ul.serivcemenu
+            - service.service_furnitures.each do |service_furniture|
+              li.item
+                == link_to service_service_furniture_path(service, service_furniture)
+                  span aria-hidden="true"
+                  = service_furniture.name
+      aside.contact-info
+        h4 更多資訊洽詢
+        h5 元皿傢俱創意有限公司
+        ul
+          li
+            == mail_to 'admin@mobicrea.com.tw' , target: "_blank" do
+              span.icon_mail_alt aria-hidden="true"
+              |  admin@mobicrea.com.tw
+          li
+            == link_to 'tel:+0800235790771' , target: "_blank" do
+              span.icon_phone aria-hidden="true"
+              |  +0800 2 35790771
+          li
+            == link_to 'tel:+0800235790771' , target: "_blank" do
+              span.icon_printer-alt aria-hidden="true"
+              |  +0800 2 35790771
+    .col-lg-9.col-sm-9
+      .page-content
+        #modulBanner.banner-wrapper.slick-banner
+          - service.photos.each do |photo|
+            .item
+              - if photo.url.present?
+                - if photo.new_page
+                  == link_to photo.url, target: '_blank' do
+                    .modulartext
+                      h3= photo.title
+                      p= photo.subtitle
+                    == image_tag photo.image, alt: '', class: 'img-fluid'
+                - else
+                  == link_to photo.url do
+                    .modulartext
+                      h3= photo.title
+                      p= photo.subtitle
+                    == image_tag photo.image, alt: '', class: 'img-fluid'
+              - else
+                .modulartext
+                  h3= photo.title
+                  p= photo.subtitle
+                == image_tag photo.image, alt: '', class: 'img-fluid'
+
+        section.reference-wrapper
+          .wrapper-title.text-left
+            h3 可模組參考項目
+          ul.row
+            - service.references.each do |reference|
+              li.col-sm-4.col-xs-6
+                .item
+                  .item-img
+                    == image_tag reference.image, alt: '', class: 'img-fluid'
+                  .item-meta
+                    h4= reference.title
+                    p= reference.subtitle
+section.morecase.bg-gray
+  .container
+    .wrapper-title
+      h3 更多案例
+    .case-slick
+      .item
+        == link_to "#" , class: "thumbnail"  do
+          == image_tag 'img7.jpg', alt: '', class: 'img-fluid'
+      .item
+        == link_to "#" , class: "thumbnail"  do
+          == image_tag 'img6.jpg', alt: '', class: 'img-fluid'
+      .item
+        == link_to "#" , class: "thumbnail"  do
+          == image_tag 'img5.jpg', alt: '', class: 'img-fluid'
+      .item
+        == link_to "#" , class: "thumbnail"  do
+          == image_tag 'img4.jpg', alt: '', class: 'img-fluid'
+      .item
+        == link_to "#" , class: "thumbnail"  do
+          == image_tag 'img3.jpg', alt: '', class: 'img-fluid'
+      .item
+        == link_to "#" , class: "thumbnail"  do
+          == image_tag 'img2.jpg', alt: '', class: 'img-fluid'
+      .item
+        == link_to "#" , class: "thumbnail"  do
+          == image_tag 'img1.jpg', alt: '', class: 'img-fluid'

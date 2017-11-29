@@ -24,7 +24,7 @@ class Admin::ServiceReferencesController < AdminController
 
   def update
     if service_reference.update service_reference_params
-      redirect_to edit_admin_service_service_reference_path(service, service_reference), notice: t('helpers.successfully_updated')
+      redirect_to edit_admin_service_reference_path(service, service_reference), notice: t('helpers.successfully_updated')
     else
       render :edit
     end

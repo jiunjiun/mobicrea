@@ -1,4 +1,4 @@
-== simple_form_for [:admin, service, service_reference], html: { autocomplete: 'off' } do |f|
+== simple_form_for [:admin, service, service_reference], url: admin_service_reference_path(service, service_reference), html: { autocomplete: 'off' } do |f|
   .panel.colourable
     /! Default panel contents
     .panel-body

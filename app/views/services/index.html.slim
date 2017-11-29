@@ -1,0 +1,32 @@
+section.page-top-banner
+  == image_tag 'img4.jpg', alt: '', class: 'img-fluid'
+  .section-header
+    h2= t('service')
+    p 產品、服務、設計
+.container
+  ol.breadcrumb
+    li
+      == link_to t('home'), root_path
+    li.active
+      = t('service')
+
+  .mag-bootom-lg
+section
+  .container
+    .products-wrap.service-products
+      .row
+        - services.each do |service|
+          .col-md-4.col-sm-6
+            == link_to service_path(service) do
+              .product-col
+                .image
+                  == image_tag 'img3.jpg', alt: '', class: 'img-fluid'
+                  .mask
+                    div= service.prompt_text
+                .caption
+                  h4= service.name
+                  .description
+                    = service.description
+                  .btn-wrap
+                    .btn.btn-primary
+                      | MORE

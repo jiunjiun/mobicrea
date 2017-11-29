@@ -24,7 +24,7 @@ class Admin::ServicePhotosController < AdminController
 
   def update
     if service_photo.update service_photo_params
-      redirect_to edit_admin_service_service_photo_path(service, service_photo), notice: t('helpers.successfully_updated')
+      redirect_to edit_admin_service_photo_path(service, service_photo), notice: t('helpers.successfully_updated')
     else
       render :edit
     end

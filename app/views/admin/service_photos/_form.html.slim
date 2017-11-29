@@ -1,4 +1,4 @@
-== simple_form_for [:admin, service, service_photo], html: { autocomplete: 'off' } do |f|
+== simple_form_for [:admin, service, service_photo], url: admin_service_photo_path(service, service_photo), method: :put, html: { autocomplete: 'off' } do |f|
   .panel.colourable
     /! Default panel contents
     .panel-body

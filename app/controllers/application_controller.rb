@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  expose :services, -> { Service.all }
+
+
   private
   def prepare_meta_tags opts = {}
     title       = opts[:title] || I18n.t('title')

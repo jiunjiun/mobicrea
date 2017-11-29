@@ -6,6 +6,9 @@ zh-TW:
   sign_up:  註冊
   sign_out: 登出
 
+  about:    關於元皿
+  service:  服務內容
+
 
 
   # 後台
@@ -153,7 +156,9 @@ zh-TW:
         url:        圖片連結
         new_page:   另開視窗
       service_furniture:
-        name:   名稱
+        name:        名稱
+        description: 描述
+        prompt_text: 提示文字
       product:
         uid:          品號
         name:         名稱

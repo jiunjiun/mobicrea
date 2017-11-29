@@ -1,0 +1,33 @@
+section.page-top-banner
+  == image_tag 'img4.jpg', alt: '', class: 'img-fluid'
+  .section-header
+    h2= t('service')
+    p 產品、服務、設計
+.container
+  ol.breadcrumb
+    li
+      == link_to t('home'), root_path
+    li
+      == link_to t('service'), services_path
+    li
+      == link_to service.name, service_path(service)
+    li.active
+      = service_furniture.name
+  .mag-bootom-lg
+section
+  .container
+    .products-wrap.service-products
+      .row
+        - products.each do |product|
+          .col-md-4.col-sm-6
+            == link_to product_path(product) do
+              .product-col
+                .image
+                  == image_tag product.photos.first.image, alt: '', class: 'img-fluid'
+                .caption
+                  h4= product.name
+                  .description= product.description
+                  .btn-wrap
+                    .btn.btn-primary
+                      | MORE
+      == will_paginate products, renderer: BootstrapPagination::Rails

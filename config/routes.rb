@@ -42,11 +42,18 @@ Rails.application.routes.draw do
 
 
   # 關於元皿
-  get 'about',               to: 'about#index'
+  get 'about',     to: 'about#index'
+
   # 服務內容
-  get 'service',                      to: 'service#index',        as: 'service'
-  get 'service_collection',           to: 'service#collection',   as: 'collection'
-  get 'service_furniture',            to: 'service#furniture',       as: 'furniture'
+  resources :services, only: [:index, :show] do
+    resources :service_furnitures, only: [:show]
+  end
+  resources :products, only: [:show]
+
+  # 服務內容
+  # get 'service',                      to: 'service#index',        as: 'service'
+  # get 'service_collection',           to: 'service#collection',   as: 'collection'
+  # get 'service_furniture',            to: 'service#furniture',       as: 'furniture'
   # 成功案例
   get 'successful_story',             to: 'case#index',           as: 'stories'
   get 'case',                         to: 'case#story',           as: 'case'
