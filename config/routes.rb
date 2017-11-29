@@ -28,9 +28,16 @@ Rails.application.routes.draw do
       end
 
       resources :service_furnitures do
-        resources :products
+        resources :products do
+          resources :product_items, except: [:index]
+          resources :photos, controller: 'product_photos' do
+            put :update_position, on: :collection
+          end
+        end
       end
     end
+
+    resource :summernote_upload, only: [:create]
   end
 
 

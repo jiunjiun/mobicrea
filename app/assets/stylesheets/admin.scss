@@ -4,6 +4,8 @@
 //= require PixelAdmin/themes/default.min
 
 @import "font-awesome";
+@import "summernote";
+@import "codemirror";
 
 #sliders, #service_photos, #service_references {
   #dropzone_photo .dz-image-preview {

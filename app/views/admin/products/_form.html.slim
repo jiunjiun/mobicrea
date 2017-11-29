@@ -1,0 +1,16 @@
+== simple_form_for [:admin, service, service_furniture, product], html: { autocomplete: 'off' } do |f|
+  .panel.colourable
+    /! Default panel contents
+    .panel-body
+      == f.input :uid
+      == f.input :name
+      == f.input :name_eng
+      == f.input :description
+      == f.input :design_story, as: :summernote
+      == f.input :hash_tag, input_html: { data: { role: 'tagsinput' } }
+
+  .panel
+    .panel-body
+      == f.button :submit, class: 'btn-primary btn-3d'
+      | &nbsp;&nbsp;
+      == link_to t('helpers.back'), admin_service_service_furniture_path(service, service_furniture), class: 'btn btn-default btn-3d'

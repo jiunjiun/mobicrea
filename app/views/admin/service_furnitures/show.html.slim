@@ -33,5 +33,8 @@ ol.breadcrumb.page-breadcrumb
         tbody
           - products.each do |product|
             tr
+              td.text-center
+                == link_to product.name, admin_service_service_furniture_product_path(service, service_furniture, product)
+              td.text-center= l product.created_at, format: :long
 
 

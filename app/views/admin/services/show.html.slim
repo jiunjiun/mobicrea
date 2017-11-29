@@ -20,7 +20,7 @@ ol.breadcrumb.page-breadcrumb
   .col-md-12
     .panel
       .panel-heading
-        span.panel-title= t('services.service_info', name: service.name)
+        span.panel-title= t('services.info', name: service.name)
       table.table
         tbody
           tr
@@ -37,7 +37,7 @@ ol.breadcrumb.page-breadcrumb
   .col-md-12
     .panel
       .panel-heading
-        span.panel-title= t('services.service_slider', name: service.name)
+        span.panel-title= t('services.slider', name: service.name)
       .panel-body
         == form_tag admin_service_photos_path(service), method: :post, multipart: true, class: "dropzone-box", id: 'dropzone_photo' do
             .dz-default.dz-message.sortable

@@ -1,0 +1,91 @@
+ol.breadcrumb.page-breadcrumb
+  li
+    == link_to admin_root_path do
+      i.px-nav-icon.ion-home
+  li
+    == link_to t('admin.service'), admin_users_path
+  li
+    == link_to service.name, admin_service_path(service)
+  li
+    == link_to service_furniture.name, admin_service_service_furniture_path(service, service_furniture)
+  li.active
+    = product.name
+.page-header
+  .pull-left
+    h1= product.name
+  .pull-right
+    .btn-group
+      == link_to t('helpers.edit'), edit_admin_service_service_furniture_product_path(service, service_furniture, product), class: 'btn btn-primary btn-3d'
+      == link_to t('helpers.delete'), admin_service_service_furniture_product_path(service, service_furniture, product), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d'
+
+.row#service_info
+  .col-md-12
+    .panel
+      .panel-heading
+        span.panel-title= t('products.info', name: product.name)
+      table.table
+        tbody
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.product.uid')
+            td.col-md-8= product.uid
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.product.name')
+            td.col-md-8= product.name
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.product.name_eng')
+            td.col-md-8= product.name_eng
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.product.description')
+            td.col-md-8= product.description
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.product.hash_tag')
+            td.col-md-8
+              - product.hash_tag.split(',').each do |tag|
+                code= tag
+                | &nbsp;&nbsp;
+
+.row
+  .col-md-12
+    .panel
+      .panel-heading
+        span.panel-title= t('product_items.info')
+        .panel-heading-controls
+          == link_to t('helpers.add'), new_admin_service_service_furniture_product_product_item_path(service, service_furniture, product), class: 'btn btn-primary btn-xs btn-3d'
+
+      table.table
+        thead
+          tr
+            th.col-md-2
+            th.col-md-5.text-center= t('simple_form.labels.product_item.key')
+            th.col-md-5.text-center= t('simple_form.labels.product_item.value')
+        tbody
+          - product.items.each do |item|
+            tr
+              td
+                .btn-group
+                  == link_to t('helpers.edit'), edit_admin_service_service_furniture_product_product_item_path(service, service_furniture, product, item), class: 'btn btn-primary btn-3d btn-xs'
+                  == link_to t('helpers.delete'), admin_service_service_furniture_product_product_item_path(service, service_furniture, product, item), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d btn-xs'
+              td.text-center== item.key
+              td.text-center== item.value
+
+.row#product_photos
+  .col-md-12
+    .panel
+      .panel-heading
+        span.panel-title= t('products.photo')
+      .panel-body
+        == form_tag admin_service_service_furniture_product_photos_path(service, service_furniture, product), method: :post, multipart: true, class: "dropzone-box", id: 'dropzone_photo' do
+            .dz-default.dz-message.sortable
+              .dz-upload-icon
+              = t('helpers.drop_files_here')
+              br/
+              span.dz-text-small= t('helpers.or_click_to_pick_manually')
+            .fallback.hide
+              == file_field_tag :image
+
+

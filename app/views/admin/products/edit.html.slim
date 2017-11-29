@@ -6,12 +6,14 @@ ol.breadcrumb.page-breadcrumb
     == link_to t('admin.service'), admin_users_path
   li
     == link_to service.name, admin_service_path(service)
+  li
+    == link_to service_furniture.name, admin_service_service_furniture_path(service, service_furniture)
   li.active
-    = service_furniture.name
+    = product.name
 .page-header
   .pull-left
     h1
-      = service_furniture.name
+      = product.name
       = t('helpers.edit')
 
 .row
