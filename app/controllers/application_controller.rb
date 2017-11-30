@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
 
   expose :services, -> { Service.all }
 
-
   private
   def prepare_meta_tags opts = {}
     title       = opts[:title] || I18n.t('title')

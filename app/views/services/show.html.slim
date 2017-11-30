@@ -1,8 +1,8 @@
 section.page-top-banner
   == image_tag 'img4.jpg', alt: '', class: 'img-fluid'
   .section-header
-    h2= t('service')
-    p Custom furniture
+    h2= service.name
+    p= service.description
 .container
   ol.breadcrumb
     li

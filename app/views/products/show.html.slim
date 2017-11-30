@@ -1,12 +1,12 @@
 section.page-top-banner
   == image_tag 'img4.jpg', alt: '', class: 'img-fluid'
   .section-header
-    h2 服務內容
-    p 產品、服務、設計
+    h2= product.name
 .container
   ol.breadcrumb
     li
       == link_to t('home'), root_path
+    == product_breadcrumb(product)
     li.active
       = product.name
   .mag-bootom-lg
@@ -49,30 +49,33 @@ section.page-top-banner
             .margin-bottom-lg
             .meta-value
               - product.hash_tag.split(',').each do |hash_tag|
-                a.tag-link href="#" rel="tag"= hash_tag
+                span.tag-lin= hash_tag
 
-  section.product-story
-    .container
-      .section-header.text-left
-        h2 設計故事
-      .panel
-        .row
-          .col-md-12
-            == product.design_story.html_safe
+  - if product.design_story.present?
+    section.product-story
+      .container
+        .section-header.text-left
+          h2 設計故事
+        .panel
+          .row
+            .col-md-12
+              == product.design_story.html_safe
   .container
     .article-control-panel
       .row
         .col-xs-4
-          .wrap-pre
-            a.btn.btn-link href="/"
-              i.arrow_carrot-left_alt
-              |  Previous
+          - product.prev
+            .wrap-pre
+              == link_to product_path(product.prev), class: 'btn btn-link' do
+                i.arrow_carrot-left_alt
+                |  Previous
         .col-xs-4
           .wrap-post
-            a.btn.btn-link href="/"
+            == link_to product_breadcrumb_link_path(product.collection), class: 'btn btn-link' do
               i.icon_menu-circle_alt
         .col-xs-4
-          .wrap-next
-            a.btn.btn-link href="/"
-              | Next
-              i.arrow_carrot-right_alt
+          - product.next
+            .wrap-next
+              == link_to product_path(product.next), class: 'btn btn-link' do
+                | Next
+                i.arrow_carrot-right_alt
