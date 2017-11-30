@@ -2,14 +2,20 @@ ol.breadcrumb.page-breadcrumb
   li
     == link_to admin_root_path do
       i.px-nav-icon.ion-home
-  li
-    == link_to t('admin.service'), admin_users_path
-  li
-    == link_to service.name, admin_service_path(service)
-  li
-    == link_to service_furniture.name, admin_service_service_furniture_path(service, service_furniture)
-  li
-    == link_to product.name, admin_service_service_furniture_product_path(service, service_furniture, product)
+  - if !service.new_record? and !service_furniture.new_record?
+    li
+      == link_to t('admin.service'), admin_users_path
+    li
+      == link_to service.name, admin_service_path(service)
+    li
+      == link_to service_furniture.name, admin_service_service_furniture_path(service, service_furniture)
+    li
+      == link_to product.name, admin_service_service_furniture_product_path(service, service_furniture, product)
+  - elsif !success_case.new_record?
+    li
+      == link_to success_case.name, admin_success_case_path(success_case)
+    li
+      == link_to product.name, admin_success_case_product_path(success_case, product)
   li.active
     = t('helpers.add')
 .page-header
@@ -18,5 +24,8 @@ ol.breadcrumb.page-breadcrumb
 
 .row
   .col-md-12
-    == render 'form'
+    - if !service.new_record? and !service_furniture.new_record?
+      == render 'form_service_furniture'
+    - elsif !success_case.new_record?
+      == render 'form_success_case'
 

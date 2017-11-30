@@ -14,7 +14,7 @@ $ ->
       dictInvalidFileType: '檔案格式錯誤，請上傳圖片'
       init: (e) ->
         thisDropzone = @
-        $.getJSON gon.admin_service_service_furniture_product_photos_path, (product_photo) ->
+        $.getJSON gon.admin_product_photos_path, (product_photo) ->
           $.each product_photo, (key, value) ->
             mockFile = { id: value.id, name: value.name, size: value.size, position: value.position }
             thisDropzone.options.addedfile.call(thisDropzone, mockFile)
@@ -25,7 +25,7 @@ $ ->
             # dz_remove = $(thisDropzone.files[thisDropzone.files.length-1].previewTemplate).find('.dz-remove')
 
             # dz_show = $('<a/>', {
-            #   href: "#{gon.admin_service_service_furniture_product_photos_path}/#{value.id}/edit"
+            #   href: "#{gon.admin_product_photos_path}/#{value.id}/edit"
             #   class: 'dz-show'
             #   html: '檢視圖片'
             # })
@@ -40,7 +40,7 @@ $ ->
           # dz_remove = $(file.previewTemplate).find('.dz-remove')
 
           # dz_show = $('<a/>', {
-          #   href: "#{gon.admin_service_service_furniture_product_photos_path}/#{response.product_photo.id}/edit"
+          #   href: "#{gon.admin_product_photos_path}/#{response.product_photo.id}/edit"
           #   class: 'dz-show'
           #   html: '檢視圖片'
           # })
@@ -52,7 +52,7 @@ $ ->
       removedfile: (file) ->
         $.ajax
           type: 'DELETE',
-          url: "#{gon.admin_service_service_furniture_product_photos_path}/#{file.id}",
+          url: "#{gon.admin_product_photos_path}/#{file.id}",
           dataType: 'json'
 
         _ref = undefined
@@ -74,6 +74,6 @@ $ ->
 
         $.ajax
           type: 'PUT',
-          url: gon.update_position_admin_service_service_furniture_product_photos_path
+          url: gon.update_position_admin_product_photos_path
           data: {product_photo: product_photo}
           dataType: 'json'

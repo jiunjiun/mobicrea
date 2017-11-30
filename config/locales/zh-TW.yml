@@ -21,6 +21,7 @@ zh-TW:
     user:             帳號管理
     slider:           橫幅
     service:          服務內容
+    success_case:     成功案例
 
   meta:
     desc:     系統家具
@@ -169,6 +170,9 @@ zh-TW:
       product_item:
         key:   項目
         value: 數值
+      success_case:
+        name:       案例類型
+        created_at: 建立日期
 
     placeholders:
 

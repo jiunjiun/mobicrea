@@ -3,16 +3,13 @@ ol.breadcrumb.page-breadcrumb
     == link_to admin_root_path do
       i.px-nav-icon.ion-home
   li
-    == link_to t('admin.service'), admin_services_path
-  li
-    == link_to service.name, admin_service_path(service)
+    == link_to t('admin.success_case'), admin_success_cases_path
   li.active
-    = t('helpers.add')
+    = t('helpers.edit')
 .page-header
   .pull-left
-    h1= t('helpers.add')
+    h1= t('helpers.edit')
 
 .row
   .col-md-12
     == render 'form'
-

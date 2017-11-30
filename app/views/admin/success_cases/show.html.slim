@@ -1,0 +1,37 @@
+ol.breadcrumb.page-breadcrumb
+  li
+    == link_to admin_root_path do
+      i.px-nav-icon.ion-home
+  li
+    == link_to admin_success_cases_path do
+      = t('admin.success_case')
+  li.active
+    = success_case.name
+
+.page-header
+  .pull-left
+    h1= success_case.name
+  .pull-right
+    .btn-group
+      == link_to t('helpers.edit'), edit_admin_success_case_path(success_case), class: 'btn btn-primary btn-3d'
+      == link_to t('helpers.delete'), admin_success_case_path(success_case), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d'
+
+.row
+  .col-md-12
+    .panel
+      .panel-heading
+        span.panel-title= t('service_furnitures.products')
+        .panel-heading-controls
+          == link_to t('helpers.add'), new_admin_success_case_product_path(success_case), class: 'btn btn-primary btn-xs btn-3d'
+
+      table.table
+        thead
+          tr
+            th.text-center= t('simple_form.labels.service.name')
+            th.text-center= t('simple_form.labels.service.created_at')
+        tbody
+          - products.each do |product|
+            tr
+              td.text-center
+                == link_to product.name, admin_success_case_product_path(success_case, product)
+              td.text-center= l product.created_at, format: :long

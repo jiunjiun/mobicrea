@@ -34,3 +34,7 @@ service3_furniture1 = service3.service_furnitures.create({ name: '櫃類' })
 service3_furniture1 = service3.service_furnitures.create({ name: '會議桌' })
 service3_furniture1 = service3.service_furnitures.create({ name: '椅類' })
 service3_furniture1 = service3.service_furnitures.create({ name: '配件' })
+
+success_case1 = SuccessCase.create({ name: '商業空間' })
+success_case2 = SuccessCase.create({ name: '辦公空間' })
+success_case3 = SuccessCase.create({ name: '私人會所' })

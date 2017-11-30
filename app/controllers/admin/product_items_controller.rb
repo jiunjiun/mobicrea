@@ -1,7 +1,8 @@
 class Admin::ProductItemsController < AdminController
-  expose :service
-  expose :service_furniture
-  expose :product
+  expose :service, id: ->{ params[:service_id] }
+  expose :service_furniture, id: ->{ params[:service_furniture_id] }
+  expose :success_case, id: ->{ params[:success_case_id] }
+  expose :product, id: ->{ params[:product_id] }
   expose :product_items, -> { product.items }
   expose :product_item, build: ->(product_item_params, scope){ product_items.build(product_item_params) }
 
@@ -10,7 +11,11 @@ class Admin::ProductItemsController < AdminController
 
   def create
     if product_item.save
-      redirect_to admin_service_service_furniture_product_path(service, service_furniture, product), notice: t('helpers.successfully_created')
+      if !service.new_record? and !service_furniture.new_record?
+        redirect_to admin_service_service_furniture_product_path(service, service_furniture, product), notice: t('helpers.successfully_created')
+      elsif !success_case.new_record?
+        redirect_to admin_success_case_product_path(success_case, product), notice: t('helpers.successfully_created')
+      end
     else
       render :new
     end
@@ -21,7 +26,11 @@ class Admin::ProductItemsController < AdminController
 
   def update
     if product_item.update(product_item_params)
-      redirect_to admin_service_service_furniture_product_path(service, service_furniture, product), notice: t('helpers.successfully_updated')
+      if !service.new_record? and !service_furniture.new_record?
+        redirect_to admin_service_service_furniture_product_path(service, service_furniture, product), notice: t('helpers.successfully_updated')
+      elsif !success_case.new_record?
+        redirect_to admin_success_case_product_path(success_case, product), notice: t('helpers.successfully_updated')
+      end
     else
       render :edit
     end
@@ -29,7 +38,11 @@ class Admin::ProductItemsController < AdminController
 
   def destroy
     product_item.destroy
-    redirect_to admin_service_service_furniture_product_path(service, service_furniture, product), notice: t('helpers.successfully_destroy')
+    if !service.new_record? and !service_furniture.new_record?
+      redirect_to admin_service_service_furniture_product_path(service, service_furniture, product), notice: t('helpers.successfully_destroy')
+    elsif !success_case.new_record?
+      redirect_to admin_success_case_product_path(success_case, product), notice: t('helpers.successfully_destroy')
+    end
   end
 
   private

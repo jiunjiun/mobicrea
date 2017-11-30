@@ -2,12 +2,16 @@ ol.breadcrumb.page-breadcrumb
   li
     == link_to admin_root_path do
       i.px-nav-icon.ion-home
-  li
-    == link_to t('admin.service'), admin_users_path
-  li
-    == link_to service.name, admin_service_path(service)
-  li
-    == link_to service_furniture.name, admin_service_service_furniture_path(service, service_furniture)
+  - if !service.new_record? and !service_furniture.new_record?
+    li
+      == link_to t('admin.service'), admin_services_path
+    li
+      == link_to service.name, admin_service_path(service)
+    li
+      == link_to service_furniture.name, admin_service_service_furniture_path(service, service_furniture)
+  - elsif !success_case.new_record?
+    li
+      == link_to success_case.name, admin_success_case_path(success_case)
   li.active
     = product.name
 .page-header
@@ -15,8 +19,12 @@ ol.breadcrumb.page-breadcrumb
     h1= product.name
   .pull-right
     .btn-group
-      == link_to t('helpers.edit'), edit_admin_service_service_furniture_product_path(service, service_furniture, product), class: 'btn btn-primary btn-3d'
-      == link_to t('helpers.delete'), admin_service_service_furniture_product_path(service, service_furniture, product), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d'
+      - if !service.new_record? and !service_furniture.new_record?
+        == link_to t('helpers.edit'), edit_admin_service_service_furniture_product_path(service, service_furniture, product), class: 'btn btn-primary btn-3d'
+        == link_to t('helpers.delete'), admin_service_service_furniture_product_path(service, service_furniture, product), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d'
+      - elsif !success_case.new_record?
+        == link_to t('helpers.edit'), edit_admin_success_case_product_path(success_case, product), class: 'btn btn-primary btn-3d'
+        == link_to t('helpers.delete'), admin_success_case_product_path(success_case, product), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d'
 
 .row#service_info
   .col-md-12
@@ -55,7 +63,10 @@ ol.breadcrumb.page-breadcrumb
       .panel-heading
         span.panel-title= t('product_items.info')
         .panel-heading-controls
-          == link_to t('helpers.add'), new_admin_service_service_furniture_product_product_item_path(service, service_furniture, product), class: 'btn btn-primary btn-xs btn-3d'
+          - if !service.new_record? and !service_furniture.new_record?
+            == link_to t('helpers.add'), new_admin_service_service_furniture_product_product_item_path(service, service_furniture, product), class: 'btn btn-primary btn-xs btn-3d'
+          - elsif !success_case.new_record?
+            == link_to t('helpers.add'), new_admin_success_case_product_product_item_path(success_case, product), class: 'btn btn-primary btn-xs btn-3d'
 
       table.table
         thead
@@ -68,8 +79,12 @@ ol.breadcrumb.page-breadcrumb
             tr
               td
                 .btn-group
-                  == link_to t('helpers.edit'), edit_admin_service_service_furniture_product_product_item_path(service, service_furniture, product, item), class: 'btn btn-primary btn-3d btn-xs'
-                  == link_to t('helpers.delete'), admin_service_service_furniture_product_product_item_path(service, service_furniture, product, item), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d btn-xs'
+                  - if !service.new_record? and !service_furniture.new_record?
+                    == link_to t('helpers.edit'), edit_admin_service_service_furniture_product_product_item_path(service, service_furniture, product, item), class: 'btn btn-primary btn-3d btn-xs'
+                    == link_to t('helpers.delete'), admin_service_service_furniture_product_product_item_path(service, service_furniture, product, item), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d btn-xs'
+                  - elsif !success_case.new_record?
+                    == link_to t('helpers.edit'), edit_admin_success_case_product_product_item_path(success_case, product, item), class: 'btn btn-primary btn-3d btn-xs'
+                    == link_to t('helpers.delete'), admin_success_case_product_product_item_path(success_case, product, item), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d btn-xs'
               td.text-center== item.key
               td.text-center== item.value
 
@@ -79,13 +94,23 @@ ol.breadcrumb.page-breadcrumb
       .panel-heading
         span.panel-title= t('products.photo')
       .panel-body
-        == form_tag admin_service_service_furniture_product_photos_path(service, service_furniture, product), method: :post, multipart: true, class: "dropzone-box", id: 'dropzone_photo' do
-            .dz-default.dz-message.sortable
-              .dz-upload-icon
-              = t('helpers.drop_files_here')
-              br/
-              span.dz-text-small= t('helpers.or_click_to_pick_manually')
-            .fallback.hide
-              == file_field_tag :image
+        - if !service.new_record? and !service_furniture.new_record?
+          == form_tag admin_service_service_furniture_product_photos_path(service, service_furniture, product), method: :post, multipart: true, class: "dropzone-box", id: 'dropzone_photo' do
+              .dz-default.dz-message.sortable
+                .dz-upload-icon
+                = t('helpers.drop_files_here')
+                br/
+                span.dz-text-small= t('helpers.or_click_to_pick_manually')
+              .fallback.hide
+                == file_field_tag :image
+        - elsif !success_case.new_record?
+          == form_tag admin_success_case_product_photos_path(success_case, product), method: :post, multipart: true, class: "dropzone-box", id: 'dropzone_photo' do
+              .dz-default.dz-message.sortable
+                .dz-upload-icon
+                = t('helpers.drop_files_here')
+                br/
+                span.dz-text-small= t('helpers.or_click_to_pick_manually')
+              .fallback.hide
+                == file_field_tag :image
 
 

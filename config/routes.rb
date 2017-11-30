@@ -37,6 +37,15 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :success_cases do
+      resources :products do
+        resources :product_items, except: [:index]
+        resources :photos, controller: 'product_photos' do
+          put :update_position, on: :collection
+        end
+      end
+    end
+
     resource :summernote_upload, only: [:create]
   end
 

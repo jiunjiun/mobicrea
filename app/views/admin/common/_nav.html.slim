@@ -15,6 +15,11 @@ nav.px-nav.px-nav-left
         span.px-nav-label
           = t('admin.service')
     li.px-nav-item
+      == link_to admin_success_cases_path do
+        i.px-nav-icon.ion-folder
+        span.px-nav-label
+          = t('admin.success_case')
+    li.px-nav-item
       == link_to admin_users_path do
         i.px-nav-icon.ion-person
         span.px-nav-label

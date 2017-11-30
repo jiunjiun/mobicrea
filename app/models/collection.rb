@@ -8,6 +8,6 @@ class Collection < ApplicationRecord
   module CollectionType
     SERVICE           = 'service'
     SERVICE_FURNITURE = 'service_furniture'
-    FURNITURE_TYPE    = 'furniture_type'
+    SUCCESS_CASE      = 'success_case'
   end
 end

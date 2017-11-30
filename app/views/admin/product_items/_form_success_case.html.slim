@@ -1,0 +1,12 @@
+== simple_form_for [:admin, success_case, product, product_item], html: { autocomplete: 'off' } do |f|
+  .panel.colourable
+    /! Default panel contents
+    .panel-body
+      == f.input :key
+      == f.input :value
+
+  .panel
+    .panel-body
+      == f.button :submit, class: 'btn-primary btn-3d'
+      | &nbsp;&nbsp;
+      == link_to t('helpers.back'), admin_success_case_product_path(success_case, product), class: 'btn btn-default btn-3d'

@@ -1,0 +1,18 @@
+== simple_form_for [:admin, success_case, product], html: { autocomplete: 'off' } do |f|
+  .panel.colourable
+    /! Default panel contents
+    .panel-body
+      == f.input :uid
+      == f.input :name
+      == f.input :name_eng
+      == f.input :description
+      == f.input :hash_tag, input_html: { data: { role: 'tagsinput' } }
+
+  .panel
+    .panel-body
+      == f.button :submit, class: 'btn-primary btn-3d'
+      | &nbsp;&nbsp;
+      - if product.id.present?
+        == link_to t('helpers.back'), admin_success_case_product_path(success_case, product), class: 'btn btn-default btn-3d'
+      - else
+        == link_to t('helpers.back'), admin_success_case_path(success_case), class: 'btn btn-default btn-3d'
