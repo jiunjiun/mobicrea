@@ -1,0 +1,15 @@
+ol.breadcrumb.page-breadcrumb
+  li
+    == link_to admin_root_path do
+      i.px-nav-icon.ion-home
+  li
+    == link_to t('admin.brand'), admin_brands_path
+  li.active
+    = t('helpers.edit')
+.page-header
+  .pull-left
+    h1= t('helpers.edit')
+
+.row
+  .col-md-12
+    == render 'form'

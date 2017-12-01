@@ -21,27 +21,6 @@ class Admin::ProductPhotosController < AdminController
     render json: result
   end
 
-  def edit
-  end
-
-  def update
-    if product_photo.update product_photo_params
-      redirect_to edit_admin_service_product_photo_path(service, product_photo), notice: t('helpers.successfully_updated')
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    if product_photo.destroy
-      result = { status: :success }
-    else
-      result = { status: :fail }
-    end
-
-    render json: result
-  end
-
   def update_position
     photo_params = params[:product_photo]
     if product_photos.update photo_params.keys, photo_params.values

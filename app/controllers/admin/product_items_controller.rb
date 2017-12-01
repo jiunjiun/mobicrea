@@ -2,6 +2,7 @@ class Admin::ProductItemsController < AdminController
   expose :service, id: ->{ params[:service_id] }
   expose :service_furniture, id: ->{ params[:service_furniture_id] }
   expose :success_case, id: ->{ params[:success_case_id] }
+  expose :brand, id: ->{ params[:brand_id] }
   expose :product, id: ->{ params[:product_id] }
   expose :product_items, -> { product.items }
   expose :product_item, build: ->(product_item_params, scope){ product_items.build(product_item_params) }
@@ -15,6 +16,8 @@ class Admin::ProductItemsController < AdminController
         redirect_to admin_service_service_furniture_product_path(service, service_furniture, product), notice: t('helpers.successfully_created')
       elsif !success_case.new_record?
         redirect_to admin_success_case_product_path(success_case, product), notice: t('helpers.successfully_created')
+      elsif !brand.new_record?
+        redirect_to admin_brand_product_path(brand, product), notice: t('helpers.successfully_created')
       end
     else
       render :new
@@ -30,6 +33,8 @@ class Admin::ProductItemsController < AdminController
         redirect_to admin_service_service_furniture_product_path(service, service_furniture, product), notice: t('helpers.successfully_updated')
       elsif !success_case.new_record?
         redirect_to admin_success_case_product_path(success_case, product), notice: t('helpers.successfully_updated')
+      elsif !brand.new_record?
+        redirect_to admin_brand_product_path(brand, product), notice: t('helpers.successfully_updated')
       end
     else
       render :edit
@@ -42,6 +47,8 @@ class Admin::ProductItemsController < AdminController
       redirect_to admin_service_service_furniture_product_path(service, service_furniture, product), notice: t('helpers.successfully_destroy')
     elsif !success_case.new_record?
       redirect_to admin_success_case_product_path(success_case, product), notice: t('helpers.successfully_destroy')
+    elsif !brand.new_record?
+      redirect_to admin_brand_product_path(brand, product), notice: t('helpers.successfully_destroy')
     end
   end
 

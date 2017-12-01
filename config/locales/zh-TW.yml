@@ -11,8 +11,6 @@ zh-TW:
   success_case: 成功案例
 
 
-
-
   # 後台
   backend:      後台
   back_fontend: 回前台
@@ -24,6 +22,7 @@ zh-TW:
     slider:           橫幅
     service:          服務內容
     success_case:     成功案例
+    brand:            代理品牌
 
   meta:
     desc:     系統家具
@@ -114,16 +113,16 @@ zh-TW:
       minimum_password:     密碼最少%{minimum_password_length}位
 
   services:
-    info:   '%{name} 資訊'
-    slider: '%{name} 橫幅'
-    model_item:     可模組參考項目
+    info:         資訊
+    slider:       橫幅
+    model_item:   可模組參考項目
 
   service_furnitures:
     sub_class: 子類別
     products:  商品清單
 
   products:
-    info:   '%{name} 商品資訊'
+    info:   商品資訊
     photo:  商品圖片
     design_story: 相關產品
     related_products: 相關產品
@@ -133,6 +132,9 @@ zh-TW:
 
   success_cases:
     all_item: 所有項目
+
+  brands:
+    info:   品牌資訊
 
   simple_form:
     required:
@@ -180,6 +182,12 @@ zh-TW:
       success_case:
         name:       案例類型
         created_at: 建立日期
+      brand:
+        name:         品牌名稱
+        description:  描述
+        link:         相關連結
+        file_link:    檔案連結
+        created_at:   建立日期
 
     placeholders:
 

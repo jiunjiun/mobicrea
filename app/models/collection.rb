@@ -9,5 +9,6 @@ class Collection < ApplicationRecord
     SERVICE           = 'service'
     SERVICE_FURNITURE = 'service_furniture'
     SUCCESS_CASE      = 'success_case'
+    BRAND             = 'brand'
   end
 end

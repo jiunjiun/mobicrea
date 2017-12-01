@@ -12,6 +12,9 @@ ol.breadcrumb.page-breadcrumb
   - elsif !success_case.new_record?
     li
       == link_to success_case.name, admin_success_case_path(success_case)
+  - elsif !brand.new_record?
+    li
+      == link_to brand.name, admin_brand_path(brand)
   li.active
     = product.name
 .page-header
@@ -25,12 +28,15 @@ ol.breadcrumb.page-breadcrumb
       - elsif !success_case.new_record?
         == link_to t('helpers.edit'), edit_admin_success_case_product_path(success_case, product), class: 'btn btn-primary btn-3d'
         == link_to t('helpers.delete'), admin_success_case_product_path(success_case, product), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d'
+      - elsif !brand.new_record?
+        == link_to t('helpers.edit'), edit_admin_brand_product_path(brand, product), class: 'btn btn-primary btn-3d'
+        == link_to t('helpers.delete'), admin_brand_product_path(brand, product), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d'
 
 .row#service_info
   .col-md-12
     .panel
       .panel-heading
-        span.panel-title= t('products.info', name: product.name)
+        span.panel-title= t('products.info')
       table.table
         tbody
           tr
@@ -53,9 +59,10 @@ ol.breadcrumb.page-breadcrumb
             td.col-md-2.col-xs-2.text-right
               strong= t('simple_form.labels.product.hash_tag')
             td.col-md-8
-              - product.hash_tag.split(',').each do |tag|
-                code= tag
-                | &nbsp;&nbsp;
+              - if product.hash_tag.present?
+                - product.hash_tag.split(',').each do |tag|
+                  code= tag
+                  | &nbsp;&nbsp;
 
 .row
   .col-md-12
@@ -67,6 +74,8 @@ ol.breadcrumb.page-breadcrumb
             == link_to t('helpers.add'), new_admin_service_service_furniture_product_product_item_path(service, service_furniture, product), class: 'btn btn-primary btn-xs btn-3d'
           - elsif !success_case.new_record?
             == link_to t('helpers.add'), new_admin_success_case_product_product_item_path(success_case, product), class: 'btn btn-primary btn-xs btn-3d'
+          - elsif !brand.new_record?
+            == link_to t('helpers.add'), new_admin_brand_product_product_item_path(brand, product), class: 'btn btn-primary btn-xs btn-3d'
 
       table.table
         thead
@@ -85,6 +94,9 @@ ol.breadcrumb.page-breadcrumb
                   - elsif !success_case.new_record?
                     == link_to t('helpers.edit'), edit_admin_success_case_product_product_item_path(success_case, product, item), class: 'btn btn-primary btn-3d btn-xs'
                     == link_to t('helpers.delete'), admin_success_case_product_product_item_path(success_case, product, item), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d btn-xs'
+                  - elsif !brand.new_record?
+                    == link_to t('helpers.edit'), edit_admin_brand_product_product_item_path(brand, product, item), class: 'btn btn-primary btn-3d btn-xs'
+                    == link_to t('helpers.delete'), admin_brand_product_product_item_path(brand, product, item), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d btn-xs'
               td.text-center== item.key
               td.text-center== item.value
 
@@ -96,21 +108,30 @@ ol.breadcrumb.page-breadcrumb
       .panel-body
         - if !service.new_record? and !service_furniture.new_record?
           == form_tag admin_service_service_furniture_product_photos_path(service, service_furniture, product), method: :post, multipart: true, class: "dropzone-box", id: 'dropzone_photo' do
-              .dz-default.dz-message.sortable
-                .dz-upload-icon
-                = t('helpers.drop_files_here')
-                br/
-                span.dz-text-small= t('helpers.or_click_to_pick_manually')
-              .fallback.hide
-                == file_field_tag :image
+            .dz-default.dz-message.sortable
+              .dz-upload-icon
+              = t('helpers.drop_files_here')
+              br/
+              span.dz-text-small= t('helpers.or_click_to_pick_manually')
+            .fallback.hide
+              == file_field_tag :image
         - elsif !success_case.new_record?
           == form_tag admin_success_case_product_photos_path(success_case, product), method: :post, multipart: true, class: "dropzone-box", id: 'dropzone_photo' do
-              .dz-default.dz-message.sortable
-                .dz-upload-icon
-                = t('helpers.drop_files_here')
-                br/
-                span.dz-text-small= t('helpers.or_click_to_pick_manually')
-              .fallback.hide
-                == file_field_tag :image
+            .dz-default.dz-message.sortable
+              .dz-upload-icon
+              = t('helpers.drop_files_here')
+              br/
+              span.dz-text-small= t('helpers.or_click_to_pick_manually')
+            .fallback.hide
+              == file_field_tag :image
+        - elsif !brand.new_record?
+          == form_tag admin_brand_product_photos_path(brand, product), method: :post, multipart: true, class: "dropzone-box", id: 'dropzone_photo' do
+            .dz-default.dz-message.sortable
+              .dz-upload-icon
+              = t('helpers.drop_files_here')
+              br/
+              span.dz-text-small= t('helpers.or_click_to_pick_manually')
+            .fallback.hide
+              == file_field_tag :image
 
 

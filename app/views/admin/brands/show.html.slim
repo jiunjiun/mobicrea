@@ -1,0 +1,61 @@
+ol.breadcrumb.page-breadcrumb
+  li
+    == link_to admin_root_path do
+      i.px-nav-icon.ion-home
+  li
+    == link_to admin_brands_path do
+      = t('admin.brand')
+  li.active
+    = brand.name
+
+.page-header
+  .pull-left
+    h1= brand.name
+  .pull-right
+    .btn-group
+      == link_to t('helpers.edit'), edit_admin_brand_path(brand), class: 'btn btn-primary btn-3d'
+      == link_to t('helpers.delete'), admin_brand_path(brand), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d'
+
+.row#brand_info
+  .col-md-12
+    .panel
+      .panel-heading
+        span.panel-title= t('brands.info')
+      table.table
+        tbody
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.brand.description')
+            td.col-md-8= brand.description
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.brand.link')
+            td.col-md-8
+              - if brand.link.present?
+                == link_to brand.link, brand.link, target: '_blank'
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.brand.file_link')
+            td.col-md-8
+              - if brand.file_link.present?
+                == link_to brand.file_link, brand.file_link, target: '_blank'
+
+.row
+  .col-md-12
+    .panel
+      .panel-heading
+        span.panel-title= t('service_furnitures.products')
+        .panel-heading-controls
+          == link_to t('helpers.add'), new_admin_brand_product_path(brand), class: 'btn btn-primary btn-xs btn-3d'
+
+      table.table
+        thead
+          tr
+            th.text-center= t('simple_form.labels.service.name')
+            th.text-center= t('simple_form.labels.service.created_at')
+        tbody
+          - products.each do |product|
+            tr
+              td.text-center
+                == link_to product.name, admin_brand_product_path(brand, product)
+              td.text-center= l product.created_at, format: :long

@@ -1,0 +1,30 @@
+ol.breadcrumb.page-breadcrumb
+  li
+    == link_to admin_root_path do
+      i.px-nav-icon.ion-home
+  li.active
+    = t('admin.brand')
+
+.page-header
+  .pull-left
+    h1= t('admin.brand')
+  .pull-right
+      == link_to t('helpers.add'), new_admin_brand_path, class: 'btn btn-primary btn-3d'
+
+.row
+  .col-md-12
+    .panel
+      table.table
+        thead
+          tr
+            th.text-center= t('simple_form.labels.brand.name')
+            th.text-center= t('simple_form.labels.brand.created_at')
+        tbody
+          - brands.each do |brand|
+            tr
+              td.text-center
+                == link_to brand.name, admin_brand_path(brand)
+              td.text-center= l brand.created_at, format: :long
+
+    .pull-right
+      == will_paginate brands, renderer: BootstrapPagination::Rails

@@ -16,6 +16,11 @@ ol.breadcrumb.page-breadcrumb
       == link_to success_case.name, admin_success_case_path(success_case)
     li
       == link_to product.name, admin_success_case_product_path(success_case, product)
+  - elsif !brand.new_record?
+    li
+      == link_to brand.name, admin_brand_path(brand)
+    li
+      == link_to product.name, admin_brand_product_path(brand, product)
   li.active
     = t('helpers.add')
 .page-header
@@ -28,4 +33,6 @@ ol.breadcrumb.page-breadcrumb
       == render 'form_service_furniture'
     - elsif !success_case.new_record?
       == render 'form_success_case'
+    - elsif !brand.new_record?
+      == render 'form_brand'
 

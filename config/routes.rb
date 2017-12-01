@@ -28,7 +28,7 @@ Rails.application.routes.draw do
       end
 
       resources :service_furnitures do
-        resources :products do
+        resources :products, except: [:index] do
           resources :product_items, except: [:index]
           resources :photos, controller: 'product_photos' do
             put :update_position, on: :collection
@@ -38,7 +38,16 @@ Rails.application.routes.draw do
     end
 
     resources :success_cases do
-      resources :products do
+      resources :products, except: [:index] do
+        resources :product_items, except: [:index]
+        resources :photos, controller: 'product_photos' do
+          put :update_position, on: :collection
+        end
+      end
+    end
+
+    resources :brands do
+      resources :products, except: [:index] do
         resources :product_items, except: [:index]
         resources :photos, controller: 'product_photos' do
           put :update_position, on: :collection
