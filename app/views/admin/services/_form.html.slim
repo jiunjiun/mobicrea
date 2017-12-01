@@ -10,4 +10,7 @@
     .panel-body
       == f.button :submit, class: 'btn-primary btn-3d'
       | &nbsp;&nbsp;
-      == link_to t('helpers.back'), admin_services_path, class: 'btn btn-default btn-3d'
+      - if service.new_record?
+        == link_to t('helpers.back'), admin_services_path, class: 'btn btn-default btn-3d'
+      - else
+        == link_to t('helpers.back'), admin_service_path(service), class: 'btn btn-default btn-3d'

@@ -4,6 +4,8 @@ ol.breadcrumb.page-breadcrumb
       i.px-nav-icon.ion-home
   li
     == link_to t('admin.service'), admin_services_path
+  li
+    == link_to service.name, admin_service_path(service)
   li.active
     = t('helpers.edit')
 .page-header

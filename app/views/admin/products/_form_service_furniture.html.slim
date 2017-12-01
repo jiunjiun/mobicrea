@@ -13,4 +13,7 @@
     .panel-body
       == f.button :submit, class: 'btn-primary btn-3d'
       | &nbsp;&nbsp;
-      == link_to t('helpers.back'), admin_service_service_furniture_path(service, service_furniture), class: 'btn btn-default btn-3d'
+      - if product.new_record?
+        == link_to t('helpers.back'), admin_service_service_furniture_path(service, service_furniture), class: 'btn btn-default btn-3d'
+      - else
+        == link_to t('helpers.back'), admin_service_service_furniture_product_path(service, service_furniture, product), class: 'btn btn-default btn-3d'

@@ -8,4 +8,7 @@
     .panel-body
       == f.button :submit, class: 'btn-primary btn-3d'
       | &nbsp;&nbsp;
-      == link_to t('helpers.back'), admin_success_cases_path, class: 'btn btn-default btn-3d'
+      - if success_case.new_record?
+        == link_to t('helpers.back'), admin_success_cases_path, class: 'btn btn-default btn-3d'
+      - else
+        == link_to t('helpers.back'), admin_success_case_path(success_case), class: 'btn btn-default btn-3d'
