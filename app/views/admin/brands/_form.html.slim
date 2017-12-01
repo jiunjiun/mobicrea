@@ -2,10 +2,17 @@
   .panel.colourable
     /! Default panel contents
     .panel-body
-      == f.input :name
-      == f.input :description, input_html: { rows: 5 }
-      == f.input :link, as: :url
-      == f.input :file_link, as: :url
+      .col-md-9
+        == f.input :name
+        == f.input :description, input_html: { rows: 5 }
+        == f.input :link, as: :url
+        == f.input :file_link, as: :url
+      .col-md-3
+        - if brand.brand_logo.present?
+          == image_tag brand.brand_logo, class: 'img-responsive img-thumbnail'
+          br/
+          br/
+        == f.input :brand_logo, as: :file
 
   .panel
     .panel-body

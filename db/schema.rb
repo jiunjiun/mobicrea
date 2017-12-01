@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20171201065144) do
     t.datetime "updated_at", null: false
     t.text "link"
     t.text "file_link"
+    t.json "brand_logo"
     t.index ["parent_id"], name: "index_collections_on_parent_id"
   end
 

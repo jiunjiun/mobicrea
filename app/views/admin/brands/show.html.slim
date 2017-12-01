@@ -21,24 +21,29 @@ ol.breadcrumb.page-breadcrumb
     .panel
       .panel-heading
         span.panel-title= t('brands.info')
-      table.table
-        tbody
-          tr
-            td.col-md-2.col-xs-2.text-right
-              strong= t('simple_form.labels.brand.description')
-            td.col-md-8= brand.description
-          tr
-            td.col-md-2.col-xs-2.text-right
-              strong= t('simple_form.labels.brand.link')
-            td.col-md-8
-              - if brand.link.present?
-                == link_to brand.link, brand.link, target: '_blank'
-          tr
-            td.col-md-2.col-xs-2.text-right
-              strong= t('simple_form.labels.brand.file_link')
-            td.col-md-8
-              - if brand.file_link.present?
-                == link_to brand.file_link, brand.file_link, target: '_blank'
+      .panel-body
+        .col-md-9
+          table.table
+            tbody
+              tr
+                td.col-md-2.col-xs-2.text-right
+                  strong= t('simple_form.labels.brand.description')
+                td.col-md-8= brand.description
+              tr
+                td.col-md-2.col-xs-2.text-right
+                  strong= t('simple_form.labels.brand.link')
+                td.col-md-8
+                  - if brand.link.present?
+                    == link_to brand.link, brand.link, target: '_blank'
+              tr
+                td.col-md-2.col-xs-2.text-right
+                  strong= t('simple_form.labels.brand.file_link')
+                td.col-md-8
+                  - if brand.file_link.present?
+                    == link_to brand.file_link, brand.file_link, target: '_blank'
+        .col-md-3
+          - if brand.brand_logo.present?
+            == image_tag brand.brand_logo, class: 'img-responsive img-thumbnail'
 
 .row
   .col-md-12
