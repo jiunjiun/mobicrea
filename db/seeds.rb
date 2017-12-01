@@ -35,6 +35,78 @@ service3_furniture1 = service3.service_furnitures.create({ name: '會議桌' })
 service3_furniture1 = service3.service_furnitures.create({ name: '椅類' })
 service3_furniture1 = service3.service_furnitures.create({ name: '配件' })
 
+# success case
 success_case1 = SuccessCase.create({ name: '商業空間' })
 success_case2 = SuccessCase.create({ name: '辦公空間' })
 success_case3 = SuccessCase.create({ name: '私人會所' })
+
+# success case products
+success_case1_product = success_case1.products.create({
+  uid:          "#{success_case1.name}-001",
+  name:         "#{success_case1.name}-product-1",
+  name_eng:     "#{success_case1.name}-product-1",
+  description:  "#{success_case1.name} description",
+  hash_tag:     "class1,class2",
+})
+success_case1_product = success_case2.products.create({
+  uid:          "#{success_case2.name}-001",
+  name:         "#{success_case2.name}-product-1",
+  name_eng:     "#{success_case2.name}-product-1",
+  description:  "#{success_case2.name} description",
+  hash_tag:     "class1,class2",
+})
+success_case1_product = success_case3.products.create({
+  uid:          "#{success_case3.name}-001",
+  name:         "#{success_case3.name}-product-1",
+  name_eng:     "#{success_case3.name}-product-1",
+  description:  "#{success_case3.name} description",
+  hash_tag:     "class1,class2",
+})
+
+# brand
+brand1 = Brand.create({ name: 'Segis',      description: 'Segis description',       link: 'http://www.google.com' })
+brand2 = Brand.create({ name: 'Softline',   description: 'Softline description',    link: 'http://www.google.com' })
+brand3 = Brand.create({ name: 'Humanscale', description: 'Humanscale description',  link: 'http://www.google.com' })
+brand4 = Brand.create({ name: 'Vlaar',      description: 'Vlaar description',       link: 'http://www.google.com' })
+brand5 = Brand.create({ name: 'realsteel',  description: 'realsteel description',   link: 'http://www.google.com' })
+
+# brand products
+brand1_product = brand1.products.create({
+  uid:          "#{brand1.name}-001",
+  name:         "#{brand1.name}-product-1",
+  name_eng:     "#{brand1.name}-product-1",
+  description:  "#{brand1.name} description",
+  hash_tag:     "class1,class2",
+})
+
+brand2_products = brand2.products.create({
+  uid:          "#{brand2.name}-001",
+  name:         "#{brand2.name}-product-1",
+  name_eng:     "#{brand2.name}-product-1",
+  description:  "#{brand2.name} description",
+  hash_tag:     "class1,class2",
+})
+
+brand3_products = brand3.products.create({
+  uid:          "#{brand3.name}-001",
+  name:         "#{brand3.name}-product-1",
+  name_eng:     "#{brand3.name}-product-1",
+  description:  "#{brand3.name} description",
+  hash_tag:     "class1,class2",
+})
+
+brand4_products = brand4.products.create({
+  uid:          "#{brand4.name}-001",
+  name:         "#{brand4.name}-product-1",
+  name_eng:     "#{brand4.name}-product-1",
+  description:  "#{brand4.name} description",
+  hash_tag:     "class1,class2",
+})
+
+brand5_products = brand5.products.create({
+  uid:          "#{brand5.name}-001",
+  name:         "#{brand5.name}-product-1",
+  name_eng:     "#{brand5.name}-product-1",
+  description:  "#{brand5.name} description",
+  hash_tag:     "class1,class2",
+})
