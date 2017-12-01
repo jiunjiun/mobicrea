@@ -1,0 +1,27 @@
+.product-page
+  .container
+    .row.product-header
+      .col-sm-6
+        .product-photo-container
+          ul#productView.product-photo
+            - product.photos.each do |photo|
+              li
+                == image_tag photo.image, alt: '', class: 'img-responsive'
+          .thumbnail-wrap
+            ul#productThumbnail.product-thumbnail
+              - product.photos.each do |photo|
+                li
+                  == image_tag photo.image, alt: '', class: 'img-responsive'
+      .col-sm-6
+        == render 'product_info'
+
+  - if product.design_story.present?
+    section.product-story
+      .container
+        .section-header.text-left
+          h2= t('products.design_story')
+        .panel
+          .row
+            .col-md-12
+              == product.design_story.html_safe
+

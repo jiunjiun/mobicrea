@@ -11,71 +11,28 @@ section.page-top-banner
       = product.name
   .mag-bootom-lg
 
-.product-page
-  .container
-    .row.product-header
-      .col-sm-6
-        .product-photo-container
-          ul#productView.product-photo
-            - product.photos.each do |photo|
-              li
-                == image_tag photo.image, alt: '', class: 'img-responsive'
-          .thumbnail-wrap
-            ul#productThumbnail.product-thumbnail
-              - product.photos.each do |photo|
-                li
-                  == image_tag photo.image, alt: '', class: 'img-responsive'
-      .col-sm-6
-        .commodity-descript
-          .descript-title
-            .product-number= product.uid
-            h3.title
-              span.text-primary
-                = product.name
-              span.en
-                = product.name_eng
-          .divider
-            .desc
-              = product.description
-          .product-meta
-            ul
-              - product.items.each do |item|
-                li
-                  span.meta-label
-                    = item.key
-                    |：
-                  .meta-value
-                    = item.value
-            .margin-bottom-lg
-            .meta-value
-              - product.hash_tag.split(',').each do |hash_tag|
-                span.tag-lin= hash_tag
+- case product.collection.collection_type
+- when Collection::CollectionType::SERVICE_FURNITURE
+  == render 'product_service_furniture'
+- when Collection::CollectionType::SUCCESS_CASE
+  == render 'product_success_case'
 
-  - if product.design_story.present?
-    section.product-story
-      .container
-        .section-header.text-left
-          h2 設計故事
-        .panel
-          .row
-            .col-md-12
-              == product.design_story.html_safe
-  .container
-    .article-control-panel
-      .row
-        .col-xs-4
-          - product.prev
-            .wrap-pre
-              == link_to product_path(product.prev), class: 'btn btn-link' do
-                i.arrow_carrot-left_alt
-                |  Previous
-        .col-xs-4
-          .wrap-post
-            == link_to product_breadcrumb_link_path(product.collection), class: 'btn btn-link' do
-              i.icon_menu-circle_alt
-        .col-xs-4
-          - product.next
-            .wrap-next
-              == link_to product_path(product.next), class: 'btn btn-link' do
-                | Next
-                i.arrow_carrot-right_alt
+.container
+  .article-control-panel
+    .row
+      .col-xs-4
+        - if product.prev.present?
+          .wrap-pre
+            == link_to product_path(product.prev), class: 'btn btn-link' do
+              i.arrow_carrot-left_alt
+              |  Previous
+      .col-xs-4
+        .wrap-post
+          == link_to product_breadcrumb_link_path(product.collection), class: 'btn btn-link' do
+            i.icon_menu-circle_alt
+      .col-xs-4
+        - if product.next.present?
+          .wrap-next
+            == link_to product_path(product.next), class: 'btn btn-link' do
+              | Next
+              i.arrow_carrot-right_alt

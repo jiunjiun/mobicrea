@@ -1,0 +1,63 @@
+section.page-top-banner
+  == image_tag 'img4.jpg', alt: '', class: 'img-fluid'
+  .section-header
+    h2= t('success_case')
+    p 完成案例分享
+.container
+  ol.breadcrumb
+    li
+      == link_to t('home'), root_path
+    li.active
+      = t('success_case')
+  .mag-bootom-lg
+section#successful_story
+  .recent-cases
+    .container
+      ul#filters.nav-select.filter-button-group
+        li.is-checked
+          button.btn.btn-tab data-filter="*"= t('success_cases.all_item')
+        - success_cases.each do |success_casd|
+          li
+            button.btn.btn-tab data-filter=".class_#{success_casd.id}"= success_casd.name
+        / li
+        /   button.btn.btn-tab data-filter=".business"  商業空間
+        / li
+        /   button.btn.btn-tab data-filter=".office"  辦公傢俱
+        / li
+        /   button.btn.btn-tab data-filter=".life"  生活家居
+      .waterfall
+        - success_cases.each do |success_casd|
+          - success_casd.products.each do |product|
+            .element-item class="class_#{success_casd.id} #{cycle("width2x height2x", '', '', '', '')}"
+              == link_to product_path(product) do
+                == image_tag product.photos.first.image , alt: '', class: 'img-fluid'
+        / .element-item.business.width2x.height2x
+        /   a href="#"
+        /     == image_tag "img2.jpg" , alt: '', class: 'img-fluid'
+        / .element-item.business.grid-sizer.life
+        /   a href="#"
+        /     == image_tag "img3.jpg" , alt: '', class: 'img-fluid'
+        / .element-item.business.office
+        /   a href="#"
+        /     == image_tag "img1.jpg" , alt: '', class: 'img-fluid'
+        / .element-item.office.life
+        /   a href="#"
+        /     == image_tag "img4.jpg" , alt: '', class: 'img-fluid'
+        / .element-item.business.life.width2x.height2x
+        /   a href="#"
+        /     == image_tag "img12.jpg" , alt: '', class: 'img-fluid'
+        / .element-item.office
+        /   a href="#"
+        /     == image_tag "img6.jpg" , alt: '', class: 'img-fluid'
+        / .element-item.business.life
+        /   a href="#"
+        /     == image_tag "img7.jpg" , alt: '', class: 'img-fluid'
+        / .element-item.business.grid-sizer.life
+        /   a href="#"
+        /     == image_tag "img8.jpg" , alt: '', class: 'img-fluid'
+        / .element-item.business.office
+        /   a href="#"
+        /     == image_tag "img9.jpg" , alt: '', class: 'img-fluid'
+        / .element-item.office.life
+        /   a href="#"
+        /     == image_tag "img10.jpg" , alt: '', class: 'img-fluid'

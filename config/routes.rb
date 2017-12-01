@@ -59,6 +59,10 @@ Rails.application.routes.draw do
   end
   resources :products, only: [:show]
 
+  # 成功案例
+  resources :success_cases, only: [:index, :show]
+
+
   # 服務內容
   # get 'service',                      to: 'service#index',        as: 'service'
   # get 'service_collection',           to: 'service#collection',   as: 'collection'

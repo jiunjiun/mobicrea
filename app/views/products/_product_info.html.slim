@@ -1,0 +1,27 @@
+.commodity-descript
+  .descript-title
+    .product-number= product.uid
+    h3.title
+      span.text-primary
+        = product.name
+      span.en
+        = product.name_eng
+  .divider
+    .desc
+      = product.description
+  .product-meta
+    ul
+      - product.items.each do |item|
+        li
+          span.meta-label
+            = item.key
+            |：
+          .meta-value
+            - if ['網址', '連結', 'link'].include? item.key.gsub(/ |　/, '')
+              == link_to item.value, item.value
+            - else
+              = item.value
+    .margin-bottom-lg
+    .meta-value
+      - product.hash_tag.split(',').each do |hash_tag|
+        span.tag-lin= hash_tag

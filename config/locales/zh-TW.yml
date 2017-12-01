@@ -6,8 +6,10 @@ zh-TW:
   sign_up:  註冊
   sign_out: 登出
 
-  about:    關於元皿
-  service:  服務內容
+  about:        關於元皿
+  service:      服務內容
+  success_case: 成功案例
+
 
 
 
@@ -123,9 +125,14 @@ zh-TW:
   products:
     info:   '%{name} 商品資訊'
     photo:  商品圖片
+    design_story: 相關產品
+    related_products: 相關產品
 
   product_items:
     info:   商品細項
+
+  success_cases:
+    all_item: 所有項目
 
   simple_form:
     required:

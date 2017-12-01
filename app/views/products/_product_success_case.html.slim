@@ -1,0 +1,28 @@
+.product-page
+  .container
+    .row.product-header
+      .col-sm-6
+        .product-photo-container
+          == image_tag product.photos.first.image, alt: '', class: 'img-responsive'
+      .col-sm-6
+        == render 'product_info'
+      .col-sm-12
+        .story-thumbnail-wrap
+          .row.gap-least
+            - product.photos[1..-1].each do |photo|
+              .col-md-4.col-xs-6
+                == image_tag photo.image, alt: '', class: 'img-responsive'
+
+.section.reference-wrapper
+  .container
+    .wrapper-title.text-left
+      h3= t('products.related_products')
+    ul.row
+      - product.collection.products.where.not(id: product.id).each do |product|
+        li.col-lg-3.col-md-4.col-xs-6
+          == link_to product_path(product) do
+            .item
+              .item-img
+                == image_tag product.photos.first.image, alt: '', class: 'img-fluid'
+              .item-meta
+                h4= product.name

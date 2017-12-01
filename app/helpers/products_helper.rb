@@ -6,6 +6,11 @@ module ProductsHelper
     collection = product.collection
     li = content_tag(:li, product_breadcrumb_link(collection)) + li
 
+    case collection.collection_type
+    when Collection::CollectionType::SUCCESS_CASE
+      li = content_tag(:li, link_to(t('success_case'), success_cases_path)) + li
+    end
+
     if collection.try(:parent).present?
       collection = collection.parent
       li = content_tag(:li, product_breadcrumb_link(collection)) + li
@@ -34,6 +39,8 @@ module ProductsHelper
       service_path(collection)
     when Collection::CollectionType::SERVICE_FURNITURE
       service_service_furniture_path(collection.parent, collection)
+    when Collection::CollectionType::SUCCESS_CASE
+      success_case_path(collection)
     end
   end
 end
