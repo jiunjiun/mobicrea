@@ -22,6 +22,7 @@
             - else
               = item.value
     .margin-bottom-lg
-    .meta-value
-      - product.hash_tag.split(',').each do |hash_tag|
-        span.tag-lin= hash_tag
+    - if product.hash_tag.present?
+      .meta-value
+        - product.hash_tag.split(',').each do |hash_tag|
+          span.tag-lin= hash_tag

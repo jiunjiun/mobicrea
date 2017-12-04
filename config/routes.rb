@@ -71,6 +71,9 @@ Rails.application.routes.draw do
   # 成功案例
   resources :success_cases, only: [:index, :show]
 
+  # 成功案例
+  resources :brands, only: [:index, :show]
+
 
   # 服務內容
   # get 'service',                      to: 'service#index',        as: 'service'

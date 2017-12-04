@@ -1,0 +1,92 @@
+section.page-top-banner
+  == image_tag 'img4.jpg', alt: '', class: 'img-fluid'
+  .section-header
+    h2= brand.name
+.container
+  ol.breadcrumb
+    li
+      == link_to t('home'), root_path
+    li
+      == link_to t('brand'), brands_path
+    li.active= brand.name
+  .mag-bootom-lg
+
+.container
+  .row
+    .col-lg-3.col-sm-3
+
+      aside.intro-aside
+        h4.aside-title 品牌介紹
+        .brand-intro
+          = brand.description
+        ul.meta-wrap
+          - if brand.link.present?
+            li
+              == link_to brand.link, target: "_blank" do
+                span.icon_link aria-hidden="true"
+                | &nbsp;
+                = brand.link
+          - if brand.file_link.present?
+            li
+              == link_to brand.file_link, target: "_blank" do
+                span.icon_download aria-hidden="true"
+                | &nbsp;下載檔案
+
+      aside.contact-info
+        h4.aside-title 更多資訊洽詢
+        h5 元皿傢俱創意有限公司
+        ul
+          li
+            == mail_to 'admin@mobicrea.com.tw' , target: "_blank" do
+              span.icon_mail_alt aria-hidden="true"
+              |  admin@mobicrea.com.tw
+          li
+            == link_to 'tel:+0800235790771' , target: "_blank" do
+              span.icon_phone aria-hidden="true"
+              |  +0800 2 35790771
+          li
+            == link_to 'tel:+0800235790771' , target: "_blank" do
+              span.icon_printer-alt aria-hidden="true"
+              |  +0800 2 35790771
+    .col-lg-9.col-sm-9
+      .page-content
+        section.brand-product
+          .products-wrap
+            .wrapper-title.text-left.first-top
+              h3 產品
+            .row
+              - brand.products.each do |product|
+                .col-md-4.col-sm-6
+                  == link_to '' , data: {target: "#productModal_#{product.id}", toggle: 'modal'}, type: 'button' do
+                    .product-col
+                      .image
+                        == image_tag product.photos.first.image, alt: '', class: 'img-fluid'
+                      .caption
+                        h4= product.name
+                        .description
+                          = product.description
+
+- brand.products.each do |product|
+  /! Modal
+  .modal.fade aria-labelledby="ModalLabel" role="dialog" tabindex="-1" id="productModal_#{product.id}"
+    .modal-dialog.modal-lg role="document"
+      .modal-content
+        .modal-header
+          button.close aria-label="Close" data-dismiss="modal" type="button"
+            span aria-hidden="true"  &times;
+          h4#myModalLabel.modal-title BREEZE
+        .modal-body
+          .row.product-header
+            .col-sm-6
+              .product-photo-container
+                ul#productView.product-photo
+                  - product.photos.each do |photo|
+                    li
+                      == image_tag photo.image, alt: '', class: 'img-responsive'
+                .thumbnail-wrap
+                  ul#productThumbnail.product-thumbnail
+                    - product.photos.each do |photo|
+                      li
+                        == image_tag photo.image, alt: '', class: 'img-responsive'
+            .col-sm-6
+              == render 'products/product_info', {product: product}

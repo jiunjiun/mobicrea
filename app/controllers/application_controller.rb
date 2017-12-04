@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   expose :services, -> { Service.all }
   expose :success_cases, -> { SuccessCase.all }
+  expose :brands, -> { Brand.all }
 
   private
   def prepare_meta_tags opts = {}

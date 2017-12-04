@@ -1,0 +1,25 @@
+section.page-top-banner
+  == image_tag 'img4.jpg', alt: '', class: 'img-fluid'
+  .section-header
+    h2= t('brand')
+    p Action Brand
+.container
+  ol.breadcrumb
+    li
+      == link_to t('home'), root_path
+    li.active= t('brand')
+  .mag-bootom-lg
+
+section.products-content
+  .container
+    .products-wrap
+      .row
+        - brands.each do |brand|
+          .col-lg-3.col-md-4.col-xs-6
+            == link_to brand_path(brand) do
+              .product-col
+                .image
+                  == image_tag brand.brand_logo, alt: '', class: 'img-fluid'
+                .caption
+                  h4.text-center
+                    = brand.name
