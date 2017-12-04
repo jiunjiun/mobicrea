@@ -18,19 +18,19 @@ header#pageHeader.page-header.fixed
               | English
       ul.toollinks-wrap
         li
-          == mail_to 'admin@mobicrea.com.tw' , target: "_blank" do
+          == mail_to t('company.email'), target: "_blank" do
             span.icon_mail_alt aria-hidden="true"
-            | admin@mobicrea.com.tw
+            = t('company.email')
         li
-          == link_to 'tel:+0800235790771' , target: "_blank" do
+          == link_to "tel:#{t('company.tel').delete(' ')}", target: "_blank" do
             span.icon_phone aria-hidden="true"
-            | +0800 2 35790771
+            = t('company.tel')
         li
           span.icon_clock_alt aria-hidden="true"
-          | Mon-Fir 9:00~18:00
+          = t('company.business_hours')
         li
           span.social_facebook aria-hidden="true"
-          | 粉絲專頁
+          = t('helpers.fans')
   .main-header
     .container
       .header-brand
@@ -41,8 +41,8 @@ header#pageHeader.page-header.fixed
           span.icon-bar
         h1.header-logo
           == link_to root_path do
-            span.sr-only 元皿家具創意有限公司
-            == image_tag "header_logo.svg" , alt: '元皿家具創意有限公司'
+            span.sr-only= t('company.name')
+            == image_tag "header_logo.svg" , alt: t('company.name')
       nav.main-navigation.collapse.navbar-collapse
         #navbar-collapse
           ul.nav.navbar-nav.nav-main
@@ -69,8 +69,8 @@ header#pageHeader.page-header.fixed
                     li
                       == link_to service.name, service_path(service)
             li.item
-              == link_to success_cases_path , class: "dropdown-hover" ,"data-delay": "10", "data-hover": "dropdown" do
-                span.text 成功案例
+              == link_to success_cases_path, class: "dropdown-hover" ,"data-delay": "10", "data-hover": "dropdown" do
+                span.text= t('success_case')
                 b.caret
               ul.dropdown-menu.multi-level role="menu"
                 - success_cases.each do |success_case|
@@ -78,13 +78,13 @@ header#pageHeader.page-header.fixed
                     == link_to success_case.name, success_case_path(success_case)
             li.item
               == link_to brands_path , class: "dropdown-hover" ,"data-delay": "10", "data-hover": "dropdown" do
-                span.text 代理品牌
+                span.text= t('brand')
                 b.caret
               ul.dropdown-menu.multi-level role="menu"
                 - brands.each do |brand|
                   li
                     == link_to brand.name, brand_path(brand)
             li.item
-              == link_to contact_path
-                span.text 聯絡方式
+              == link_to contact_path do
+                span.text= t('contact')
 

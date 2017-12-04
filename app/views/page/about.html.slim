@@ -1,13 +1,13 @@
 section.page-top-banner
   == image_tag "img3.jpg" , alt: '關於元皿', class: "img-fluid"
   .section-header
-    h2 關於元皿
+    h2= t('about')
     p 模組 效率 原創 熱忱，為我們的經營理念
 .container
   ol.breadcrumb
     li
-      a href="#"  首頁
-    li.active 關於元皿
+      == link_to t('home'), root_path
+    li.active= t('about')
   .mag-bootom-lg
 section#about-1
   .container

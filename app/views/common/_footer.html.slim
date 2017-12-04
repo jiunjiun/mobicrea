@@ -2,57 +2,43 @@ footer#footer-container
   .footer-wrap
     .container
       .col-md-2.col-xs-6.wrap-item
-        h5 關於元皿
+        h5= t('about')
         ul
           li
-            a href="about.html"  關於我們
-          li
-            a href="#"  服務流程
-          li
-            a href="#"  組織架構
+            == link_to t('about_us'), about_path
       .col-md-2.col-xs-6.wrap-item
-        h5 服務內容
+        h5= t('service')
         ul
-          li
-            a href="#"  訂製家具
-          li
-            a href="#"  模組家具
-          li
-            a href="#"  辦公家具
+          - services.each do |service|
+            li
+              == link_to service.name, service_path(service)
       .col-md-2.col-xs-6.wrap-item
-        h5 成功案例
+        h5= t('success_case')
         ul
-          li
-            a href="#"  商業空間
-          li
-            a href="#"  辦公空間
-          li
-            a href="#"  私人會所
+          - success_cases.each do |success_case|
+            li
+              == link_to success_case.name, success_case_path(success_case)
       .col-md-2.col-xs-6.wrap-item
-        h5 代理品牌
+        h5= t('brand')
         ul
-          li
-            a href="#"  Segis
-          li
-            a href="#"  Softline
-          li
-            a href="#"  Humanscale
-          li
-            a href="#"  Vlaar
-          li
-            a href="#"  realsteel
+          - brands.each do |brand|
+            li
+              == link_to brand.name, brand_path(brand)
       .col-md-4.col-sm-12.wrap-item.last
-        h5 聯絡方式
+        h5= t('contact')
         ul
-          li 公司介紹
+          li= t('company.info')
           li
-            | 地址：110台北市信義區台北101大樓
+            = t('helpers.address')
+            | &nbsp;
+            = t('company.address')
           li
-            | Email:
-            a href="#" service@storemail.com
+            | Email:&nbsp;
+            == mail_to t('company.email'), t('company.email'), target: "_blank"
         h4.lead
-          | 聯絡電話:
-          span (02) 93281-02293
+          = t('helpers.contact_tel')
+          | &nbsp;
+          span= t('company.tel')
   .copyright
     .container
       .row

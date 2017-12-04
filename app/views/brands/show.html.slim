@@ -60,7 +60,8 @@ section.page-top-banner
                   == link_to '' , data: {target: "#productModal_#{product.id}", toggle: 'modal'}, type: 'button' do
                     .product-col
                       .image
-                        == image_tag product.photos.first.image, alt: '', class: 'img-fluid'
+                        - if product.photos.present?
+                          == image_tag product.photos.first.image, alt: '', class: 'img-fluid'
                       .caption
                         h4= product.name
                         .description

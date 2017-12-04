@@ -1,15 +1,26 @@
 zh-TW:
   title: 元皿家具創意有限公司
 
+  company:
+    name:     元皿傢俱創意有限公司
+    email:    admin@mobicrea.com.tw
+    tel:      +886 2 35790771
+    fax:      +886 2 35790772
+    address:  105台北市松山區南京東路四段56號
+    business_hours: Mon-Fir 9:00~18:00
+    info:     公司介紹
+
   home:     首頁
   sign_in:  登入
   sign_up:  註冊
   sign_out: 登出
 
   about:        關於元皿
+  about_us:     關於我們
   service:      服務內容
   success_case: 成功案例
   brand:        代理品牌
+  contact:      聯絡方式
 
 
   # 後台
@@ -68,18 +79,10 @@ zh-TW:
     update_password:            修改密碼
     next_step:                  下一步
     as_above:                   同上
-    invoice:                    發票
-    export:                     匯出
-    manual_pay:                 手動付款
-    are_you_sure_manual_pay:    請確認統一編號、手機條碼，確定手動付款?
-    is_deleted:                 (該用戶已刪除)
-    not_authorized_access:      無權限存取
-    pay_now:                    線上付款
-    buy:                        購買
-    cash_pay:                   現金付款
-    credit_pay:                 刷卡機付款
-    scan_card:                  掃描卡片
-    revoked:                    撤消卡片
+    fans:                       粉絲專頁
+    address:                    '地址:'
+    contact_tel:                '聯絡電話:'
+
 
     successfully_created: 新增成功 # Your profile was successfully created.
     successfully_updated: 更新成功 # Your profile was successfully updated.
