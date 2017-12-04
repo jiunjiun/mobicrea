@@ -59,8 +59,6 @@ Rails.application.routes.draw do
   end
 
 
-  # 關於元皿
-  get 'about',     to: 'about#index'
 
   # 服務內容
   resources :services, only: [:index, :show] do
@@ -74,20 +72,11 @@ Rails.application.routes.draw do
   # 成功案例
   resources :brands, only: [:index, :show]
 
-
-  # 服務內容
-  # get 'service',                      to: 'service#index',        as: 'service'
-  # get 'service_collection',           to: 'service#collection',   as: 'collection'
-  # get 'service_furniture',            to: 'service#furniture',       as: 'furniture'
-  # 成功案例
-  get 'successful_story',             to: 'case#index',           as: 'stories'
-  get 'case',                         to: 'case#story',           as: 'case'
-  # 代理品牌
-  get 'acting_brand',                 to: 'brand#index',          as: 'acting_brand'
-  get 'segis',                        to: 'brand#segis',          as: 'segis'
   # 聯絡方式
-  get 'contact-information',          to: 'contact#information',  as: 'information'
-  get 'contact-recruit',              to: 'contact#recruit',      as: 'recruit'
+  get 'contact', to: 'page#contact'
+
+  # 關於元皿
+  get 'about',   to: 'page#about'
 
   root 'home#index'
 
