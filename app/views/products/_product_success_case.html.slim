@@ -3,7 +3,8 @@
     .row.product-header
       .col-sm-6
         .product-photo-container
-          == image_tag product.photos.first.image, alt: '', class: 'img-responsive'
+          - if product.photos.present?
+            == image_tag product.photos.first.image, alt: '', class: 'img-responsive'
       .col-sm-6
         == render 'product_info'
       .col-sm-12
