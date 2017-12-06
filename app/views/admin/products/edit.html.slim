@@ -25,4 +25,5 @@ ol.breadcrumb.page-breadcrumb
       == render 'form_service_furniture'
     - elsif !success_case.new_record?
       == render 'form_success_case'
-
+    - elsif !brand.new_record?
+      == render 'form_brand'
