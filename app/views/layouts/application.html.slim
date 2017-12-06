@@ -21,8 +21,9 @@ html
     script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"
     script src="https://cdn.rawgit.com/garand/sticky/master/jquery.sticky.js"
     script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"
-    script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"
     script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"
+    script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"
+
 
     = javascript_include_tag 'application'
 
@@ -33,3 +34,5 @@ html
       == yield
       == render 'common/footer'
       == render 'common/mmenu'
+
+    == yield :brands_modal

@@ -133,34 +133,69 @@ $(function(){
        }
      }
    ]
-  });
+  })
+
+  function createSlick(e) {
+    $('#productView'+e).not('.slick-initialized').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      fade: true,
+      dots: false,
+      asNavFor: '#productThumbnail'+e
+    });
+    $('#productThumbnail'+e).not('.slick-initialized').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      asNavFor: '#productView'+e,
+      dots: false,
+      arrows: false,
+      focusOnSelect: true,
+      responsive: [
+       {
+         breakpoint: 980,
+         settings: {
+           slidesToShow: 3,
+           slidesToScroll: 1,
+         }
+       }
+     ]
+    });
+  }
+  $('.modal').on('shown.bs.modal', function () {
+    var num = $(this).attr("data-modal")
+    console.log("modal show")
+    createSlick(num)
+  })
 
 
   $('.dropdown-hover').dropdownHover(100);
 
   // init Isotope
-  var $grid = $('.waterfall').isotope({
-    itemSelector: '.element-item',
-    layoutMode: 'masonry',
-    percentPosition: true,
-    masonry: {
-      columnWidth: '.grid-sizer'
-    }
-  })
-
   // layout Isotope after each image loads
-  $grid.imagesLoaded().progress( function() {
-    $grid.isotope('layout');
+  var $grid = $('.waterfall').imagesLoaded( function() {
+    $grid.masonry({
+      itemSelector: '.element-item',
+      percentPosition: true,
+      columnWidth: '.grid-sizer'
+    })
   })
-
-  $grid.on( 'arrangeComplete', function( event, filteredItems ) {
-    console.log( 'arrangeComplete with ' + filteredItems.length + ' items' );
-  })
-
+  // $grid.on( 'arrangeComplete', function( event, filteredItems ) {
+  //   console.log( 'arrangeComplete with ' + filteredItems.length + ' items' );
+  // })
   // bind filter button click
   $('.filter-button-group').on( 'click', 'button', function() {
     var filterValue = $( this ).attr('data-filter');
-    $grid.isotope({ filter: filterValue });
+    $grid.isotope({
+      filter: filterValue ,
+      itemSelector: '.element-item',
+      columnWidth: '.grid-sizer',
+      layoutMode: 'masonry',
+      percentPosition: true,
+      masonry: {
+        columnWidth: '.grid-sizer'
+      }
+    })
   })
 
   // change is-checked class on buttons

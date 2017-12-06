@@ -64,7 +64,7 @@ section#homeCases
       .waterfall
         - success_cases.each do |success_casd|
           - success_casd.products.each do |product|
-            .element-item class="class_#{success_casd.id} #{cycle("width2x height2x", '', '', '', '')}"
+            .element-item class="class_#{success_casd.id} #{cycle("width2x height2x", 'grid-sizer', '', '', '')}"
               == link_to product_path(product) do
                 - if product.photos.present?
                   == image_tag product.photos.first.image , alt: '', class: 'img-fluid'

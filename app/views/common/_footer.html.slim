@@ -35,16 +35,20 @@ footer#footer-container
           li
             | Email:&nbsp;
             == mail_to t('company.email'), t('company.email'), target: "_blank"
-        h4.lead
-          = t('helpers.contact_tel')
-          | &nbsp;
-          span= t('company.tel')
+          li
+            = t('helpers.contact_tel')
+            | &nbsp;
+            span= t('company.tel')
+        /h4.lead
+        /  = t('helpers.contact_tel')
+        /  | &nbsp;
+        /  span= t('company.tel')
   .copyright
     .container
-      .row
-        .footer-logo.col-md-6
+      .copyright-group
+        .footer-logo
           == image_tag "footer-logo.svg" , alt: '', class: 'img-fluid'
-        .rights.col-md-6
+        .rights
           p
             | © 2017
             a href="#"  Mobicrea Furniture
