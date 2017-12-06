@@ -11,6 +11,8 @@ html
     == stylesheet_link_tag 'admin_sign_in', media: 'all'
     == csrf_meta_tags
 
+    - if GoogleAnalytics.valid_tracker?
+      == analytics_init
   body
     == yield
     script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"
