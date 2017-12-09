@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171201065144) do
+ActiveRecord::Schema.define(version: 20171208033837) do
 
   create_table "collections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(version: 20171201065144) do
     t.text "link"
     t.text "file_link"
     t.json "brand_logo"
+    t.string "name_eng"
+    t.string "prompt_text_eng"
+    t.text "description_eng"
     t.index ["parent_id"], name: "index_collections_on_parent_id"
   end
 
@@ -32,6 +35,8 @@ ActiveRecord::Schema.define(version: 20171201065144) do
     t.string "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "key_eng"
+    t.string "value_eng"
     t.index ["product_id"], name: "index_product_items_on_product_id"
   end
 
@@ -57,6 +62,9 @@ ActiveRecord::Schema.define(version: 20171201065144) do
     t.json "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "hash_tag_eng"
+    t.text "description_eng"
+    t.text "design_story_eng"
     t.index ["collection_id"], name: "index_products_on_collection_id"
   end
 
@@ -70,6 +78,8 @@ ActiveRecord::Schema.define(version: 20171201065144) do
     t.boolean "new_page"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title_eng"
+    t.string "subtitle_eng"
     t.index ["service_id"], name: "index_service_photos_on_service_id"
   end
 
@@ -83,6 +93,8 @@ ActiveRecord::Schema.define(version: 20171201065144) do
     t.boolean "new_page"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title_eng"
+    t.string "subtitle_eng"
     t.index ["service_id"], name: "index_service_references_on_service_id"
   end
 
