@@ -39,6 +39,6 @@ class Admin::SuccessCasesController < AdminController
 
   private
   def success_case_params
-    params.require(:success_case).permit(:name)
+    params.require(:success_case).permit(:name, :name_eng)
   end
 end

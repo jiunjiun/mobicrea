@@ -53,6 +53,6 @@ class Admin::ServicePhotosController < AdminController
 
   private
   def service_photo_params
-    params.require(:service_photo).permit(:title, :subtitle, :image, :url, :position, :new_page)
+    params.require(:service_photo).permit(:title, :subtitle, :title_eng, :subtitle_eng, :image, :url, :position, :new_page)
   end
 end

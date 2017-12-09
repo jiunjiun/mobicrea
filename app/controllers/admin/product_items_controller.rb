@@ -54,6 +54,6 @@ class Admin::ProductItemsController < AdminController
 
   private
   def product_item_params
-    params.require(:product_item).permit(:key, :value)
+    params.require(:product_item).permit(:key, :value, :key_eng, :value_eng)
   end
 end

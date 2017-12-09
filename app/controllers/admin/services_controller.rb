@@ -40,7 +40,7 @@ class Admin::ServicesController < AdminController
 
   private
   def service_params
-    params.require(:service).permit(:name, :description, :prompt_text)
+    params.require(:service).permit(:name, :description, :prompt_text, :name_eng, :description_eng, :prompt_text_eng)
   end
 
   def setup

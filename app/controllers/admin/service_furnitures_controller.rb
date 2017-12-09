@@ -12,7 +12,7 @@ class Admin::ServiceFurnituresController < AdminController
 
   def create
     if service_furniture.save
-      redirect_to admin_service_path(service), notice: t('helpers.successfully_created')
+      redirect_to admin_service_service_furniture_path(service, service_furniture), notice: t('helpers.successfully_created')
     else
       render :new
     end
@@ -23,7 +23,7 @@ class Admin::ServiceFurnituresController < AdminController
 
   def update
     if service_furniture.update service_furniture_params
-      redirect_to admin_service_path(service), notice: t('helpers.successfully_updated')
+      redirect_to admin_service_service_furniture_path(service, service_furniture), notice: t('helpers.successfully_updated')
     else
       render :edit
     end
@@ -36,6 +36,6 @@ class Admin::ServiceFurnituresController < AdminController
 
   private
   def service_furniture_params
-    params.require(:service_furniture).permit(:name)
+    params.require(:service_furniture).permit(:name, :name_eng)
   end
 end

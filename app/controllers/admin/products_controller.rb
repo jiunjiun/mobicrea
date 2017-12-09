@@ -63,7 +63,8 @@ class Admin::ProductsController < AdminController
 
   private
   def product_params
-    params.require(:product).permit(:uid, :name, :name_eng, :hash_tag, :description, :design_story)
+    params.require(:product).permit(:uid, :name, :hash_tag, :description, :design_story,
+                                          :name_eng, :hash_tag_eng, :description_eng, :design_story_eng)
   end
 
   def expose_products

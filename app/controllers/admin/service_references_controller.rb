@@ -53,6 +53,6 @@ class Admin::ServiceReferencesController < AdminController
 
   private
   def service_reference_params
-    params.require(:service_reference).permit(:title, :subtitle, :image, :url, :position, :new_page)
+    params.require(:service_reference).permit(:title, :subtitle, :title_eng, :subtitle_eng, :image, :url, :position, :new_page)
   end
 end
