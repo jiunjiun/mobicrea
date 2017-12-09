@@ -36,7 +36,10 @@ ol.breadcrumb.page-breadcrumb
   .col-md-12
     .panel
       .panel-heading
-        span.panel-title= t('products.info')
+        span.panel-title
+          = t('products.info')
+          | &nbsp;-&nbsp;
+          = t('helpers.zh_lang')
       table.table
         tbody
           tr
@@ -64,6 +67,31 @@ ol.breadcrumb.page-breadcrumb
                   code= tag
                   | &nbsp;&nbsp;
 
+    .panel
+      .panel-heading
+        span.panel-title
+          = t('products.info')
+          | &nbsp;-&nbsp;
+          = t('helpers.en_lang')
+      table.table
+        tbody
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.product.name')
+            td.col-md-8= product.name_eng
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.product.description_eng')
+            td.col-md-8= product.description_eng
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.product.hash_tag_eng')
+            td.col-md-8
+              - if product.hash_tag_eng.present?
+                - product.hash_tag_eng.split(',').each do |tag|
+                  code= tag
+                  | &nbsp;&nbsp;
+
 .row
   .col-md-12
     .panel
@@ -81,8 +109,16 @@ ol.breadcrumb.page-breadcrumb
         thead
           tr
             th.col-md-2
-            th.col-md-5.text-center= t('simple_form.labels.product_item.key')
-            th.col-md-5.text-center= t('simple_form.labels.product_item.value')
+            th.col-md-2.text-center
+              = t('simple_form.labels.product_item.key')
+            th.col-md-2.text-center
+              = t('simple_form.labels.product_item.value')
+            th.col-md-2.text-center
+              = t('helpers.en_lang')
+              = t('simple_form.labels.product_item.key_eng')
+            th.col-md-2.text-center
+              = t('helpers.en_lang')
+              = t('simple_form.labels.product_item.value_eng')
         tbody
           - product.items.each do |item|
             tr
@@ -99,6 +135,8 @@ ol.breadcrumb.page-breadcrumb
                     == link_to t('helpers.delete'), admin_brand_product_product_item_path(brand, product, item), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d btn-xs'
               td.text-center== item.key
               td.text-center== item.value
+              td.text-center== item.key_eng
+              td.text-center== item.value_eng
 
 .row#product_photos
   .col-md-12

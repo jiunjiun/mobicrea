@@ -20,7 +20,33 @@ ol.breadcrumb.page-breadcrumb
   .col-md-12
     .panel
       .panel-heading
-        span.panel-title= t('service_furnitures.products')
+        span.panel-title
+          = t('success_cases.info')
+          | &nbsp;-&nbsp;
+          = t('helpers.zh_lang')
+      table.table
+        tbody
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.success_case.name')
+            td.col-md-8= success_case.name
+    .panel
+      .panel-heading
+        span.panel-title
+          = t('success_cases.info')
+          | &nbsp;-&nbsp;
+          = t('helpers.en_lang')
+      table.table
+        tbody
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.success_case.name_eng')
+            td.col-md-8= success_case.name_eng
+
+  .col-md-12
+    .panel
+      .panel-heading
+        span.panel-title= t('success_cases.products')
         .panel-heading-controls
           == link_to t('helpers.add'), new_admin_success_case_product_path(success_case), class: 'btn btn-primary btn-xs btn-3d'
 

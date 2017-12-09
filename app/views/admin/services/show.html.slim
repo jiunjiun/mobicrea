@@ -20,9 +20,16 @@ ol.breadcrumb.page-breadcrumb
   .col-md-12
     .panel
       .panel-heading
-        span.panel-title= t('services.info')
+        span.panel-title
+          = t('services.info')
+          | &nbsp;-&nbsp;
+          = t('helpers.zh_lang')
       table.table
         tbody
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.service.name')
+            td.col-md-8= service.name
           tr
             td.col-md-2.col-xs-2.text-right
               strong= t('simple_form.labels.service.description')
@@ -31,6 +38,27 @@ ol.breadcrumb.page-breadcrumb
             td.col-md-2.col-xs-2.text-right
               strong= t('simple_form.labels.service.prompt_text')
             td.col-md-8= service.prompt_text
+    .panel
+      .panel-heading
+        span.panel-title
+          = t('services.info')
+          | &nbsp;-&nbsp;
+          = t('helpers.en_lang')
+      table.table
+        tbody
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.service.name')
+            td.col-md-8= service.name_eng
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.service.description')
+            td.col-md-8= service.description_eng
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.service.prompt_text')
+            td.col-md-8= service.prompt_text_eng
+
 
 
 .row#service_photos
@@ -73,13 +101,17 @@ ol.breadcrumb.page-breadcrumb
       table.table
         thead
           tr
-            th.text-center= t('simple_form.labels.service.name')
-            th.text-center= t('simple_form.labels.service.created_at')
+            th.text-center= t('simple_form.labels.service_furniture.name')
+            th.text-center
+              = t('helpers.en_lang')
+              = t('simple_form.labels.service_furniture.name_eng')
+            th.text-center= t('simple_form.labels.service_furniture.created_at')
         tbody
           - service_furnitures.each do |service_furniture|
             tr
               td.text-center
                 == link_to service_furniture.name, admin_service_service_furniture_path(service, service_furniture)
+              td.text-center= service_furniture.name_eng
               td.text-center= l service_furniture.created_at, format: :long
 
     .pull-right

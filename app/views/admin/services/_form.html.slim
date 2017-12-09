@@ -1,10 +1,21 @@
 == simple_form_for [:admin, service], html: { autocomplete: 'off' } do |f|
-  .panel.colourable
+  .panel
+    .panel-heading
+      span.panel-title= t('helpers.zh_lang')
     /! Default panel contents
     .panel-body
       == f.input :name
-      == f.input :description
+      == f.input :description, input_html: { rows: 5 }
       == f.input :prompt_text
+
+  .panel
+    .panel-heading
+      span.panel-title= t('helpers.en_lang')
+    /! Default panel contents
+    .panel-body
+      == f.input :name_eng
+      == f.input :description_eng, input_html: { rows: 5 }
+      == f.input :prompt_text_eng
 
   .panel
     .panel-body

@@ -1,13 +1,28 @@
 == simple_form_for [:admin, service, service_furniture, product], html: { autocomplete: 'off' } do |f|
-  .panel.colourable
+  .panel
     /! Default panel contents
     .panel-body
       == f.input :uid
+
+  .panel
+    .panel-heading
+      span.panel-title= t('helpers.zh_lang')
+    /! Default panel contents
+    .panel-body
       == f.input :name
-      == f.input :name_eng
-      == f.input :description
+      == f.input :description, input_html: { rows: 5 }
       == f.input :design_story, as: :summernote
       == f.input :hash_tag, input_html: { data: { role: 'tagsinput' } }
+
+  .panel
+    .panel-heading
+      span.panel-title= t('helpers.en_lang')
+    /! Default panel contents
+    .panel-body
+      == f.input :name_eng
+      == f.input :description_eng, input_html: { rows: 5 }
+      == f.input :design_story_eng, as: :summernote
+      == f.input :hash_tag_eng, input_html: { data: { role: 'tagsinput' } }
 
   .panel
     .panel-body

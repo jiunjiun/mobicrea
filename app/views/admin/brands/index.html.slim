@@ -18,12 +18,14 @@ ol.breadcrumb.page-breadcrumb
         thead
           tr
             th.text-center= t('simple_form.labels.brand.name')
+            th.text-center= t('simple_form.labels.brand.name_eng')
             th.text-center= t('simple_form.labels.brand.created_at')
         tbody
           - brands.each do |brand|
             tr
               td.text-center
                 == link_to brand.name, admin_brand_path(brand)
+              td.text-center= brand.name_eng
               td.text-center= l brand.created_at, format: :long
 
     .pull-right

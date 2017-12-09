@@ -21,6 +21,32 @@ ol.breadcrumb.page-breadcrumb
   .col-md-12
     .panel
       .panel-heading
+        span.panel-title
+          = t('service_furnitures.info')
+          | &nbsp;-&nbsp;
+          = t('helpers.zh_lang')
+      table.table
+        tbody
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.service_furniture.name')
+            td.col-md-8= service_furniture.name
+    .panel
+      .panel-heading
+        span.panel-title
+          = t('service_furnitures.info')
+          | &nbsp;-&nbsp;
+          = t('helpers.en_lang')
+      table.table
+        tbody
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.service_furniture.name_eng')
+            td.col-md-8= service_furniture.name_eng
+
+  .col-md-12
+    .panel
+      .panel-heading
         span.panel-title= t('service_furnitures.products')
         .panel-heading-controls
           == link_to t('helpers.add'), new_admin_service_service_furniture_product_path(service, service_furniture), class: 'btn btn-primary btn-xs btn-3d'

@@ -17,14 +17,22 @@ ol.breadcrumb.page-breadcrumb
       table.table
         thead
           tr
-            th.text-center= t('simple_form.labels.service.name')
-            th.text-center= t('simple_form.labels.service.created_at')
+            th.text-center
+              = t('simple_form.labels.service.name')
+            th.text-center
+              = t('helpers.en_lang')
+              = t('simple_form.labels.service.name_eng')
+            th.text-center
+              = t('simple_form.labels.service.created_at')
         tbody
           - services.each do |service|
             tr
               td.text-center
                 == link_to service.name, admin_service_path(service)
-              td.text-center= l service.created_at, format: :long
+              td.text-center
+                = service.name_eng
+              td.text-center
+                = l service.created_at, format: :long
 
     .pull-right
       == will_paginate services, renderer: BootstrapPagination::Rails

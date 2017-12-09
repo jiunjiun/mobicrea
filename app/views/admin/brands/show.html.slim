@@ -27,8 +27,20 @@ ol.breadcrumb.page-breadcrumb
             tbody
               tr
                 td.col-md-2.col-xs-2.text-right
+                  strong= t('simple_form.labels.brand.name')
+                td.col-md-8= brand.name
+              tr
+                td.col-md-2.col-xs-2.text-right
+                  strong= t('simple_form.labels.brand.name_eng')
+                td.col-md-8= brand.name_eng
+              tr
+                td.col-md-2.col-xs-2.text-right
                   strong= t('simple_form.labels.brand.description')
                 td.col-md-8= brand.description
+              tr
+                td.col-md-2.col-xs-2.text-right
+                  strong= t('simple_form.labels.brand.description_eng')
+                td.col-md-8= brand.description_eng
               tr
                 td.col-md-2.col-xs-2.text-right
                   strong= t('simple_form.labels.brand.link')
