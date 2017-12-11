@@ -3,8 +3,7 @@ class AdminController < ApplicationController
 
   layout 'admin'
 
-  before_action :update_meta
-  before_action :setup_gon
+  before_action :set_locale, :update_meta, :setup_gon
 
   private
   def update_meta
@@ -17,5 +16,9 @@ class AdminController < ApplicationController
 
   def setup_gon
     gon.admin_summernote_upload = admin_summernote_upload_path
+  end
+
+  def set_locale
+    I18n.locale = 'zh-TW'
   end
 end
