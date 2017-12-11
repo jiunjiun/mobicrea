@@ -15,7 +15,7 @@ class ServicesController < ApplicationController
     when 'index'
       site = t('service')
     when 'show'
-      site = service.name
+      site = locale_field(service, :name)
     end
 
     meta_tags_option = {

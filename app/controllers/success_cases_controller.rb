@@ -16,7 +16,7 @@ class SuccessCasesController < ApplicationController
     when 'index'
       site = t('success_case')
     when 'show'
-      site = success_case.name
+      site = locale_field(success_case, :name)
     end
 
     meta_tags_option = {

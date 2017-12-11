@@ -10,7 +10,7 @@ class ServiceFurnituresController < ApplicationController
 
   private
   def update_meta
-    site = service_furniture.name
+    site = locale_field(service_furniture, :name)
 
     meta_tags_option = {
       site: site,

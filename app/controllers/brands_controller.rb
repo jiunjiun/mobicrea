@@ -15,7 +15,7 @@ class BrandsController < ApplicationController
     when 'index'
       site = t('brand')
     when 'show'
-      site = brand.name
+      site = locale_field(brand, :name)
     end
 
     meta_tags_option = {

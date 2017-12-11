@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
 
   private
   def update_meta
-    site = product.name
+    site = locale_field(product, :name)
 
     meta_tags_option = {
       site: site,

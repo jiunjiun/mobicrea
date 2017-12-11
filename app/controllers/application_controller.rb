@@ -1,9 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  include HelpersConcern
+
   expose :services, -> { Service.all }
   expose :success_cases, -> { SuccessCase.all }
   expose :brands, -> { Brand.all }
+
+  before_action :set_locale
 
   private
   def prepare_meta_tags opts = {}
@@ -42,5 +46,18 @@ class ApplicationController < ActionController::Base
     }
 
     set_meta_tags defaults
+  end
+
+  def set_locale
+    session[:lang] = params[:lang] if params[:lang]
+    session[:lang] ||= extract_locale_from_accept_language_header
+
+    session[:lang] = 'zh-TW' unless session[:lang] == 'zh-TW' or session[:lang] == 'en'
+
+    I18n.locale = session[:lang]
+  end
+
+  def extract_locale_from_accept_language_header
+    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first if request.env['HTTP_ACCEPT_LANGUAGE']
   end
 end
