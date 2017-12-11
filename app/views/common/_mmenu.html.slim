@@ -12,34 +12,34 @@ nav#menu
       ul.multi-level role="menu"
         - services.each do |service|
           li
-            == link_to service.name, service_path(service)
+            == link_to locale_field(service, :name), service_path(service)
           - if service.service_furnitures.count > 0
             ul
               - service.service_furnitures.each do |service_furniture|
                 li
-                  == link_to service_furniture.name, service_service_furniture_path(service, service_furniture)
+                  == link_to locale_field(service_furniture, :name), service_service_furniture_path(service, service_furniture)
     li.item
       == link_to success_cases_path do
         span.text= t('success_case')
       ul.multi-level role="menu"
         - success_cases.each do |success_case|
           li
-            == link_to success_case.name, success_case_path(success_case), tabindex: '-1'
+            == link_to locale_field(success_case, :name), success_case_path(success_case), tabindex: '-1'
     li.item
       == link_to brands_path do
         span.text= t('brand')
       ul.multi-level role="menu"
         - brands.each do |brand|
           li
-            == link_to brand.name, brand_path(brand), tabindex: '-1'
+            == link_to locale_field(brand, :name), brand_path(brand), tabindex: '-1'
     li.item
       == link_to contact_path do
         span.text= t('contact')
     li.item
       a href="#"
-        span.text 繁體中文
+        span.text== current_locale[:name]
       ul.multi-level role="menu"
         li
-          a href="contact-1.html" tabindex="-1"  繁體中文
+          a href="?lang=zh-TW" tabindex="-1"  繁體中文
         li
-          a href="contact-2.html" tabindex="-1"  English
+          a href="?lang=en" tabindex="-1"  English

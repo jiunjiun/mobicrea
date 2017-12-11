@@ -22,11 +22,13 @@ section
                 .image
                   == image_tag 'img3.jpg', alt: '', class: 'img-fluid'
                   .mask
-                    div= service.prompt_text
+                    div
+                      = locale_field(service, :prompt_text)
                 .caption
-                  h4= service.name
+                  h4
+                    = locale_field(service, :name)
                   .description
-                    = service.description
+                    = locale_field(service, :description)
                   .btn-wrap
                     .btn.btn-primary
                       | MORE

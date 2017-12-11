@@ -4,16 +4,16 @@ header#pageHeader.page-header.fixed
     .container
       .dropdown.lang
         button#Language.btn.btn-lang aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
-          i.flag.tw
-          | 繁體中文
+          i.flag class="#{current_locale[:class_name]}"
+          == current_locale[:name]
           span.caret
         ul.dropdown-menu aria-labelledby="Language"
           li
-            a href="#"
+            a href="?lang=zh-TW"
               i.flag.tw
               | 繁體中文
           li
-            a href="#"
+            a href="?lang=en"
               i.flag.en
               | English
       ul.toollinks-wrap
@@ -60,14 +60,14 @@ header#pageHeader.page-header.fixed
                 - services.each do |service|
                   - if service.service_furnitures.count > 0
                     li.dropdown-submenu
-                      == link_to service.name, service_path(service), class: 'dropdown-toggle'
+                      == link_to locale_field(service, :name), service_path(service), class: 'dropdown-toggle'
                       ul.dropdown-menu role='menu'
                         - service.service_furnitures.each do |service_furniture|
                           li
-                            == link_to service_furniture.name, service_service_furniture_path(service, service_furniture)
+                            == link_to locale_field(service_furniture, :name), service_service_furniture_path(service, service_furniture)
                   - else
                     li
-                      == link_to service.name, service_path(service)
+                      == link_to locale_field(service, :name), service_path(service)
             li.item
               == link_to success_cases_path, class: "dropdown-hover" ,"data-delay": "10", "data-hover": "dropdown" do
                 span.text= t('success_case')
@@ -75,7 +75,7 @@ header#pageHeader.page-header.fixed
               ul.dropdown-menu.multi-level role="menu"
                 - success_cases.each do |success_case|
                   li
-                    == link_to success_case.name, success_case_path(success_case)
+                    == link_to locale_field(success_case, :name), success_case_path(success_case)
             li.item
               == link_to brands_path , class: "dropdown-hover" ,"data-delay": "10", "data-hover": "dropdown" do
                 span.text= t('brand')
@@ -83,7 +83,7 @@ header#pageHeader.page-header.fixed
               ul.dropdown-menu.multi-level role="menu"
                 - brands.each do |brand|
                   li
-                    == link_to brand.name, brand_path(brand)
+                    == link_to locale_field(brand, :name), brand_path(brand)
             li.item
               == link_to contact_path do
                 span.text= t('contact')

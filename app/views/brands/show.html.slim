@@ -1,24 +1,23 @@
 section.page-top-banner
   == image_tag 'img4.jpg', alt: '', class: 'img-fluid'
   .section-header
-    h2= brand.name
+    h2= locale_field(brand, :name)
 .container
   ol.breadcrumb
     li
       == link_to t('home'), root_path
     li
       == link_to t('brand'), brands_path
-    li.active= brand.name
+    li.active= locale_field(brand, :name)
   .mag-bootom-lg
 
 .container
   .row
     .col-lg-3.col-sm-3
-
       aside.intro-aside
         h4.aside-title 品牌介紹
         .brand-intro
-          = brand.description
+          = locale_field(brand, :description)
         ul.meta-wrap
           - if brand.link.present?
             li
@@ -34,20 +33,20 @@ section.page-top-banner
 
       aside.contact-info
         h4.aside-title 更多資訊洽詢
-        h5 元皿傢俱創意有限公司
+        h5= t('title')
         ul
           li
-            == mail_to 'admin@mobicrea.com.tw' , target: "_blank" do
+            == mail_to t('company.email'), target: "_blank" do
               span.icon_mail_alt aria-hidden="true"
-              |  admin@mobicrea.com.tw
+              = t('company.email')
           li
-            == link_to 'tel:+0800235790771' , target: "_blank" do
+            == link_to "tel:#{t('company.tel').delete(' ')}", target: "_blank" do
               span.icon_phone aria-hidden="true"
-              |  +0800 2 35790771
+              = t('company.tel')
           li
-            == link_to 'tel:+0800235790771' , target: "_blank" do
+            == link_to "tel:#{t('company.fax').delete(' ')}", target: "_blank" do
               span.icon_printer-alt aria-hidden="true"
-              |  +0800 2 35790771
+              = t('company.fax')
     .col-lg-9.col-sm-9
       .page-content
         section.brand-product
@@ -63,9 +62,9 @@ section.page-top-banner
                         - if product.photos.present?
                           == image_tag product.photos.first.image, alt: '', class: 'img-fluid'
                       .caption
-                        h4= product.name
+                        h4= locale_field(product, :name)
                         .description
-                          = product.description
+                          = locale_field(product, :description)
 
 == content_for :brands_modal do
   - brand.products.each do |product|

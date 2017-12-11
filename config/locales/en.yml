@@ -1,33 +1,85 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  title: 元皿家具創意有限公司
+
+  company:
+    name:     元皿傢俱創意有限公司
+    email:    admin@mobicrea.com.tw
+    tel:      +886 2 35790771
+    fax:      +886 2 35790772
+    address:  105台北市松山區南京東路四段56號
+    business_hours: Mon-Fri 9:00~18:00
+    info:     公司介紹
+
+  home:     首頁
+  sign_in:  登入
+  sign_up:  註冊
+  sign_out: 登出
+
+  about:        關於元皿
+  about_us:     關於我們
+  service:      服務內容
+  success_case: 成功案例
+  brand:        代理品牌
+  contact:      聯絡方式
+
+  # 後台
+  backend:      後台
+  back_fontend: 回前台
+  back_root:    回首頁
+
+  admin:
+    dashboard:        Dashboard
+    user:             帳號管理
+    slider:           橫幅
+    service:          服務內容
+    success_case:     成功案例
+    brand:            代理品牌
+
+  meta:
+    desc:     系統家具
+    keywords: 系統家具
+
+  helpers:
+    you_are_here:               '目前在:'
+    are_you_sure:               確定刪除嗎?
+    index:                      總覽
+    list:                       清單
+    add:                        新增
+    edit:                       修改
+    show:                       檢視
+    preview:                    預覽
+    preview_model:              預覽模式
+    update:                     更新
+    delete:                     刪除
+    back:                       返回
+    send:                       送出
+    send_order:                 送出訂單
+    status:                     狀態
+    posted_at:                  '發佈時間:'
+    download:                   下載
+    upload:                     上傳
+    attachment:                 附件
+    description:                描述
+    password_change:            密碼修改
+    top:                        最新文章
+    more_option:                更多選項
+    read_more:                  繼續閱讀
+    page_name:                  頁面
+    last_time:                  最後更新
+    upload_photos:              圖片上傳
+    drop_files_here:            拖拉圖片到這
+    or_click_to_pick_manually:  或點擊上傳
+    back_page:                  上一頁
+    continue:                   繼續
+    preview:                    預覽
+    link:                       連結
+    plz_select:                 請選擇
+    profile:                    個人資料
+    update_password:            修改密碼
+    next_step:                  下一步
+    as_above:                   同上
+    fans:                       粉絲專頁
+    address:                    '地址:'
+    contact_tel:                '聯絡電話:'
+    zh_lang:                    中文
+    en_lang:                    英文

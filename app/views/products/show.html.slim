@@ -1,14 +1,14 @@
 section.page-top-banner
   == image_tag 'img4.jpg', alt: '', class: 'img-fluid'
   .section-header
-    h2= product.name
+    h2= locale_field(product, :name)
 .container
   ol.breadcrumb
     li
       == link_to t('home'), root_path
     == product_breadcrumb(product)
     li.active
-      = product.name
+      = locale_field(product, :name)
   .mag-bootom-lg
 
 - case product.collection.collection_type

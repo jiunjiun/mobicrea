@@ -15,7 +15,7 @@
       .col-sm-6
         == render 'product_info'
 
-  - if product.design_story.present?
+  - if locale_field(product, :design_story).present?
     section.product-story
       .container
         .section-header.text-left
@@ -23,5 +23,5 @@
         .panel
           .row
             .col-md-12
-              == product.design_story.html_safe
+              == locale_field(product, :design_story).html_safe
 

@@ -1,7 +1,7 @@
 section.page-top-banner
   == image_tag 'img4.jpg', alt: '', class: 'img-fluid'
   .section-header
-    h2= success_case.name
+    h2= locale_field(success_case, :name)
     p
 .container
   ol.breadcrumb
@@ -10,7 +10,7 @@ section.page-top-banner
     li
       == link_to t('success_case'), success_cases_path
     li.active
-      = success_case.name
+      = locale_field(success_case, :name)
   .mag-bootom-lg
 section
   .container
@@ -24,8 +24,8 @@ section
                   - if product.photos.present?
                     == image_tag product.photos.first.image, alt: '', class: 'img-fluid'
                 .caption
-                  h4= product.name
-                  .description= product.description
+                  h4= locale_field(product, :name)
+                  .description= locale_field(product, :description)
                   .btn-wrap
                     .btn.btn-primary
                       | MORE

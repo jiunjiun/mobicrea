@@ -28,4 +28,4 @@
                 - if product.photos.present?
                   == image_tag product.photos.first.image, alt: '', class: 'img-fluid'
               .item-meta
-                h4= product.name
+                h4= locale_field(product, :name)
