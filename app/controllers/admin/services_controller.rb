@@ -1,7 +1,7 @@
 class Admin::ServicesController < AdminController
   expose :services, -> { Service.paginate(page: params[:page]) }
   expose :service
-  expose :service_furnitures, -> { service.service_furnitures }
+  expose :service_furnitures, -> { service.service_furnitures.paginate(page: params[:page]) }
 
   before_action :setup, only: [:show]
 
