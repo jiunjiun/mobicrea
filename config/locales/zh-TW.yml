@@ -165,6 +165,7 @@ zh-TW:
         created_at:       建立日期
         description_eng:  描述
         prompt_text_eng:  提示文字
+        service_image:    服務圖片
       service_photo:
         image:        圖片
         title:        主標題

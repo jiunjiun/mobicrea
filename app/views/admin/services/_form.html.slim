@@ -18,6 +18,15 @@
       == f.input :prompt_text_eng
 
   .panel
+    .panel-heading
+      span.panel-title= t('simple_form.labels.service.service_image')
+    /! Default panel contents
+    .panel-body
+      == f.input :service_image, as: :file
+      - if service.service_image.present?
+        == image_tag service.service_image, class: 'img-responsive img-rounded'
+
+  .panel
     .panel-body
       == f.button :submit, class: 'btn-primary btn-3d'
       | &nbsp;&nbsp;

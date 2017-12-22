@@ -59,7 +59,13 @@ ol.breadcrumb.page-breadcrumb
               strong= t('simple_form.labels.service.prompt_text')
             td.col-md-8= service.prompt_text_eng
 
-
+    .panel
+      .panel-heading
+        span.panel-title= t('simple_form.labels.service.service_image')
+      /! Default panel contents
+      .panel-body
+        - if service.service_image.present?
+          == image_tag service.service_image, class: 'img-responsive img-rounded'
 
 .row#service_photos
   .col-md-12

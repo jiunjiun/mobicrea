@@ -16,7 +16,7 @@ class Admin::ServicesController < AdminController
 
   def create
     if service.save
-      redirect_to admin_services_path, notice: t('helpers.successfully_created')
+      redirect_to admin_service_path(service), notice: t('helpers.successfully_created')
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Admin::ServicesController < AdminController
 
   def update
     if service.update service_params
-      redirect_to admin_services_path, notice: t('helpers.successfully_updated')
+      redirect_to admin_service_path(service), notice: t('helpers.successfully_updated')
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class Admin::ServicesController < AdminController
 
   private
   def service_params
-    params.require(:service).permit(:name, :description, :prompt_text, :name_eng, :description_eng, :prompt_text_eng)
+    params.require(:service).permit(:name, :description, :prompt_text, :name_eng, :description_eng, :prompt_text_eng, :service_image)
   end
 
   def setup

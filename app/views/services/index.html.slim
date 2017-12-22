@@ -20,7 +20,8 @@ section
             == link_to service_path(service) do
               .product-col
                 .image
-                  == image_tag 'img3.jpg', alt: '', class: 'img-fluid'
+                  - if service.service_image.present?
+                    == image_tag service.service_image, alt: locale_field(service, :name), class: 'img-fluid'
                   .mask
                     div
                       = locale_field(service, :prompt_text)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171208033837) do
+ActiveRecord::Schema.define(version: 20171222081444) do
 
   create_table "collections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20171208033837) do
     t.string "name_eng"
     t.string "prompt_text_eng"
     t.text "description_eng"
+    t.json "service_image"
     t.index ["parent_id"], name: "index_collections_on_parent_id"
   end
 

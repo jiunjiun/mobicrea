@@ -4,6 +4,8 @@ class Service < Collection
   has_many :photos,     class_name: 'ServicePhoto'
   has_many :references, class_name: 'ServiceReference'
 
+  mount_uploader :service_image, CollectionServiceImageUploader
+
   default_scope { where(collection_type: CollectionType::SERVICE) }
 
   before_create :setup
