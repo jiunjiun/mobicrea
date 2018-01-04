@@ -21,6 +21,16 @@ class Admin::ProductPhotosController < AdminController
     render json: result
   end
 
+  def destroy
+    if product_photo.destroy
+      result = { status: :success }
+    else
+      result = { status: :fail }
+    end
+
+    render json: result
+  end
+
   def update_position
     photo_params = params[:product_photo]
     if product_photos.update photo_params.keys, photo_params.values
