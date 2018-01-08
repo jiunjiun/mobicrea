@@ -4,8 +4,8 @@ en:
   company:
     name:     元皿傢俱創意有限公司
     email:    admin@mobicrea.com.tw
-    tel:      +886 2 35790771
-    fax:      +886 2 35790772
+    tel:      +886 2 5790771
+    fax:      +886 2 5790772
     address:  105台北市松山區南京東路四段56號
     business_hours: Mon-Fri 9:00~18:00
     info:     公司介紹
@@ -21,6 +21,7 @@ en:
   success_case: 成功案例
   brand:        代理品牌
   contact:      聯絡方式
+
 
   # 後台
   backend:      後台
@@ -83,3 +84,169 @@ en:
     contact_tel:                '聯絡電話:'
     zh_lang:                    中文
     en_lang:                    英文
+
+
+    successfully_created: 新增成功 # Your profile was successfully created.
+    successfully_updated: 更新成功 # Your profile was successfully updated.
+    successfully_destroy: 刪除成功 # Your profile was successfully destroy.
+    create_fail:          新增失敗
+    update_fail:          更新失敗
+    destroy_fail:         刪除失敗
+    successfully_pay:     交易成功
+    pay_fail:             交易失敗
+
+    search:
+      result: '搜尋: "%{result}"，找到 %{count} 項'
+      placeholder: search...
+
+    submit:
+      create: 新增
+      update: 更新
+
+      user:
+        update: 更新資料
+        update_password: 更新密碼
+
+  users:
+    create_account:      建立帳號
+    forogt_password:     忘記密碼?
+    send_reset_password: 發送
+    password_change:     密碼變更
+    remember_me:         Remember me
+    password:
+      new_password:         新密碼
+      confirm_new_password: 確認新密碼
+      minimum_password:     密碼最少%{minimum_password_length}位
+
+  services:
+    info:         資訊
+    slider:       橫幅
+    model_item:   分類項目
+
+  service_furnitures:
+    info:      資訊
+    sub_class: 子類別
+    products:  商品清單
+
+  products:
+    info:   商品資訊
+    photo:  商品圖片
+    design_story: 延伸說明
+    related_products: 相關產品
+
+  product_items:
+    info:   商品細項
+
+  success_cases:
+    info:      資訊
+    all_item: 所有項目
+
+  brands:
+    info:   品牌資訊
+
+  simple_form:
+    required:
+      text: 'required'
+      mark: ''
+    labels:
+      user:
+        name:       姓名
+        created_at: 建立日期
+      slider:
+        image:      圖片
+        url:        圖片連結
+        new_page:   另開視窗
+      service:
+        name:             名稱
+        created_at:       建立日期
+        description:      描述
+        prompt_text:      提示文字
+        name_eng:         名稱
+        created_at:       建立日期
+        description_eng:  描述
+        prompt_text_eng:  提示文字
+        service_image:    服務圖片
+      service_photo:
+        image:        圖片
+        title:        主標題
+        subtitle:     副標題
+        title_eng:    主標題 (英文)
+        subtitle_eng: 副標題 (英文)
+        url:          圖片連結
+        new_page:     另開視窗
+      service_reference:
+        image:        圖片
+        title:        主標題
+        subtitle:     副標題
+        title_eng:    主標題 (英文)
+        subtitle_eng: 副標題 (英文)
+        url:          圖片連結
+        new_page:     另開視窗
+      service_furniture:
+        name:        名稱
+        name_eng:    名稱
+        description: 描述
+        prompt_text: 提示文字
+        created_at:  建立日期
+      product:
+        uid:          品號
+        name:         名稱
+        description:  描述
+        design_story: 設計故事
+        hash_tag:     標籤
+
+        name_eng:         名稱
+        description_eng:  描述
+        design_story_eng: 設計故事
+        hash_tag_eng:     標籤
+      product_item:
+        key:        項目
+        value:      數值
+        key_eng:    項目
+        value_eng:  數值
+      success_case:
+        name:       案例類型
+        name_eng:   案例類型
+        created_at: 建立日期
+      brand:
+        name:             品牌名稱
+        description:      描述
+        name_eng:         英文品牌名稱
+        description_eng:  英文描述
+        link:             相關連結
+        file_link:        檔案連結
+        created_at:       建立日期
+        brand_logo:       品牌圖片
+
+    placeholders:
+
+
+  weeks:
+    - 星期日
+    - 星期一
+    - 星期二
+    - 星期三
+    - 星期四
+    - 星期五
+    - 星期六
+
+  date:
+    formats:
+      yymmdd:   '%Y年%m月%d日'
+      yymmdd_a: '%Y年%m月%d日 (%a)'
+      mmdd_a:   '%m月%d日 (%a)'
+
+  time:
+    formats:
+      yymmdd: '%Y年%m月%d日'
+      mmddyy: '%m月%d日%Y'
+      yymmdd_s: '%Y/%m/%d'
+      ymds: '%Y-%m-%d %T'
+      ymdhm: '%Y-%m-%d %H:%M'
+      long: '%Y年%m月%d日 %T'
+      hs:   '%H:%M'
+
+  will_paginate:
+    previous_label: 上一頁
+    next_label:     下一頁
+    page_gap:       "&hellip;"
