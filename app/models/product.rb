@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   has_many :items, class_name: 'ProductItem', dependent: :destroy
   has_many :photos, class_name: 'ProductPhoto', dependent: :destroy
 
+  validates_presence_of :name
 
   def prev
     Product.where("id < ?", self.id).last
