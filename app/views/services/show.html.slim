@@ -81,26 +81,10 @@ section.page-top-banner
 section.morecase.bg-gray
   .container
     .wrapper-title
-      h3 更多案例
+      h3= t('services.more')
     .case-slick
-      .item
-        == link_to "#" , class: "thumbnail"  do
-          == image_tag 'img7.jpg', alt: '', class: 'img-fluid'
-      .item
-        == link_to "#" , class: "thumbnail"  do
-          == image_tag 'img6.jpg', alt: '', class: 'img-fluid'
-      .item
-        == link_to "#" , class: "thumbnail"  do
-          == image_tag 'img5.jpg', alt: '', class: 'img-fluid'
-      .item
-        == link_to "#" , class: "thumbnail"  do
-          == image_tag 'img4.jpg', alt: '', class: 'img-fluid'
-      .item
-        == link_to "#" , class: "thumbnail"  do
-          == image_tag 'img3.jpg', alt: '', class: 'img-fluid'
-      .item
-        == link_to "#" , class: "thumbnail"  do
-          == image_tag 'img2.jpg', alt: '', class: 'img-fluid'
-      .item
-        == link_to "#" , class: "thumbnail"  do
-          == image_tag 'img1.jpg', alt: '', class: 'img-fluid'
+      - more_services(service).each do |product|
+        .item
+          == link_to product_path(product), class: "thumbnail"  do
+            == image_tag product.photos.first.image, alt: '', class: 'img-fluid'
+

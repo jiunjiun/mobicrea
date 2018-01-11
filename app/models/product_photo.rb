@@ -3,6 +3,8 @@ class ProductPhoto < ApplicationRecord
 
   mount_uploader :image, ProductPhotoImageUploader
 
+  default_scope { order(:position) }
+
   before_create :update_position
 
   def as_json opts={}

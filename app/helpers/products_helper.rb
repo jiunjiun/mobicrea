@@ -10,7 +10,7 @@ module ProductsHelper
     when Collection::CollectionType::SUCCESS_CASE
       li = content_tag(:li, link_to(t('success_case'), success_cases_path)) + li
     when Collection::CollectionType::BRAND
-      li = content_tag(:li, link_to(t('brand'), brand_path)) + li
+      li = content_tag(:li, link_to(t('brand'), brands_path)) + li
     end
 
     if collection.try(:parent).present?
@@ -43,6 +43,8 @@ module ProductsHelper
       service_service_furniture_path(collection.parent, collection)
     when Collection::CollectionType::SUCCESS_CASE
       success_case_path(collection)
+    when Collection::CollectionType::BRAND
+      brand_path(collection)
     end
   end
 end

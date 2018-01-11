@@ -20,7 +20,7 @@
     .wrapper-title.text-left
       h3= t('products.related_products')
     ul.row
-      - product.collection.products.where.not(id: product.id).each do |product|
+      - product.relations.each do |product|
         li.col-lg-3.col-md-4.col-xs-6
           == link_to product_path(product) do
             .item

@@ -22,7 +22,7 @@ section
           aside.aside-menu
             ul.serivcemenu
               - service.service_furnitures.each do |service_furniture|
-                li.item
+                li.item class="#{params[:id].to_i == service_furniture.id ? 'active' : ''}"
                   == link_to service_service_furniture_path(service, service_furniture)
                     span aria-hidden="true"
                     = locale_field(service_furniture, :name)
