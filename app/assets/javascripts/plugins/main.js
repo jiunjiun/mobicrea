@@ -122,7 +122,7 @@ $(function(){
     slidesToScroll: 1,
     asNavFor: '#productView',
     dots: false,
-    arrows: false,
+    arrows: true,
     focusOnSelect: true,
     responsive: [
      {
