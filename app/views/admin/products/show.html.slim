@@ -11,8 +11,12 @@ ol.breadcrumb.page-breadcrumb
       == link_to service_furniture.name, admin_service_service_furniture_path(service, service_furniture)
   - elsif !success_case.new_record?
     li
+      == link_to t('admin.success_case'), admin_success_cases_path
+    li
       == link_to success_case.name, admin_success_case_path(success_case)
   - elsif !brand.new_record?
+    li
+      == link_to t('admin.brand'), admin_brands_path
     li
       == link_to brand.name, admin_brand_path(brand)
   li.active
@@ -168,4 +172,33 @@ ol.breadcrumb.page-breadcrumb
             .fallback.hide
               == file_field_tag :image
 
+- if !success_case.new_record?
+  .row
+    .col-md-12
+      .panel
+        .panel-heading
+          span.panel-title= t('products.related_products')
+          .panel-heading-controls
+              == link_to t('helpers.add'), new_admin_success_case_product_product_relation_path(success_case, product), class: 'btn btn-primary btn-xs btn-3d'
+        table.table
+          thead
+            tr
+              th.col-md-2
+              th.col-md-2.text-center
+                = t('simple_form.labels.product.uid')
+              th.col-md-2.text-center
+                = t('simple_form.labels.product.name')
+              th.col-md-2.text-center
+                = t('helpers.en_lang')
+                = t('simple_form.labels.product.name_eng')
+          tbody
+            - product.relations.each do |relation|
+              tr
+                td
+                  .btn-group
+                    == link_to t('helpers.edit'), edit_admin_success_case_product_product_relation_path(success_case, product, relation), class: 'btn btn-primary btn-3d btn-xs'
+                    == link_to t('helpers.delete'), admin_success_case_product_product_relation_path(success_case, product, relation), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d btn-xs'
+                td.text-center= relation.uid
+                td.text-center= relation.name
+                td.text-center= relation.name_eng
 

@@ -21,6 +21,8 @@ ol.breadcrumb.page-breadcrumb
       == link_to brand.name, admin_brand_path(brand)
     li
       == link_to product.name, admin_brand_product_path(brand, product)
+  li
+    = t('product_items.info')
   li.active
     = t('helpers.add')
 .page-header

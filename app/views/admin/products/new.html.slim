@@ -11,8 +11,12 @@ ol.breadcrumb.page-breadcrumb
       == link_to service_furniture.name, admin_service_service_furniture_path(service, service_furniture)
   - elsif !success_case.new_record?
     li
+      == link_to t('admin.success_case'), admin_success_cases_path
+    li
       == link_to success_case.name, admin_success_case_path(success_case)
   - elsif !brand.new_record?
+    li
+      == link_to t('admin.brand'), admin_brands_path
     li
       == link_to brand.name, admin_brand_path(brand)
   li.active
