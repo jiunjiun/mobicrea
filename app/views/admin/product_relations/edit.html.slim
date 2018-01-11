@@ -1,0 +1,22 @@
+ol.breadcrumb.page-breadcrumb
+  li
+    == link_to admin_root_path do
+      i.px-nav-icon.ion-home
+  - if !success_case.new_record?
+    li
+      == link_to t('admin.success_case'), admin_success_cases_path
+    li
+      == link_to success_case.name, admin_success_case_path(success_case)
+    li
+      == link_to product.name, admin_success_case_product_path(success_case, product)
+  li
+    = t('products.related_products')
+  li.active
+    = t('helpers.edit')
+.page-header
+  .pull-left
+    h1= t('helpers.edit')
+
+.row
+  .col-md-12
+    == render 'form'

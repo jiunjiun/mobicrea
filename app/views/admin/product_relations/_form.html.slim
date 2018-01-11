@@ -1,0 +1,11 @@
+== simple_form_for [:admin, success_case, product, product_relation], html: { autocomplete: 'off' } do |f|
+  .panel
+    /! Default panel contents
+    .panel-body
+      == f.input :relation_id, collection: Product.id_options, prompt: t('helpers.plz_select'), required: true
+
+  .panel
+    .panel-body
+      == f.button :submit, class: 'btn-primary btn-3d'
+      | &nbsp;&nbsp;
+      == link_to t('helpers.back'), admin_success_case_product_path(success_case, product), class: 'btn btn-default btn-3d'

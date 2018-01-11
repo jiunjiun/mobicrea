@@ -129,9 +129,9 @@ zh-TW:
     products:  商品清單
 
   products:
-    info:   商品資訊
-    photo:  商品圖片
-    design_story: 延伸說明
+    info:             商品資訊
+    photo:            商品圖片
+    design_story:     延伸說明
     related_products: 相關產品
 
   product_items:
@@ -217,6 +217,8 @@ zh-TW:
         file_link:        檔案連結
         created_at:       建立日期
         brand_logo:       品牌圖片
+      product_relation:
+        relation_id:      產品
 
     placeholders:
 
