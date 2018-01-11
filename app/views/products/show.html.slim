@@ -16,6 +16,8 @@ section.page-top-banner
   == render 'product_service_furniture'
 - when Collection::CollectionType::SUCCESS_CASE
   == render 'product_success_case'
+- when Collection::CollectionType::BRAND
+  == render 'product_brand'
 
 .container
   .article-control-panel
