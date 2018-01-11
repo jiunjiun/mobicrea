@@ -192,12 +192,12 @@ en:
         uid:          品號
         name:         名稱
         description:  描述
-        design_story: 設計故事
+        design_story: 延伸說明
         hash_tag:     標籤
 
         name_eng:         名稱
         description_eng:  描述
-        design_story_eng: 設計故事
+        design_story_eng: 延伸說明
         hash_tag_eng:     標籤
       product_item:
         key:        項目

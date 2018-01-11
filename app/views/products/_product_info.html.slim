@@ -25,4 +25,4 @@
     - if locale_field(product, :hash_tag).present?
       .meta-value
         - locale_field(product, :hash_tag).split(',').each do |hash_tag|
-          span.tag-lin= hash_tag
+          span.tag-link= hash_tag

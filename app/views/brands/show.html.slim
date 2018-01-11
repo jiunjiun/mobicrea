@@ -56,7 +56,7 @@ section.page-top-banner
             .row
               - brand.products.each do |product|
                 .col-md-4.col-sm-6
-                  == link_to '' , data: {target: "#productModal_#{product.id}", toggle: 'modal'}, type: 'button' do
+                  == link_to product_path(product) do
                     .product-col
                       .image
                         - if product.photos.present?
@@ -64,7 +64,7 @@ section.page-top-banner
                       .caption
                         h4= locale_field(product, :name)
                         .description
-                          = locale_field(product, :description)
+                          = locale_field(product, :description)[0..60]
 
 == content_for :brands_modal do
   - brand.products.each do |product|

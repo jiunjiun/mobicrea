@@ -41,7 +41,7 @@ $(function(){
     dots: true,
     infinite: true,
     speed: 1200,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 2500
   })
 

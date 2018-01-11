@@ -16,19 +16,46 @@ section.page-top-banner
   .mag-bootom-lg
 section
   .container
-    .products-wrap.service-products
-      .row
-        - products.each do |product|
-          .col-md-4.col-sm-6
-            == link_to product_path(product) do
-              .product-col
-                .image
-                  - if product.photos.present?
-                    == image_tag product.photos.first.image, alt: '', class: 'img-fluid'
-                .caption
-                  h4= locale_field(product, :name)
-                  .description= locale_field(product, :description)
-                  .btn-wrap
-                    .btn.btn-primary
-                      | MORE
-      == will_paginate products, renderer: BootstrapPagination::Rails
+    .row
+      .col-lg-3.col-sm-3
+        - if service.service_furnitures.count > 0
+          aside.aside-menu
+            ul.serivcemenu
+              - service.service_furnitures.each do |service_furniture|
+                li.item
+                  == link_to service_service_furniture_path(service, service_furniture)
+                    span aria-hidden="true"
+                    = locale_field(service_furniture, :name)
+        aside.contact-info
+          h4 更多資訊洽詢
+          h5= t('title')
+          ul
+            li
+              == mail_to t('company.email'), target: "_blank" do
+                span.icon_mail_alt aria-hidden="true"
+                = t('company.email')
+            li
+              == link_to "tel:#{t('company.tel').delete(' ')}", target: "_blank" do
+                span.icon_phone aria-hidden="true"
+                = t('company.tel')
+            li
+              == link_to "tel:#{t('company.fax').delete(' ')}", target: "_blank" do
+                span.icon_printer-alt aria-hidden="true"
+                = t('company.fax')
+      .col-lg-9.col-sm-9
+        .products-wrap.service-products
+          .row
+            - products.each do |product|
+              .col-md-4.col-sm-6
+                == link_to product_path(product) do
+                  .product-col
+                    .image
+                      - if product.photos.present?
+                        == image_tag product.photos.first.image, alt: '', class: 'img-fluid'
+                    .caption
+                      h4= locale_field(product, :name)
+                      .description= locale_field(product, :description)[0..60]
+                      .btn-wrap
+                        .btn.btn-primary
+                          | MORE
+          == will_paginate products, renderer: BootstrapPagination::Rails

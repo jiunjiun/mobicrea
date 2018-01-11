@@ -1,0 +1,17 @@
+.container
+  .row
+    .col-sm-6
+      .product-photo-container
+        / ul.product-photo id="productView#{product.id}"
+        ul.product-photo id="productView"
+          - product.photos.each do |photo|
+            li
+              == image_tag photo.image, alt: '', class: 'img-responsive'
+        .thumbnail-wrap
+          / ul.product-thumbnail id="productThumbnail#{product.id}"
+          ul.product-thumbnail id="productThumbnail"
+            - product.photos.each do |photo|
+              li
+                == image_tag photo.image, alt: '', class: 'img-responsive'
+    .col-sm-6
+      == render 'products/product_info', {product: product}
