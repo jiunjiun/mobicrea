@@ -192,13 +192,13 @@ ol.breadcrumb.page-breadcrumb
                 = t('helpers.en_lang')
                 = t('simple_form.labels.product.name_eng')
           tbody
-            - product.relations.each do |relation|
+            - product.product_relations.each do |product_relation|
               tr
                 td
                   .btn-group
-                    == link_to t('helpers.edit'), edit_admin_success_case_product_product_relation_path(success_case, product, relation), class: 'btn btn-primary btn-3d btn-xs'
-                    == link_to t('helpers.delete'), admin_success_case_product_product_relation_path(success_case, product, relation), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d btn-xs'
-                td.text-center= relation.uid
-                td.text-center= relation.name
-                td.text-center= relation.name_eng
+                    == link_to t('helpers.edit'), edit_admin_success_case_product_product_relation_path(success_case, product, product_relation), class: 'btn btn-primary btn-3d btn-xs'
+                    == link_to t('helpers.delete'), admin_success_case_product_product_relation_path(success_case, product, product_relation), method: :delete, data: {confirm: t('helpers.are_you_sure')}, class: 'btn btn-danger btn-3d btn-xs'
+                td.text-center= product_relation.relation.uid
+                td.text-center= product_relation.relation.name
+                td.text-center= product_relation.relation.name_eng
 
