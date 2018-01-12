@@ -1798,8 +1798,11 @@ section#indoorView
       color: $gray-base
       font-size: 1.6em
       font-weight: 600
+      .text-primary
+        font-size: 26px
       .en
         padding: 0 0 0 8px
+        font-size: 18px
   .divider
     line-height: 1.7
     border-bottom: 1px solid #E9EEF1
@@ -1872,11 +1875,21 @@ section#successful_story
 section.brand-product
   +pad
     margin-top: 30px
+  .row
+    .col-md-4.col-sm-6
+      &:nth-child(3n+1)
+        clear: left
+        +tablet
+          clear: none
+      &:nth-child(2n+1)
+        +tablet
+          clear: left
   .product-col
     +pad
       max-width: 320px
       margin: 0 auto
       margin-bottom: 15px
+
     .image
       border-radius: 8px 8px 0 0
       img
