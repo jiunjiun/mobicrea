@@ -86,5 +86,6 @@ section.morecase.bg-gray
       - more_services(service).each do |product|
         .item
           == link_to product_path(product), class: "thumbnail"  do
-            == image_tag product.photos.first.image, alt: '', class: 'img-fluid'
+            - if product.photos.present?
+              == image_tag product.photos.first.image, alt: '', class: 'img-fluid'
 
