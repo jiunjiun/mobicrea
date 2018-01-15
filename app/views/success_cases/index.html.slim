@@ -28,7 +28,7 @@ section#successful_story
       .waterfall
         - success_cases.each do |success_case|
           - success_case.products.each do |product|
-            .element-item class="class_#{success_case.id} #{cycle("width2x height2x", 'grid-sizer', '', '', '')}"
+            .element-item class="class_#{success_case.id} #{success_cases_image_class}"
               == link_to product_path(product) do
                 - if product.photos.present?
                   == image_tag product.photos.first.image , alt: '', class: 'img-fluid'
