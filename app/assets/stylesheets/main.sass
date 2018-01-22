@@ -707,10 +707,10 @@ section#homeVideo
         padding-bottom: 0px
       .spirit
         h3
-          font-size: 20px
+          font-size: 17px
         p
           margin: 0
-          font-size: 16px
+          font-size: 13px
           color: rgba(#FFF,0.5)
 
 %section-offset
@@ -935,7 +935,7 @@ section#homeVideo
     +pad
       padding: 15px 0
     img
-      max-width: 76px
+      max-width: 60px
       +pad
         max-width: 60px
 .aboutus
@@ -1116,7 +1116,10 @@ aside
     border-bottom: 4px solid $brand-primary
     img
       +pad
+        max-width: 100%
+        width: auto
         height: 360px
+        object-fit: contain
     .modulartext
       position: absolute
       bottom: 0
@@ -1330,8 +1333,13 @@ aside
     .product-col
       border: 0
   &.service-products
-    .col-md-4:nth-child(3n+1)
+    .col-lg-3:nth-child(4n+1)
       clear: left
+      +pc
+        clear: none
+    .col-md-4:nth-child(3n+1)
+      +pc
+        clear: left
       +tablet
         clear: none
     .col-sm-6:nth-child(2n+1)
@@ -1824,6 +1832,13 @@ section#indoorView
         display: table-cell
         font-weight: 600
         color: $gray-dark
+        position: relative
+        padding-right: 15px
+        &::after
+          content: ":"
+          position: absolute
+          top: 0
+          right: 5px
         +pad
           width: 86px
 section.product-story

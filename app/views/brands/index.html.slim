@@ -14,12 +14,14 @@ section.products-content
   .container
     .products-wrap.brand-products
       .row
-        - brands.each do |brand|
-          .col-lg-3.col-md-4.col-xs-6
-            == link_to brand_path(brand) do
-              .product-col
-                .image.img-logo
-                  == image_tag brand.brand_logo, alt: '', class: 'img-fluid'
-                .caption
-                  h4.text-center
-                    = locale_field(brand, :name)
+        .col-sm-10.col-sm-offset-1
+          .row
+            - brands.each do |brand|
+              .col-md-4.col-xs-6
+                == link_to brand_path(brand) do
+                  .product-col
+                    .image.img-logo
+                      == image_tag brand.brand_logo, alt: '', class: 'img-fluid'
+                    .caption
+                      h4.text-center
+                        = locale_field(brand, :name)
