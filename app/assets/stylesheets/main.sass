@@ -940,6 +940,17 @@ section#homeVideo
         max-width: 60px
 .aboutus
   text-align: center
+  .row
+    > .col-lg-4
+      &:nth-child(3n+1)
+        clear: left
+        +pc
+          clear: none
+    > .col-sm-6
+      &:nth-child(2n+1)
+        +pad
+          clear: left
+
   li
     padding: 50px 0px
     +pad
@@ -1278,6 +1289,9 @@ aside
   font-size: 16px
   line-height: 2
   margin-bottom: 60px
+  .text-indent
+    text-indent: 50px
+
 
 .section-header
   text-align: center
