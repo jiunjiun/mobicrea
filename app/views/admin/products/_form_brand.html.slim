@@ -21,6 +21,14 @@
       == f.input :name_eng
       == f.input :description_eng, input_html: { rows: 5 }
       == f.input :hash_tag_eng, input_html: { data: { role: 'tagsinput' } }
+
+  .panel
+    .panel-heading
+      span.panel-title= t('helpers.other_info')
+    /! Default panel contents
+    .panel-body
+      == f.input :weight
+
   .panel
     .panel-body
       == f.button :submit, class: 'btn-primary btn-3d'

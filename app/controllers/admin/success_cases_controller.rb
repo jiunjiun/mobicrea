@@ -1,5 +1,5 @@
 class Admin::SuccessCasesController < AdminController
-  expose :success_cases, -> { SuccessCase.paginate(page: params[:page]) }
+  expose :success_cases, -> { SuccessCase.order(weight: :desc).paginate(page: params[:page]) }
   expose :success_case
   expose :products, -> { success_case.products }
 
@@ -39,6 +39,6 @@ class Admin::SuccessCasesController < AdminController
 
   private
   def success_case_params
-    params.require(:success_case).permit(:name, :name_eng)
+    params.require(:success_case).permit(:name, :name_eng, :weight)
   end
 end

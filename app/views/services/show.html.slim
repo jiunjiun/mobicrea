@@ -21,7 +21,7 @@ section.page-top-banner
       - if service.service_furnitures.count > 0
         aside.aside-menu
           ul.serivcemenu
-            - service.service_furnitures.each do |service_furniture|
+            - service.service_furnitures.order(weight: :desc).each do |service_furniture|
               li.item
                 == link_to service_service_furniture_path(service, service_furniture)
                   span aria-hidden="true"

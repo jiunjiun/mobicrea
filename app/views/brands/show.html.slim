@@ -54,7 +54,7 @@ section.page-top-banner
             .wrapper-title.text-left.first-top
               h3 產品
             .row
-              - brand.products.each do |product|
+              - brand.products.order(weight: :desc).each do |product|
                 .col-md-4.col-sm-6
                   == link_to product_path(product) do
                     .product-col

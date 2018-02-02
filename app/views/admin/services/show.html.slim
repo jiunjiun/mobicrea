@@ -111,13 +111,15 @@ ol.breadcrumb.page-breadcrumb
             th.text-center
               = t('helpers.en_lang')
               = t('simple_form.labels.service_furniture.name_eng')
-            th.text-center= t('simple_form.labels.service_furniture.created_at')
+            th.text-center= t('simple_form.labels.service_furniture.weight')
+            th.text-center.col-md-3= t('simple_form.labels.service_furniture.created_at')
         tbody
           - service_furnitures.each do |service_furniture|
             tr
               td.text-center
                 == link_to service_furniture.name, admin_service_service_furniture_path(service, service_furniture)
               td.text-center= service_furniture.name_eng
+              td.text-center= service_furniture.weight
               td.text-center= l service_furniture.created_at, format: :long
 
     .pull-right

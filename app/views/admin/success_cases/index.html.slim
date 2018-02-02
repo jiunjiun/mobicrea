@@ -23,6 +23,8 @@ ol.breadcrumb.page-breadcrumb
               = t('helpers.en_lang')
               = t('simple_form.labels.success_case.name_eng')
             th.text-center
+              = t('simple_form.labels.success_case.weight')
+            th.text-center
               = t('simple_form.labels.success_case.created_at')
         tbody
           - success_cases.each do |success_case|
@@ -30,6 +32,7 @@ ol.breadcrumb.page-breadcrumb
               td.text-center
                 == link_to success_case.name, admin_success_case_path(success_case)
               td.text-center= success_case.name_eng
+              td.text-center= success_case.weight
               td.text-center= l success_case.created_at, format: :long
 
     .pull-right
