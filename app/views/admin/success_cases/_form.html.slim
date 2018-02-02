@@ -14,6 +14,13 @@
       == f.input :name_eng
 
   .panel
+    .panel-heading
+      span.panel-title= t('helpers.other_info')
+    /! Default panel contents
+    .panel-body
+      == f.input :weight
+
+  .panel
     .panel-body
       == f.button :submit, class: 'btn-primary btn-3d'
       | &nbsp;&nbsp;

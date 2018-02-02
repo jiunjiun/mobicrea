@@ -36,6 +36,6 @@ class Admin::ServiceFurnituresController < AdminController
 
   private
   def service_furniture_params
-    params.require(:service_furniture).permit(:name, :name_eng)
+    params.require(:service_furniture).permit(:name, :name_eng, :weight)
   end
 end

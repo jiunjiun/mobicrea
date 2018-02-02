@@ -68,11 +68,13 @@ ol.breadcrumb.page-breadcrumb
       table.table
         thead
           tr
-            th.text-center= t('simple_form.labels.service.name')
-            th.text-center= t('simple_form.labels.service.created_at')
+            th.text-center= t('simple_form.labels.product.name')
+            th.text-center= t('simple_form.labels.product.weight')
+            th.text-center= t('simple_form.labels.product.created_at')
         tbody
-          - products.each do |product|
+          - products.order(weight: :desc).each do |product|
             tr
               td.text-center
                 == link_to product.name, admin_brand_product_path(brand, product)
+              th.text-center= product.weight
               td.text-center= l product.created_at, format: :long

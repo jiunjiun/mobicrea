@@ -84,6 +84,7 @@ zh-TW:
     contact_tel:                '聯絡電話:'
     zh_lang:                    中文
     en_lang:                    英文
+    other_info:                 其他資訊
 
 
     successfully_created: 新增成功 # Your profile was successfully created.
@@ -189,6 +190,7 @@ zh-TW:
         description: 描述
         prompt_text: 提示文字
         created_at:  建立日期
+        weight:      權重
       product:
         uid:          品號
         name:         名稱
@@ -200,6 +202,8 @@ zh-TW:
         description_eng:  描述
         design_story_eng: 延伸說明
         hash_tag_eng:     標籤
+        weight:           權重
+        created_at:       建立日期
       product_item:
         key:        項目
         value:      數值
@@ -209,6 +213,7 @@ zh-TW:
         name:       案例類型
         name_eng:   案例類型
         created_at: 建立日期
+        weight:     權重
       brand:
         name:             品牌名稱
         description:      描述
