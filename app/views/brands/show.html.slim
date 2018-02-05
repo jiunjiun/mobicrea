@@ -64,30 +64,4 @@ section.page-top-banner
                       .caption
                         h4= locale_field(product, :name)
                         .description
-                          = locale_field(product, :description)[0..60]
-
-== content_for :brands_modal do
-  - brand.products.each do |product|
-    /! Modal
-    .modal.fade.product-modal aria-labelledby="ModalLabel" role="dialog" tabindex="-1" id="productModal_#{product.id}" data-modal="#{product.id}"
-      .modal-dialog.modal-lg role="document"
-        .modal-content
-          .modal-header
-            button.close aria-label="Close" data-dismiss="modal" type="button"
-              span aria-hidden="true"  &times;
-            h4#myModalLabel.modal-title 代理品牌商品
-          .modal-body
-            .row.product-header
-              .col-sm-6
-                .product-photo-container
-                  ul.product-photo id="productView#{product.id}"
-                    - product.photos.each do |photo|
-                      li
-                        == image_tag photo.image, alt: '', class: 'img-responsive'
-                  .thumbnail-wrap
-                    ul.product-thumbnail id="productThumbnail#{product.id}"
-                      - product.photos.each do |photo|
-                        li
-                          == image_tag photo.image, alt: '', class: 'img-responsive'
-              .col-sm-6
-                == render 'products/product_info', {product: product}
+                          = product.uid
