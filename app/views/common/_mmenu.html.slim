@@ -15,7 +15,7 @@ nav#menu
             == link_to locale_field(service, :name), service_path(service)
           - if service.service_furnitures.count > 0
             ul
-              - service.service_furnitures.each do |service_furniture|
+              - service.service_furnitures.order(weight: :desc).each do |service_furniture|
                 li
                   == link_to locale_field(service_furniture, :name), service_service_furniture_path(service, service_furniture)
     li.item

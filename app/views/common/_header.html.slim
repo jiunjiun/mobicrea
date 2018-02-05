@@ -62,7 +62,7 @@ header#pageHeader.page-header.fixed
                     li.dropdown-submenu
                       == link_to locale_field(service, :name), service_path(service), class: 'dropdown-toggle'
                       ul.dropdown-menu role='menu'
-                        - service.service_furnitures.each do |service_furniture|
+                        - service.service_furnitures.order(weight: :desc).each do |service_furniture|
                           li
                             == link_to locale_field(service_furniture, :name), service_service_furniture_path(service, service_furniture)
                   - else
