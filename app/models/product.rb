@@ -5,10 +5,12 @@ class Product < ApplicationRecord
   has_many :items, class_name: 'ProductItem', dependent: :destroy
   has_many :photos, class_name: 'ProductPhoto', dependent: :destroy
 
-  has_many :product_relations
+  has_many :product_relations, dependent: :destroy
   has_many :relations, through: :product_relations
 
   validates_presence_of :name
+
+  before_destroy :destroy_relation
 
   def self.id_options
     Product.all.map do |t|
@@ -22,5 +24,9 @@ class Product < ApplicationRecord
 
   def next
     Product.where("id > ?", self.id).first
+  end
+
+  def destroy_relation
+    ProductRelation.where(relation_id: self.id).destroy_all
   end
 end
