@@ -91,17 +91,16 @@ ol.breadcrumb.page-breadcrumb
                 - product.hash_tag_eng.split(',').each do |tag|
                   code= tag
                   | &nbsp;&nbsp;
-    - if !brand.new_record?
-      .panel
-        .panel-heading
-          span.panel-title= t('helpers.other_info')
-        /! Default panel contents
-        table.table
-          tbody
-            tr
-              td.col-md-2.col-xs-2.text-right
-                strong= t('simple_form.labels.product.weight')
-              td.col-md-8= product.weight
+    .panel
+      .panel-heading
+        span.panel-title= t('helpers.other_info')
+      /! Default panel contents
+      table.table
+        tbody
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.product.weight')
+            td.col-md-8= product.weight
 .row
   .col-md-12
     .panel

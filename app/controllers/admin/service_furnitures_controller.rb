@@ -2,7 +2,7 @@ class Admin::ServiceFurnituresController < AdminController
   expose :service
   expose :service_furnitures, -> { service.service_furnitures.paginate(page: params[:page]) }
   expose :service_furniture, build: ->(service_furniture_params, scope){ service_furnitures.build(service_furniture_params) }
-  expose :products, -> { service_furniture.products }
+  expose :products, -> { service_furniture.products.order(weight: :desc) }
 
   def index
   end

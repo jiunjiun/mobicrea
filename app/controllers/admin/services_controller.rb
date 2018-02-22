@@ -1,5 +1,5 @@
 class Admin::ServicesController < AdminController
-  expose :services, -> { Service.paginate(page: params[:page]) }
+  expose :services, -> { Service.order(weight: :desc).paginate(page: params[:page]) }
   expose :service
   expose :service_furnitures, -> { service.service_furnitures.order(weight: :desc).paginate(page: params[:page]) }
 
@@ -40,7 +40,10 @@ class Admin::ServicesController < AdminController
 
   private
   def service_params
-    params.require(:service).permit(:name, :description, :prompt_text, :name_eng, :description_eng, :prompt_text_eng, :service_image)
+    params.require(:service)
+          .permit(:name, :description, :prompt_text,
+                  :name_eng, :description_eng, :prompt_text_eng,
+                  :service_image, :weight)
   end
 
   def setup

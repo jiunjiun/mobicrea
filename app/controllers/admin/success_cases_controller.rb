@@ -1,7 +1,7 @@
 class Admin::SuccessCasesController < AdminController
   expose :success_cases, -> { SuccessCase.order(weight: :desc).paginate(page: params[:page]) }
   expose :success_case
-  expose :products, -> { success_case.products }
+  expose :products, -> { success_case.products.order(weight: :desc) }
 
 
   def index

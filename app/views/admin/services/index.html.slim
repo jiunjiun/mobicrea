@@ -23,6 +23,8 @@ ol.breadcrumb.page-breadcrumb
               = t('helpers.en_lang')
               = t('simple_form.labels.service.name_eng')
             th.text-center
+              = t('simple_form.labels.service.weight')
+            th.text-center
               = t('simple_form.labels.service.created_at')
         tbody
           - services.each do |service|
@@ -31,6 +33,8 @@ ol.breadcrumb.page-breadcrumb
                 == link_to service.name, admin_service_path(service)
               td.text-center
                 = service.name_eng
+              td.text-center
+                = service.weight
               td.text-center
                 = l service.created_at, format: :long
 

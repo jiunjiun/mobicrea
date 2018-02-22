@@ -49,6 +49,11 @@ ol.breadcrumb.page-breadcrumb
                     == link_to brand.link, brand.link, target: '_blank'
               tr
                 td.col-md-2.col-xs-2.text-right
+                  strong= t('simple_form.labels.brand.weight')
+                td.col-md-8
+                  = brand.weight
+              tr
+                td.col-md-2.col-xs-2.text-right
                   strong= t('simple_form.labels.brand.file_link')
                 td.col-md-8
                   - if brand.file_link.present?

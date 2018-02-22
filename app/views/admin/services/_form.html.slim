@@ -19,6 +19,13 @@
 
   .panel
     .panel-heading
+      span.panel-title= t('helpers.other_info')
+    /! Default panel contents
+    .panel-body
+      == f.input :weight
+
+  .panel
+    .panel-heading
       span.panel-title= t('simple_form.labels.service.service_image')
     /! Default panel contents
     .panel-body

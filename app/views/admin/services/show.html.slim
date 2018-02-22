@@ -61,6 +61,17 @@ ol.breadcrumb.page-breadcrumb
 
     .panel
       .panel-heading
+        span.panel-title
+          = t('helpers.other_info')
+      table.table
+        tbody
+          tr
+            td.col-md-2.col-xs-2.text-right
+              strong= t('simple_form.labels.service.weight')
+            td.col-md-8= service.weight
+
+    .panel
+      .panel-heading
         span.panel-title= t('simple_form.labels.service.service_image')
       /! Default panel contents
       .panel-body

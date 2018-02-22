@@ -1,7 +1,7 @@
 class ServiceFurnituresController < ApplicationController
   expose :service
   expose :service_furniture
-  expose :products, -> { service_furniture.products.paginate(page: params[:page]) }
+  expose :products, -> { service_furniture.products.order(weight: :desc).paginate(page: params[:page]) }
 
   before_action :update_meta
 

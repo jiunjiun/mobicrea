@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
 
   include HelpersConcern
 
-  expose :services, -> { Service.all }
+  expose :services, -> { Service.order(weight: :desc).all }
   expose :success_cases, -> { SuccessCase.order(weight: :desc).all }
-  expose :brands, -> { Brand.all }
+  expose :brands, -> { Brand.order(weight: :desc).all }
 
   before_action :set_locale
 

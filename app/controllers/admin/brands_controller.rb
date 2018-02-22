@@ -1,7 +1,7 @@
 class Admin::BrandsController < AdminController
-  expose :brands, -> { Brand.paginate(page: params[:page]) }
+  expose :brands, -> { Brand.order(weight: :desc).paginate(page: params[:page]) }
   expose :brand
-  expose :products, -> { brand.products }
+  expose :products, -> { brand.products.order(weight: :desc) }
 
 
   def index
@@ -39,6 +39,9 @@ class Admin::BrandsController < AdminController
 
   private
   def brand_params
-    params.require(:brand).permit(:name, :description, :name_eng, :description_eng, :link, :file_link, :brand_logo)
+    params.require(:brand)
+          .permit(:name, :description,
+                  :name_eng, :description_eng,
+                  :link, :file_link, :brand_logo, :weight)
   end
 end

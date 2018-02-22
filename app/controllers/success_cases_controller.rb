@@ -1,6 +1,6 @@
 class SuccessCasesController < ApplicationController
   expose :success_case
-  expose :products, -> { success_case.products.paginate(page: params[:page]) }
+  expose :products, -> { success_case.products.order(weight: :desc).paginate(page: params[:page]) }
 
   before_action :update_meta
 

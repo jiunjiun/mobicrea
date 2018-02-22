@@ -66,12 +66,14 @@ ol.breadcrumb.page-breadcrumb
         thead
           tr
             th.text-center= t('simple_form.labels.service.name')
+            th.text-center= t('simple_form.labels.service.weight')
             th.text-center= t('simple_form.labels.service.created_at')
         tbody
           - products.each do |product|
             tr
               td.text-center
                 == link_to product.name, admin_service_service_furniture_product_path(service, service_furniture, product)
+              td.text-center= product.weight
               td.text-center= l product.created_at, format: :long
 
 
