@@ -18,19 +18,23 @@ section#homeVideo.home-video
             li.col-lg-3.col-sm-6
               == image_tag 'puzzle.svg', alt: '', class: "img-fluid"
               .margin-bottom-sm
-              h3 Module
+              h3 模組
+              p 建立家具單元模型，堆疊組裝。
             li.col-lg-3.col-sm-6
               == image_tag 'stopwatch.svg', alt: '', class: "img-fluid"
               .margin-bottom-sm
-              h3 Efficiency
+              h3 效率
+              p 縮短工程時效，提升工程品質。
             li.col-lg-3.col-sm-6
               == image_tag 'creativity.svg', alt: '', class: "img-fluid"
               .margin-bottom-sm
-              h3 Originality
+              h3 原創
+              p 開拓新技術，創造在地最精緻之產品。
             li.col-lg-3.col-sm-6
               == image_tag 'nun.svg', alt: '', class: "img-fluid"
               .margin-bottom-sm
-              h3 Enthusiasm
+              h3 熱忱
+              p 熱心服務，誠懇正派經營。
         .container
           .home-vide
             .embed-responsive.embed-responsive-16by9
@@ -39,14 +43,14 @@ section#homeVideo.home-video
 section#homeCases
   .recent-cases
     .section-header
-      h2 Recent Cases
+      h2 近期案例
     .container
       ul#filters.nav-select.filter-button-group
         li.is-checked
-          button.btn.btn-tab data-filter="*"  ALL
-        - success_cases.each do |success_casd|
+          button.btn.btn-tab data-filter="*"  所有項目
+        - success_cases.each do |success_case|
           li
-            button.btn.btn-tab data-filter=".class_#{success_casd.id}"= locale_field(success_case, :name)
+            button.btn.btn-tab data-filter=".class_#{success_case.id}"= locale_field(success_case, :name)
         / li
         /   button.btn.btn-tab data-filter=".business"  商業空間
         / li
@@ -93,7 +97,7 @@ section#homeCases
 section#indoorView
   .container
     .section-header
-      h2 Showroom
+      h2 實景展示
   #embedMap.map-responsive.embed-map
     iframe allowfullscreen="" frameborder="0" height="450" src="https://www.google.com/maps/embed?pb=!4v1515065762046!6m8!1m7!1sCAoSLEFGMVFpcE9rSVA2dklBczliNjhnaDc5b3dfVGczUF80VlpLWVFiU2I3MERQ!2m2!1d25.0514976!2d121.5539123!3f0!4f0!5f0.7820865974627469" style="border:0" width="600" scrollwheel="false"
 

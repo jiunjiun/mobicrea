@@ -1,5 +1,6 @@
 class ServicesController < ApplicationController
   expose :service
+  expose :success_case_products, -> { Product.where(collection_id: SuccessCase.all.pluck(:id)).order("RAND()").last(8) }
 
   before_action :update_meta
 

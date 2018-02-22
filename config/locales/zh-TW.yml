@@ -33,8 +33,8 @@ zh-TW:
     dashboard:        Dashboard
     user:             帳號管理
     slider:           橫幅
-    service:          服務內容
-    success_case:     成功案例
+    service:          產品內容
+    success_case:     作品集
     brand:            代理品牌
 
   meta:
@@ -169,6 +169,7 @@ zh-TW:
         description_eng:  描述
         prompt_text_eng:  提示文字
         service_image:    服務圖片
+        weight:           權重
       service_photo:
         image:        圖片
         title:        主標題
@@ -224,6 +225,7 @@ zh-TW:
         file_link:        檔案連結
         created_at:       建立日期
         brand_logo:       品牌圖片
+        weight:           權重
       product_relation:
         relation_id:      產品
 

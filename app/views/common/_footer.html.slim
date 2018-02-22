@@ -11,19 +11,19 @@ footer#footer-container
         ul
           - services.each do |service|
             li
-              == link_to service.name, service_path(service)
+              == link_to locale_field(service, :name), service_path(service)
       .col-md-2.col-xs-6.wrap-item
         h5= t('success_case')
         ul
           - success_cases.each do |success_case|
             li
-              == link_to success_case.name, success_case_path(success_case)
+              == link_to locale_field(success_case, :name), success_case_path(success_case)
       .col-md-2.col-xs-6.wrap-item
         h5= t('brand')
         ul
           - brands.each do |brand|
             li
-              == link_to brand.name, brand_path(brand)
+              == link_to locale_field(brand, :name), brand_path(brand)
       .col-md-4.col-sm-12.wrap-item.last
         h5= t('contact')
         ul

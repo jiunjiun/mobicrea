@@ -44,9 +44,9 @@ section#homeCases
       ul#filters.nav-select.filter-button-group
         li.is-checked
           button.btn.btn-tab data-filter="*"  ALL
-        - success_cases.each do |success_casd|
+        - success_cases.each do |success_case|
           li
-            button.btn.btn-tab data-filter=".class_#{success_casd.id}"= locale_field(success_case, :name)
+            button.btn.btn-tab data-filter=".class_#{success_case.id}"= locale_field(success_case, :name)
         / li
         /   button.btn.btn-tab data-filter=".business"  商業空間
         / li

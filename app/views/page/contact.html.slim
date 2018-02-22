@@ -40,7 +40,14 @@ section#contact-information
 
 section#recruit
   .container
-    == image_tag "job-tw.jpg" , alt: '關於元皿', class: "img-fluid"
+    - case I18n.locale.to_s
+    - when 'zh-TW'
+      == image_tag "job-tw.jpg" , alt: '關於元皿', class: "img-fluid"
+    - when 'en'
+      == image_tag "job-en.jpg" , alt: '關於元皿', class: "img-fluid"
+    - else
+      == image_tag "job-en.jpg" , alt: '關於元皿', class: "img-fluid"
+
     / .section-header
     /   h2 人才招募
     / .section-text
