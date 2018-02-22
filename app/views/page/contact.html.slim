@@ -1,8 +1,9 @@
-section.page-top-banner
-  == image_tag "img3.jpg" , alt: '關於元皿', class: "img-fluid"
-  .section-header
-    h2= t('contact')
-    p 模組 效率 原創 熱忱，為我們的經營理念
+section.page-top-banner.main-banner
+  / == image_tag "contact-banner.jpg" , alt: '關於元皿', class: "img-fluid"
+  .contact-banner
+  / .section-header
+  /   h2= t('contact')
+  /   p 模組 效率 原創 熱忱，為我們的經營理念
 .container
   ol.breadcrumb
     li
@@ -15,6 +16,7 @@ section#contact-information
       .col-sm-6.col-md-4
         .company-info
           h3= t('company.name')
+          h2= t('company.name_en')
           ul
             li
               span.icon_pin aria-hidden="true"
@@ -36,18 +38,19 @@ section#contact-information
           iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14457.94278246044!2d121.5537302!3d25.0515221!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe1d4724836342299!2z5YWD55q_5a625YW35Ym15oSP!5e0!3m2!1szh-TW!2stw!4v1509601936471" width="600" height="450" frameborder="0" style="border:0" allowfullscreen
 
 
-section#recruit.bg-gray
+section#recruit
   .container
-    .section-header
-      h2 人才招募
-    .section-text
-      p
-        | 因應客戶穩定、業績快速持續成長，我們需要招募更多優秀的夥伴加入我們團隊。
-        br
-        | 元皿家具除了有著優雅工作環境外，也提供學習及成長的空間，並提供完善、制度化之福利措施，
-        br
-        | 一切制度必定比照政府法規甚至更優渥以外，幕僚人員並有定期團體績效獎金發放制度，
-        br
-        | 歡迎優秀且對這行業有高度熱情之夥伴加入我們團隊。請到我們的104人才招募網站查看最新職缺，
-        br
-        | 或主動來信投遞履歷。履歷隨到隨審，這是我們對人才的重視與珍惜。
+    == image_tag "job-tw.jpg" , alt: '關於元皿', class: "img-fluid"
+    / .section-header
+    /   h2 人才招募
+    / .section-text
+    /   p
+    /     | 因應客戶穩定、業績快速持續成長，我們需要招募更多優秀的夥伴加入我們團隊。
+    /     br
+    /     | 元皿家具除了有著優雅工作環境外，也提供學習及成長的空間，並提供完善、制度化之福利措施，
+    /     br
+    /     | 一切制度必定比照政府法規甚至更優渥以外，幕僚人員並有定期團體績效獎金發放制度，
+    /     br
+    /     | 歡迎優秀且對這行業有高度熱情之夥伴加入我們團隊。請到我們的104人才招募網站查看最新職缺，
+    /     br
+    /     | 或主動來信投遞履歷。履歷隨到隨審，這是我們對人才的重視與珍惜。

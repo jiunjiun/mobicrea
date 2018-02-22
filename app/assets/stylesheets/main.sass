@@ -472,6 +472,25 @@ img.img-fluid
       width: 100%
       height: 160px
       object-fit: cover
+  &.main-banner
+    .about-banner
+      background-image: asset-url("about-banner.jpg")
+    .contact-banner
+      background-image: asset-url("contact-banner.jpg")
+    .about-banner,.contact-banner
+      background-position: center
+      background-repeat: no-repeat
+      background-size: cover
+      width: 100%
+      height: 300px
+      object-fit: cover
+      +pad
+        width: 100%
+        height: 160px
+        object-fit: cover
+    // img
+    //   opacity: 0.95
+
   .section-header
     position: absolute
     top: 50%
@@ -798,6 +817,14 @@ section#homeVideo
         +pad
           margin-top: 38%
           margin-left: 10%
+      .organizationtext-en
+        margin: auto
+        margin-top: 46%
+        margin-left: 8%
+        +pad
+          margin-top: 0
+          margin-left: 0
+          padding: 2%
     &.sectorRight
       border-radius: 0 250px 0 0
       .organizationtext
@@ -816,6 +843,14 @@ section#homeVideo
         +pad
           margin-top: 40%
           margin-left: 10%
+      .organizationtext-en
+        margin: auto
+        margin-top: 46%
+        margin-left: 8%
+        +pad
+          margin-top: 0
+          margin-left: 0
+          padding: 2%
     &.sectorLeft
       border-radius: 0 0 250px 0
       .organizationtext
@@ -1276,7 +1311,7 @@ aside
       text-align: left
 
 
-.organizationtext
+.organizationtext,.organizationtext-en
   color: #FFF
   display: block
   text-align: center
@@ -1961,6 +1996,10 @@ section#contact-information
     h3
       font-size: 20px
       color: $brand-primary
+    h2
+      font-size: 16px
+      color: $brand-primary
+      margin-top: unset
       margin-bottom: 30px
     ul
       > li
