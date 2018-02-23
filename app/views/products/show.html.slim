@@ -1,7 +1,15 @@
 section.page-top-banner
-  == image_tag 'img4.jpg', alt: '', class: 'img-fluid'
-  .section-header
-    h2= locale_field(product, :name)
+  - case product.collection.collection_type
+  - when Collection::CollectionType::SERVICE
+    == image_tag 'banner-product.jpg', alt: '', class: 'img-fluid'
+  - when Collection::CollectionType::SERVICE_FURNITURE
+    == image_tag 'banner-product.jpg', alt: '', class: 'img-fluid'
+  - when Collection::CollectionType::SUCCESS_CASE
+    == image_tag 'banner-project.jpg', alt: '', class: 'img-fluid'
+  - when Collection::CollectionType::BRAND
+    == image_tag 'banner-brand.jpg', alt: '', class: 'img-fluid'
+  / .section-header
+  /   h2= locale_field(product, :name)
 .container
   ol.breadcrumb
     li
