@@ -42,22 +42,32 @@ section#recruit
   .container
     - case I18n.locale.to_s
     - when 'zh-TW'
-      == image_tag "job-tw.jpg" , alt: '關於元皿', class: "img-fluid"
-    - when 'en'
-      == image_tag "job-en.jpg" , alt: '關於元皿', class: "img-fluid"
-    - else
-      == image_tag "job-en.jpg" , alt: '關於元皿', class: "img-fluid"
+      .hidden-xs
+        == image_tag "job-tw.gif" , alt: '人才招募', class: "img-fluid"
+      .visible-xs
+        == image_tag "job-tw-s.gif" , alt: '人才招募', class: "img-fluid"
 
-    / .section-header
-    /   h2 人才招募
-    / .section-text
-    /   p
-    /     | 因應客戶穩定、業績快速持續成長，我們需要招募更多優秀的夥伴加入我們團隊。
-    /     br
-    /     | 元皿家具除了有著優雅工作環境外，也提供學習及成長的空間，並提供完善、制度化之福利措施，
-    /     br
-    /     | 一切制度必定比照政府法規甚至更優渥以外，幕僚人員並有定期團體績效獎金發放制度，
-    /     br
-    /     | 歡迎優秀且對這行業有高度熱情之夥伴加入我們團隊。請到我們的104人才招募網站查看最新職缺，
-    /     br
-    /     | 或主動來信投遞履歷。履歷隨到隨審，這是我們對人才的重視與珍惜。
+    - when 'en'
+      .hidden-xs
+        == image_tag "job-en.gif" , alt: 'Job Recruitment', class: "img-fluid"
+      .visible-xs
+        == image_tag "job-en-s.gif" , alt: 'Job Recruitment', class: "img-fluid"
+    - else
+      .hidden-xs
+        == image_tag "job-en.gif" , alt: 'Job Recruitment', class: "img-fluid"
+      .visible-xs
+        == image_tag "job-en-s.gif" , alt: 'Job Recruitment', class: "img-fluid"
+    .text-hide
+      .section-header
+        h2 人才招募
+      .section-text
+        p
+          | 因應客戶穩定、業績快速持續成長，我們需要招募更多優秀的夥伴加入我們團隊。
+          br
+          | 元皿家具除了有著優雅工作環境外，也提供學習及成長的空間，並提供完善、制度化之福利措施，
+          br
+          | 一切制度必定比照政府法規甚至更優渥以外，幕僚人員並有定期團體績效獎金發放制度，
+          br
+          | 歡迎優秀且對這行業有高度熱情之夥伴加入我們團隊。請到我們的104人才招募網站查看最新職缺，
+          br
+          | 或主動來信投遞履歷。履歷隨到隨審，這是我們對人才的重視與珍惜。

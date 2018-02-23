@@ -15,9 +15,8 @@
         li
           span.meta-label
             = locale_field(item, :key)
-            |：
           .meta-value
-            - if ['網址', '連結', 'link'].include? locale_field(item, :key).gsub(/ |　/, '')
+            - if locale_field(item, :key) and ['網址', '連結', 'link'].include? locale_field(item, :key).gsub(/ |　/, '')
               == link_to locale_field(item, :value), locale_field(item, :value)
             - else
               = locale_field(item, :value)

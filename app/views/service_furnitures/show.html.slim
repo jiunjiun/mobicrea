@@ -54,7 +54,7 @@ section
                         == image_tag product.photos.first.image, alt: '', class: 'img-fluid'
                     .caption
                       h4= locale_field(product, :name)
-                      .description= locale_field(product, :description)[0..60]
+                      .description= locale_field(product, :description) and locale_field(product, :description)[0..60]
                       .btn-wrap
                         .btn.btn-primary
                           | MORE

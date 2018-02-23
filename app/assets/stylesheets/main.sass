@@ -467,16 +467,16 @@ img.img-fluid
     max-height: 300px
     width: 100%
     object-fit: cover
-    opacity: 0.7
+    // opacity: 0.7
     +pad
       width: 100%
       height: 160px
       object-fit: cover
   &.main-banner
     .about-banner
-      background-image: asset-url("about-banner.jpg")
+      background-image: asset-url("banner-about.jpg")
     .contact-banner
-      background-image: asset-url("contact-banner.jpg")
+      background-image: asset-url("banner-contact.jpg")
     .about-banner,.contact-banner
       background-position: center
       background-repeat: no-repeat
@@ -501,14 +501,14 @@ img.img-fluid
     +pad
       width: 80%
     h2
-      color: #FFF
+      color: #000
       margin: 0
       font-size: 36px
       +pad
         font-size: 24px
     p
       font-size: 18px
-      color: #FFF
+      color: #000
       margin: 0
       position: relative
       +pad
@@ -545,6 +545,7 @@ img.img-fluid
       font-size: $font-size-base
       padding: 2px 0
       color: $gray-light
+      word-wrap: break-word
       a
         color: $gray-light
         &:hover
@@ -2035,3 +2036,10 @@ section#contact-information
   p
     line-height: 1.5
     margin-bottom: 15px
+
+
+.text-hide
+  position: absolute
+  width: 1px
+  height: 1px
+  overflow: hidden
