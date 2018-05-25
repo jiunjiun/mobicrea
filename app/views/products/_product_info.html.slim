@@ -9,6 +9,7 @@
   .divider
     .desc
       = locale_field(product, :description)
+      / = simple_format(locale_field(product, :description))
   .product-meta
     ul
       - product.items.each do |item|
